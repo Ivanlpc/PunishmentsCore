@@ -1,0 +1,1014 @@
+GUI:
+  name: "Punish %player%"
+  size: 54
+  items:
+    1:
+      material: PISTON_STICKY_BASE
+      displayName: "&aUso de hacks (Encontrados en SS)"
+      data: 0
+      slot: 9
+      reason: "Uso de hacks (Encontrados en SS)"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 20d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 20d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    2:
+      material: PISTON_BASE
+      displayName: "&bUso de hacks (Admitidos)"
+      data: 0
+      slot: 10
+      reason: "Uso de hacks (Admitidos)"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 15d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 15d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    3:
+      material: TNT
+      displayName: "&cUso de hacks (Notables)"
+      data: 0
+      slot: 11
+      reason: "Uso de hacks (Notables)"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 7d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 7d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+    4:
+      material: LEVER
+      data: 0
+      displayName: "&dHacks en Multicuentas"
+
+      slot: 12
+      reason: "Hacks en Multicuentas"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 25d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 25d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+    5:
+      material: PAPER
+      displayName: "&eAutotext"
+      data: 0
+      slot: 13
+      reason: "Uso de AutoText"
+      levels:
+        0:
+          lore:
+            - "&aJail 1d &c&l<"
+            - "&aJail 3d"
+            - "&aJail 5d"
+            - "&aBan 7d"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 86400"
+
+        1:
+          lore:
+            - "&cJail 1d"
+            - "&aJail 3d &c&l<"
+            - "&aJail 5d"
+            - "&aBan 7d"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 259200"
+        2:
+          lore:
+            - "&cJail 1d"
+            - "&aJail 3d"
+            - "&aJail 5d &c&l<"
+            - "&aBan 7d"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 432000"
+        3:
+          lore:
+            - "&cJail 1d"
+            - "&aJail 3d"
+            - "&aJail 5d"
+            - "&aBan 7d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    6:
+      material: NETHER_WARTS
+      displayName: "&fAlianza con hacker"
+      data: 0
+      slot: 14
+      reason: "Realizar alianza con un Hacker"
+      levels:
+        0:
+          lore:
+            - "&aBan 3d &c&l<"
+            - "&aBan 5d"
+            - "&aBan 7d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan 3d"
+            - "&aBan 5d &c&l<"
+            - "&aBan 7d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cBan 3d"
+            - "&cBan 5d"
+            - "&aBan 7d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cBan 3d"
+            - "&cBan 5d"
+            - "&cBan 7d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    7:
+      material: CHEST
+      displayName: "&bEvadir SS"
+      data: 0
+      slot: 15
+      reason: "Evadir SS"
+      levels:
+        0:
+          lore:
+            - "&aBan 20d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&aBan 20d &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+    8:
+      material: MELON
+      displayName: "&2Spam / Flood / Mayus / Comentario inapropiado"
+      data: 0
+      slot: 16
+      reason: "Spam / Flood / Mayus / Compentario inapropiado"
+      levels:
+        0:
+          lore:
+            - "&aMute 30 min &c&l<"
+            - "&aMute 2h"
+            - "&aMute 5h"
+            - "&aMute 24h"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cMute 30 min"
+            - "&aMute 2h &c&l<"
+            - "&aMute 5h"
+            - "&aMute 24h"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cMute 30 min"
+            - "&cMute 2h"
+            - "&aMute 5h &c&l<"
+            - "&aMute 24h"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cMute 30 min"
+            - "&cMute 2h"
+            - "&cMute 5h"
+            - "&aMute 24h &c&l<"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 24h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        4:
+          lore:
+            - "&cMute 30 min"
+            - "&cMute 2h"
+            - "&cute 5h"
+            - "&cMute 24h"
+            - "&aMute Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "mute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    9:
+      material: NOTE_BLOCK
+      displayName: "&2Spam IP / URL por msg"
+      data: 0
+      slot: 17
+      reason: "Spam IP / URL por msg"
+      levels:
+        0:
+          lore:
+            - "&aKick &c&l<"
+            - "&aBan 1d"
+            - "&aBan 3d"
+            - "&aBan 7d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cKick"
+            - "&aBan 1d &c&l<"
+            - "&aBan 3d"
+            - "&aBan 7d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cKick"
+            - "&cBan 1d"
+            - "&aBan 3d &c&l<"
+            - "&aBan 7d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cKick"
+            - "&cBan 1d"
+            - "&cBan 3d"
+            - "&Ban 7d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        4:
+          lore:
+            - "&cKick"
+            - "&cBan 1d"
+            - "&aBan 3d"
+            - "&cBan 7d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    10:
+      material: OBSIDIAN
+      displayName: "&4Spam IP / URL por chat general"
+      data: 0
+      slot: 18
+      reason: "Spam IP / URL por chat general"
+      levels:
+        0:
+          lore:
+            - "&aBan 3d &c&l<"
+            - "&aBan 5d"
+            - "&aBan 15d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan 3d"
+            - "&aBan 5d &c&l<"
+            - "&aBan 15d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cBan 3d"
+            - "&cBan 5d"
+            - "&aBan 15d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cBan 3d"
+            - "&cBan 5d"
+            - "&cBan 15d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    11:
+      material: RAILS
+      displayName: "&5Amenazas DDoS/Doxing"
+      data: 0
+      slot: 19
+      reason: "Amenazas DDoS/Doxing"
+      levels:
+        0:
+          lore:
+            - "&aBanIP &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+    13:
+      material: DIAMOND_SWORD
+      displayName: "&6Faltar el Respeto al Staff / servidor"
+      data: 0
+      slot: 20
+      reason: "Faltar el Respeto al Staff / servidor"
+      levels:
+        0:
+          lore:
+            - "&aMute 1h &c&l<"
+            - "&aMute 2h"
+            - "&aMute 5h"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cMute 1h"
+            - "&aMute 2h &c&l<"
+            - "&aMute 5h"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cMute 1h"
+            - "&cMute 2h"
+            - "&aMute 5h &c&l<"
+            - "&aMute Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cMute 1h"
+            - "&cMute 2h"
+            - "&cMute 5h"
+            - "&aMute Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "mute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    14:
+      material: DIAMOND_SWORD
+      displayName: "&7Suplantación de identidad"
+      data: 0
+      slot: 21
+      reason: "Suplantación de identidad"
+      levels:
+        0:
+          lore:
+            - "&aBanIP Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    15:
+      material: DIAMOND_SWORD
+      displayName: "&8Estafas"
+      data: 0
+      slot: 22
+      reason: "Estafas"
+      levels:
+        0:
+          lore:
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+    17:
+      material: DIAMOND_SWORD
+      displayName: "&aNombre Inadecuado / Skin"
+      data: 0
+      slot: 23
+      reason: "Nombre Inadecuado / Skin"
+      levels:
+        0:
+          lore:
+            - "&aKick &c&l<"
+            - "&aBan 3h"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cKick"
+            - "&aBan 3h &c&l<"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cKick"
+            - "&cBan 3h"
+            - "&aBan 1d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cKick"
+            - "&cBan 3h"
+            - "&aBan 1d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    18:
+      material: DIAMOND_SWORD
+      displayName: "&bMal uso de /report y /helpop"
+      data: 0
+      slot: 24
+      reason: "Mal uso de /report y /helpop"
+      levels:
+        0:
+          lore:
+            - "&aKick &c&l<"
+            - "&aBan 1h"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cKick"
+            - "&aBan 1h &c&l<"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cKick"
+            - "&cBan 1h"
+            - "&aBan 1d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cKick"
+            - "&cBan 1h"
+            - "&aBan 1d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    19:
+      material: DIAMOND_SWORD
+      displayName: "&cPedir Giveos"
+      data: 0
+      slot: 25
+      reason: "Pedir Giveos"
+      levels:
+        0:
+          lore:
+            - "&aKick &c&l<"
+            - "&aBan 3h"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cKick"
+            - "&aBan 3h &c&l<"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cKick"
+            - "&cBan 3h"
+            - "&aBan 1d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cKick"
+            - "&cBan 3h"
+            - "&aBan 1d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    20:
+      material: DIAMOND_SWORD
+      displayName: "&dAbusar de un Bug (Leve)"
+      data: 0
+      slot: 26
+      reason: "Abusar de un Bug (Leve)"
+      levels:
+        0:
+          lore:
+            - "&aBan 5h &c&l<"
+            - "&aBan 1d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan 5h"
+            - "&aBan 1d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cBan 5h"
+            - "&cBan 1d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    21:
+      material: DIAMOND_SWORD
+      displayName: "&dAbusar de un Bug (Grave)"
+      data: 0
+      slot: 27
+      reason: "Abusar de un Bug (Grave)"
+      levels:
+        0:
+          lore:
+            - "&aBan Permanente &c&l<"
+            - "&aBanIP Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan Permanente"
+            - "&aBanIP Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    22:
+      material: DIAMOND_SWORD
+      displayName: "&eCompartir Cuenta"
+      data: 0
+      slot: 28
+      reason: "Compartir Cuenta"
+      levels:
+        0:
+          lore:
+            - "&aBan 5d &c&l<"
+            - "&aBan 10d"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan 5d"
+            - "&aBan 10d &c&l<"
+            - "&aBan Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cBan 5d"
+            - "&cBan 10d"
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    23:
+      material: DIAMOND_SWORD
+      displayName: "&fVender Cuenta"
+      data: 0
+      slot: 29
+      reason: "Vender Cuenta"
+      levels:
+        0:
+          lore:
+            - "&aBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBan Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    24:
+      material: DIAMOND_SWORD
+      displayName: "&bVender objetos del servidor por dinero en la vida real"
+      data: 0
+      slot: 30
+      reason: "Vender objetos del servidor por dinero en la vida real"
+      levels:
+        0:
+          lore:
+            - "&aBanIP Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    25:
+      material: DIAMOND_SWORD
+      displayName: "&2Mute Evading"
+      data: 0
+      slot: 31
+      reason: "Mute Evading"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 5d &c&l<"
+            - "&aBanIP 10d"
+            - "&aBanIP 15d"
+            - "&aBanIP 20d"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 5d"
+            - "&aBanIP 10d &c&l<"
+            - "&aBanIP 15d"
+            - "&aBanIP 20d"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cBanIP 5d"
+            - "&cBanIP 10d"
+            - "&aBanIP 15d &c&l<"
+            - "&aBanIP 20d"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cBanIP 5d"
+            - "&cBanIP 10d"
+            - "&cBanIP 15d"
+            - "&aBanIP 20d &c&l<"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        4:
+          lore:
+            - "&cBanIP 5d"
+            - "&cBanIP 10d"
+            - "&cBanIP 15d"
+            - "&cBanIP 20d"
+            - "&aBanIP &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    26:
+      material: DIAMOND_SWORD
+      displayName: "&3Multicuentas conectadas"
+      data: 0
+      slot: 32
+      reason: "Multicuentas conectadas"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 1d &c&l<"
+            - "&aBanIP 3d"
+            - "&aBanIP 7d"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 1d"
+            - "&aBanIP 3d &c&l<"
+            - "&aBanIP 7d"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        2:
+          lore:
+            - "&cBanIP 1d"
+            - "&cBanIP 3d"
+            - "&aBanIP 7d &c&l<"
+            - "&aBanIP"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        3:
+          lore:
+            - "&cBanIP 1d"
+            - "&cBanIP 3d"
+            - "&cBanIP 7d"
+            - "&aBanIP &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    27:
+      material: DIAMOND_SWORD
+      displayName: "&4Items Renombrados (malsonantes)"
+      data: 0
+      slot: 33
+      reason: "Items Renombrados (malsonantes)"
+      levels:
+        0:
+          lore:
+            - "&aWarn &c&l<"
+            - "&aJail 1d"
+            - "&aJail 3d"
+            - "&aJail 5d"
+            - "&aJail 7d"
+            - "&aJail Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - ""
+        1:
+          lore:
+            - "&cWarn"
+            - "&aJail 1d &c&l<"
+            - "&aJail 3d"
+            - "&aJail 5d"
+            - "&aJail 7d"
+            - "&aJail Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 86400"
+
+        2:
+          lore:
+            - "&cWarn"
+            - "&cJail 1d"
+            - "&aJail 3d &c&l<"
+            - "&aJail 5d"
+            - "&aJail 7d"
+            - "&aJail Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 259200"
+
+        3:
+          lore:
+            - "&aWarn"
+            - "&aJail 1d"
+            - "&aJail 3d"
+            - "&aJail 5d &c&l<"
+            - "&aJail 7d"
+            - "&aJail Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 432000"
+        4:
+          lore:
+            - "&cWarn"
+            - "&cJail 1d"
+            - "&cJail 3d"
+            - "&cJail 5d"
+            - "&aJail 7d &c&l<"
+            - "&aJail Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1 604800"
+        5:
+          lore:
+            - "&cWarn"
+            - "&cJail 1d"
+            - "&cJail 3d"
+            - "&cJail 5d"
+            - "&cJail 7d"
+            - "&aJail Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "jail %player% 1"
+    28:
+      material: DIAMOND_SWORD
+      displayName: "&5Jail Evading (multicuentas)"
+      data: 0
+      slot: 34
+      reason: "Jail Evading (multicuentas)"
+      levels:
+        0:
+          lore:
+            - "&aBanIP 3d &c&l<"
+            - "&aBanIP 7d"
+            - "&aBanIP 14d"
+            - "&aBanIP Permanente"
+            - ""
+            - "&6* Click para sancionar"
+
+          commands:
+            - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+        1:
+          lore:
+            - "&cBanIP 3d"
+            - "&aBanIP 7d &c&l<"
+            - "&aBanIP 14d"
+            - "&aBanIP Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+        2:
+          lore:
+            - "&cBanIP 3d"
+            - "&cBanIP 7d"
+            - "&aBanIP 14d &c&l<"
+            - "&aBanIP Permanente"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "tempipban %player% 14d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+        3:
+          lore:
+            - "&cBanIP 3d"
+            - "&cBanIP 7d"
+            - "&cBanIP 14d"
+            - "&aBanIP Permanente &c&l<"
+            - ""
+            - "&6* Click para sancionar"
+          commands:
+            - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
