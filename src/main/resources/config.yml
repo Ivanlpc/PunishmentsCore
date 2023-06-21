@@ -1,11 +1,18 @@
+Messages:
+  no_permission: "&b&lHydra&3&lCraft &cComando desconocido o no tienes permiso para ejecutarlo"
+  no_punishments: "&b&lHydra&3&lCraft &aEste jugador no tiene sanciones"
+  usage: "&b&lHydra&3&lCraft &cUso: /punish <jugador>"
+
 GUI:
   name: "Punish %player%"
   size: 54
+  pages: 2
   items:
     1:
       material: PISTON_STICKY_BASE
-      displayName: "&aUso de hacks (Encontrados en SS)"
+      displayName: "&bUso de hacks (Encontrados en SS)"
       data: 0
+      page: 1
       slot: 9
       reason: "Uso de hacks (Encontrados en SS)"
       levels:
@@ -15,6 +22,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
           commands:
+            #Commands are executed from console. --sender and --sender-uuid overrides the staff that bans the user
             - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
           lore:
@@ -27,6 +35,7 @@ GUI:
       material: PISTON_BASE
       displayName: "&bUso de hacks (Admitidos)"
       data: 0
+      page: 1
       slot: 10
       reason: "Uso de hacks (Admitidos)"
       levels:
@@ -46,8 +55,9 @@ GUI:
             - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     3:
       material: TNT
-      displayName: "&cUso de hacks (Notables)"
+      displayName: "&bUso de hacks (Notables)"
       data: 0
+      page: 1
       slot: 11
       reason: "Uso de hacks (Notables)"
       levels:
@@ -69,7 +79,8 @@ GUI:
     4:
       material: LEVER
       data: 0
-      displayName: "&dHacks en Multicuentas"
+      page: 1
+      displayName: "&bHacks en Multicuentas"
 
       slot: 12
       reason: "Hacks en Multicuentas"
@@ -91,16 +102,17 @@ GUI:
 
     5:
       material: PAPER
-      displayName: "&eAutotext"
+      displayName: "&bAutotext"
       data: 0
+      page: 1
       slot: 13
       reason: "Uso de AutoText"
       levels:
         0:
           lore:
-            - "&aJail 1d &c&l<"
-            - "&aJail 3d"
-            - "&aJail 5d"
+            - "&eJail 1d &c&l<"
+            - "&eJail 3d"
+            - "&eJail 5d"
             - "&aBan 7d"
             - ""
             - "&6* Click para sancionar"
@@ -111,8 +123,8 @@ GUI:
         1:
           lore:
             - "&cJail 1d"
-            - "&aJail 3d &c&l<"
-            - "&aJail 5d"
+            - "&eJail 3d &c&l<"
+            - "&eJail 5d"
             - "&aBan 7d"
             - ""
             - "&6* Click para sancionar"
@@ -122,8 +134,8 @@ GUI:
         2:
           lore:
             - "&cJail 1d"
-            - "&aJail 3d"
-            - "&aJail 5d &c&l<"
+            - "&cJail 3d"
+            - "&eJail 5d &c&l<"
             - "&aBan 7d"
             - ""
             - "&6* Click para sancionar"
@@ -133,17 +145,18 @@ GUI:
         3:
           lore:
             - "&cJail 1d"
-            - "&aJail 3d"
-            - "&aJail 5d"
+            - "&cJail 3d"
+            - "&cJail 5d"
             - "&aBan 7d &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     6:
-      material: NETHER_WARTS
+      material: PUMPKIN
       displayName: "&fAlianza con hacker"
       data: 0
+      page: 1
       slot: 14
       reason: "Realizar alianza con un Hacker"
       levels:
@@ -191,6 +204,7 @@ GUI:
       material: CHEST
       displayName: "&bEvadir SS"
       data: 0
+      page: 1
       slot: 15
       reason: "Evadir SS"
       levels:
@@ -203,7 +217,7 @@ GUI:
             - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
           lore:
-            - "&aBan 20d &c&l<"
+            - "&cBan 20d &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -211,18 +225,19 @@ GUI:
 
     8:
       material: MELON
-      displayName: "&2Spam / Flood / Mayus / Comentario inapropiado"
+      displayName: "&bSpam / Flood / Mayus / Comentario inapropiado"
       data: 0
+      page: 1
       slot: 16
-      reason: "Spam / Flood / Mayus / Compentario inapropiado"
+      reason: "Spam / Flood / Mayus / Comentario inapropiado"
       levels:
         0:
           lore:
-            - "&aMute 30 min &c&l<"
-            - "&aMute 2h"
-            - "&aMute 5h"
-            - "&aMute 24h"
-            - "&aMute Permanente"
+            - "&bMute 30 min &c&l<"
+            - "&bMute 2h"
+            - "&bMute 5h"
+            - "&bMute 24h"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -230,10 +245,10 @@ GUI:
         1:
           lore:
             - "&cMute 30 min"
-            - "&aMute 2h &c&l<"
-            - "&aMute 5h"
-            - "&aMute 24h"
-            - "&aMute Permanente"
+            - "&bMute 2h &c&l<"
+            - "&bMute 5h"
+            - "&bMute 24h"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -242,9 +257,9 @@ GUI:
           lore:
             - "&cMute 30 min"
             - "&cMute 2h"
-            - "&aMute 5h &c&l<"
-            - "&aMute 24h"
-            - "&aMute Permanente"
+            - "&bMute 5h &c&l<"
+            - "&bMute 24h"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -254,8 +269,8 @@ GUI:
             - "&cMute 30 min"
             - "&cMute 2h"
             - "&cMute 5h"
-            - "&aMute 24h &c&l<"
-            - "&aMute Permanente"
+            - "&bMute 24h &c&l<"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -266,7 +281,7 @@ GUI:
             - "&cMute 2h"
             - "&cute 5h"
             - "&cMute 24h"
-            - "&aMute Permanente &c&l<"
+            - "&bMute Permanente &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -275,12 +290,13 @@ GUI:
       material: NOTE_BLOCK
       displayName: "&2Spam IP / URL por msg"
       data: 0
+      page: 1
       slot: 17
       reason: "Spam IP / URL por msg"
       levels:
         0:
           lore:
-            - "&aKick &c&l<"
+            - "&6Kick &c&l<"
             - "&aBan 1d"
             - "&aBan 3d"
             - "&aBan 7d"
@@ -337,6 +353,7 @@ GUI:
       material: OBSIDIAN
       displayName: "&4Spam IP / URL por chat general"
       data: 0
+      page: 1
       slot: 18
       reason: "Spam IP / URL por chat general"
       levels:
@@ -384,6 +401,7 @@ GUI:
       material: RAILS
       displayName: "&5Amenazas DDoS/Doxing"
       data: 0
+      page: 1
       slot: 19
       reason: "Amenazas DDoS/Doxing"
       levels:
@@ -403,18 +421,19 @@ GUI:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
     13:
-      material: DIAMOND_SWORD
+      material: PUMPKIN_SEEDS
       displayName: "&6Faltar el Respeto al Staff / servidor"
       data: 0
+      page: 1
       slot: 20
       reason: "Faltar el Respeto al Staff / servidor"
       levels:
         0:
           lore:
-            - "&aMute 1h &c&l<"
-            - "&aMute 2h"
-            - "&aMute 5h"
-            - "&aMute Permanente"
+            - "&bMute 1h &c&l<"
+            - "&bMute 2h"
+            - "&bMute 5h"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -422,9 +441,9 @@ GUI:
         1:
           lore:
             - "&cMute 1h"
-            - "&aMute 2h &c&l<"
-            - "&aMute 5h"
-            - "&aMute Permanente"
+            - "&bMute 2h &c&l<"
+            - "&bMute 5h"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -433,8 +452,8 @@ GUI:
           lore:
             - "&cMute 1h"
             - "&cMute 2h"
-            - "&aMute 5h &c&l<"
-            - "&aMute Permanente"
+            - "&bMute 5h &c&l<"
+            - "&bMute Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -444,15 +463,16 @@ GUI:
             - "&cMute 1h"
             - "&cMute 2h"
             - "&cMute 5h"
-            - "&aMute Permanente &c&l<"
+            - "&bMute Permanente &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
             - "mute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     14:
-      material: DIAMOND_SWORD
+      material: STICK
       displayName: "&7Suplantación de identidad"
       data: 0
+      page: 1
       slot: 21
       reason: "Suplantación de identidad"
       levels:
@@ -471,9 +491,10 @@ GUI:
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     15:
-      material: DIAMOND_SWORD
+      material: WEB
       displayName: "&8Estafas"
       data: 0
+      page: 1
       slot: 22
       reason: "Estafas"
       levels:
@@ -493,15 +514,16 @@ GUI:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
     17:
-      material: DIAMOND_SWORD
+      material: WORKBENCH
       displayName: "&aNombre Inadecuado / Skin"
       data: 0
+      page: 1
       slot: 23
       reason: "Nombre Inadecuado / Skin"
       levels:
         0:
           lore:
-            - "&aKick &c&l<"
+            - "&6Kick &c&l<"
             - "&aBan 3h"
             - "&aBan 1d"
             - "&aBan Permanente"
@@ -533,22 +555,23 @@ GUI:
           lore:
             - "&cKick"
             - "&cBan 3h"
-            - "&aBan 1d"
+            - "&cBan 1d"
             - "&aBan Permanente &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     18:
-      material: DIAMOND_SWORD
+      material: POTATO_ITEM
       displayName: "&bMal uso de /report y /helpop"
       data: 0
+      page: 1
       slot: 24
       reason: "Mal uso de /report y /helpop"
       levels:
         0:
           lore:
-            - "&aKick &c&l<"
+            - "&6Kick &c&l<"
             - "&aBan 1h"
             - "&aBan 1d"
             - "&aBan Permanente"
@@ -580,22 +603,23 @@ GUI:
           lore:
             - "&cKick"
             - "&cBan 1h"
-            - "&aBan 1d"
+            - "&cBan 1d"
             - "&aBan Permanente &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     19:
-      material: DIAMOND_SWORD
+      material: DIAMOND
       displayName: "&cPedir Giveos"
       data: 0
+      page: 1
       slot: 25
       reason: "Pedir Giveos"
       levels:
         0:
           lore:
-            - "&aKick &c&l<"
+            - "&6Kick &c&l<"
             - "&aBan 3h"
             - "&aBan 1d"
             - "&aBan Permanente"
@@ -627,16 +651,17 @@ GUI:
           lore:
             - "&cKick"
             - "&cBan 3h"
-            - "&aBan 1d"
+            - "&cBan 1d"
             - "&aBan Permanente &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     20:
-      material: DIAMOND_SWORD
+      material: IRON_INGOT
       displayName: "&dAbusar de un Bug (Leve)"
       data: 0
+      page: 1
       slot: 26
       reason: "Abusar de un Bug (Leve)"
       levels:
@@ -668,9 +693,10 @@ GUI:
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     21:
-      material: DIAMOND_SWORD
+      material: GOLD_INGOT
       displayName: "&dAbusar de un Bug (Grave)"
       data: 0
+      page: 1
       slot: 27
       reason: "Abusar de un Bug (Grave)"
       levels:
@@ -691,9 +717,10 @@ GUI:
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     22:
-      material: DIAMOND_SWORD
+      material: FIREBALL
       displayName: "&eCompartir Cuenta"
       data: 0
+      page: 1
       slot: 28
       reason: "Compartir Cuenta"
       levels:
@@ -725,9 +752,10 @@ GUI:
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     23:
-      material: DIAMOND_SWORD
+      material: FEATHER
       displayName: "&fVender Cuenta"
       data: 0
+      page: 1
       slot: 29
       reason: "Vender Cuenta"
       levels:
@@ -746,9 +774,10 @@ GUI:
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     24:
-      material: DIAMOND_SWORD
+      material: FISHING_ROD
       displayName: "&bVender objetos del servidor por dinero en la vida real"
       data: 0
+      page: 1
       slot: 30
       reason: "Vender objetos del servidor por dinero en la vida real"
       levels:
@@ -767,9 +796,10 @@ GUI:
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     25:
-      material: DIAMOND_SWORD
+      material: FLINT
       displayName: "&2Mute Evading"
       data: 0
+      page: 1
       slot: 31
       reason: "Mute Evading"
       levels:
@@ -829,9 +859,10 @@ GUI:
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     26:
-      material: DIAMOND_SWORD
+      material: GHAST_TEAR
       displayName: "&3Multicuentas conectadas"
       data: 0
+      page: 1
       slot: 32
       reason: "Multicuentas conectadas"
       levels:
@@ -876,20 +907,21 @@ GUI:
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     27:
-      material: DIAMOND_SWORD
+      material: NAME_TAG
       displayName: "&4Items Renombrados (malsonantes)"
       data: 0
+      page: 1
       slot: 33
       reason: "Items Renombrados (malsonantes)"
       levels:
         0:
           lore:
             - "&aWarn &c&l<"
-            - "&aJail 1d"
-            - "&aJail 3d"
-            - "&aJail 5d"
-            - "&aJail 7d"
-            - "&aJail Permanente"
+            - "&eJail 1d"
+            - "&eJail 3d"
+            - "&eJail 5d"
+            - "&eJail 7d"
+            - "&eJail Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -898,11 +930,11 @@ GUI:
         1:
           lore:
             - "&cWarn"
-            - "&aJail 1d &c&l<"
-            - "&aJail 3d"
-            - "&aJail 5d"
-            - "&aJail 7d"
-            - "&aJail Permanente"
+            - "&eJail 1d &c&l<"
+            - "&eJail 3d"
+            - "&eJail 5d"
+            - "&eJail 7d"
+            - "&eJail Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -913,10 +945,10 @@ GUI:
           lore:
             - "&cWarn"
             - "&cJail 1d"
-            - "&aJail 3d &c&l<"
-            - "&aJail 5d"
-            - "&aJail 7d"
-            - "&aJail Permanente"
+            - "&eJail 3d &c&l<"
+            - "&eJail 5d"
+            - "&eJail 7d"
+            - "&eJail Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -926,11 +958,11 @@ GUI:
         3:
           lore:
             - "&aWarn"
-            - "&aJail 1d"
-            - "&aJail 3d"
-            - "&aJail 5d &c&l<"
-            - "&aJail 7d"
-            - "&aJail Permanente"
+            - "&eJail 1d"
+            - "&eJail 3d"
+            - "&eJail 5d &c&l<"
+            - "&eJail 7d"
+            - "&eJail Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -942,8 +974,8 @@ GUI:
             - "&cJail 1d"
             - "&cJail 3d"
             - "&cJail 5d"
-            - "&aJail 7d &c&l<"
-            - "&aJail Permanente"
+            - "&eJail 7d &c&l<"
+            - "&eJail Permanente"
             - ""
             - "&6* Click para sancionar"
           commands:
@@ -956,16 +988,17 @@ GUI:
             - "&cJail 3d"
             - "&cJail 5d"
             - "&cJail 7d"
-            - "&aJail Permanente &c&l<"
+            - "&eJail Permanente &c&l<"
             - ""
             - "&6* Click para sancionar"
           commands:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
             - "jail %player% 1"
     28:
-      material: DIAMOND_SWORD
+      material: CAKE
       displayName: "&5Jail Evading (multicuentas)"
       data: 0
+      page: 1
       slot: 34
       reason: "Jail Evading (multicuentas)"
       levels:
@@ -1012,3 +1045,25 @@ GUI:
             - "&6* Click para sancionar"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+    "nextPage":
+      material: ARROW
+      displayName: "&7Siguiente página"
+      lore:
+        - "&a&lSanciones de SURVIVAL"
+        - ""
+        - "&6* Click para ir a la siguiente página"
+      nextPage: true
+      data: 0
+      page: 1
+      slot: 53
+    "backPage":
+      material: ARROW
+      displayName: "&7Página anterior"
+      lore:
+        - "&b&lSanciones GLOBALES"
+        - ""
+        - "&6* Click para ir a la página anterior"
+      backPage: true
+      data: 0
+      page: 2
+      slot: 45

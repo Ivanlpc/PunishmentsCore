@@ -16,7 +16,7 @@ public class PlayerEvents implements Listener {
     @EventHandler
     public void onDisconnect (PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        if(!plugin.hasOpenedMenu(p)) return;
-        plugin.menuClosed(p);
+        if(!plugin.menuManager.hasOpenedMenu(p)) return;
+        plugin.menuManager.menuClosed(p);
     }
 }

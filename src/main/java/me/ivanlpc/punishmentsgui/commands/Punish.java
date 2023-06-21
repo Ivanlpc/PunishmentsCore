@@ -2,20 +2,20 @@ package me.ivanlpc.punishmentsgui.commands;
 
 import me.ivanlpc.punishmentsgui.PunishmentsGUI;
 import me.ivanlpc.punishmentsgui.api.LitebansAPI;
+import me.ivanlpc.punishmentsgui.menu.Menu;
 import me.ivanlpc.punishmentsgui.menu.MenuBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Map;
 
 
 public class Punish implements CommandExecutor {
 
-    PunishmentsGUI plugin;
+    private PunishmentsGUI plugin;
     public Punish(PunishmentsGUI plugin) {
         this.plugin = plugin;
     }
@@ -26,27 +26,45 @@ public class Punish implements CommandExecutor {
             sender.sendMessage("Only players can use this command");
             return true;
         }
-        if(args.length == 0){
-            sender.sendMessage("Usage: /punish <player>");
+        if(!sender.hasPermission("punishmentsgui.use")) {
+            String msg = this.plugin.getConfig().getString("Messages.no_permission");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            return true;
+        }
+        if(args.length != 1){
+            String msg = this.plugin.getConfig().getString("Messages.usage");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            return true;
+        }
+        if(args[0].equals("reload")) {
+
+            if(!sender.hasPermission("punishmentsgui.reload")) {
+                String msg = this.plugin.getConfig().getString("Messages.no_permission");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                return true;
+            }
+
+            String msg = this.plugin.getConfig().getString("Messages.reload");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            this.plugin.reloadConfig();
             return true;
         }
 
         Player player = (Player) sender;
-        Bukkit.getScheduler().runTaskAsynchronously(this.plugin, new BukkitRunnable() {
-            @Override
-            public void run() {
-                Map<String, Integer> punishmentsList = LitebansAPI.getAllPunishments(args[0]);
-                if(punishmentsList.size() == 0){
-                    sender.sendMessage("Este jugador no tiene sanciones...");
-                }
-                MenuBuilder mb = new MenuBuilder(player, punishmentsList, plugin.getConfig(), args[0]);
-                Inventory inv = mb.buildInventory();
-                plugin.menuOpened(player, mb.getInventory());
-                player.openInventory(inv);
+        String userToPunish = args[0];
+
+        //LitebansAPI will fetch mysql to get the punishments of the player
+        //We don't want to block the main thread
+        Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
+            Map<String, Integer> punishmentsList = LitebansAPI.getAllPunishments(userToPunish);
+            if(punishmentsList.size() == 0){
+                String msg = plugin.getConfig().getString("Messages.no_punishments");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
+            Menu menu = new MenuBuilder(player, userToPunish, plugin.getConfig(), punishmentsList).build();
+            plugin.menuManager.menuOpened(player, menu);
+            player.openInventory(menu.getFirstInventory());
         });
-
-
         return true;
     }
 

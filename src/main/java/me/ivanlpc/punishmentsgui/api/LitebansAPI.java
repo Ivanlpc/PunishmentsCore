@@ -1,14 +1,14 @@
 package me.ivanlpc.punishmentsgui.api;
 
 import litebans.api.Database;
-import me.ivanlpc.punishmentsgui.PunishmentsGUI;
 import org.bukkit.Bukkit;
-
+import org.bukkit.ChatColor;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class LitebansAPI {
 
@@ -17,15 +17,15 @@ public class LitebansAPI {
         String query = "SELECT reason, COUNT(*) as count FROM( " +
                 "SELECT a.reason " +
                 "FROM {bans} a " +
-                "WHERE a.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (a.removed_by_reason = '#expired' OR a.removed_by_reason IS NULL)" +
+                "WHERE a.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (a.removed_by_name = '#expired' OR a.removed_name IS NULL or a.removed_by_uuid = 'CONSOLE')" +
                 "UNION ALL " +
                 "SELECT b.reason " +
                 "FROM {mutes} b " +
-                "WHERE b.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_reason = '#expired' OR b.removed_by_reason IS NULL)" +
+                "WHERE b.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_name = '#expired' OR b.removed_name IS NULL or b.removed_by_uuid = 'CONSOLE')" +
                 "UNION ALL " +
                 "SELECT c.reason " +
                 "FROM {warnings} c" +
-                " WHERE c.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (c.removed_by_reason = '#expired' OR c.removed_by_reason IS NULL)" +
+                " WHERE c.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_name = '#expired' OR b.removed_name IS NULL or b.removed_by_uuid = 'CONSOLE')" +
                 "UNION ALL " +
                 "SELECT d.reason " +
                 "FROM {kicks} d " +
@@ -45,6 +45,7 @@ public class LitebansAPI {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + " Error fetching: " + name + " from LiteBans database");
         }
         return punishments;
     }
