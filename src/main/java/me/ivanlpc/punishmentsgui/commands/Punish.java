@@ -52,11 +52,20 @@ public class Punish implements CommandExecutor {
 
         Player player = (Player) sender;
         String userToPunish = args[0];
-
+        if(player.getDisplayName().equals(userToPunish)) {
+            String msg = plugin.getConfig().getString("Messages.same_player");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            return true;
+        }
         //LitebansAPI will fetch mysql to get the punishments of the player
         //We don't want to block the main thread
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
             Map<String, Integer> punishmentsList = LitebansAPI.getAllPunishments(userToPunish);
+            if(punishmentsList == null){
+                String msg = plugin.getConfig().getString("Messages.error");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                return;
+            }
             if(punishmentsList.size() == 0){
                 String msg = plugin.getConfig().getString("Messages.no_punishments");
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));

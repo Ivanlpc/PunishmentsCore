@@ -5,4 +5,4 @@ softdepend: [LiteBans]
 commands:
   punish:
     description: Opens a GUI to punish the player
-    aliases: [sancionar, punishmentsgui]
+    aliases: [gestionar, punishmentsgui]

@@ -6,7 +6,7 @@ import org.bukkit.inventory.Inventory;
 public class Menu {
 
     private final Inventory[] inventoryList;
-    private int page = 0;
+    private int current_page;
     private final String[][] commands;
     private final int menu_size;
 
@@ -14,6 +14,7 @@ public class Menu {
         this.inventoryList = inventoryList;
         this.commands = new String[max_pages * menu_size ][30];
         this.menu_size = menu_size;
+        this.current_page = 0;
     }
 
     public void setCommands(int page, int slot, List<String> command_list) {
@@ -27,16 +28,15 @@ public class Menu {
     }
 
     public String[] getCommandsBySlot(int slot) {
-        return commands[slot + (page * this.menu_size)];
+        return commands[slot + (current_page * this.menu_size)];
     }
     public Inventory nextPage() {
-        page++;
-        return inventoryList[page];
+        current_page++;
+        return inventoryList[current_page];
     }
     public Inventory prevPage() {
-        page--;
-        return inventoryList[page];
+        current_page--;
+        return inventoryList[current_page];
     }
-
 
 }

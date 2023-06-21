@@ -34,7 +34,10 @@ public class InventoryEvents implements Listener {
         int slot = event.getSlot();
         Menu m = this.plugin.menuManager.getInventory(p);
         String[] commands = m.getCommandsBySlot(slot);
-        if(commands.length == 0) return;
+        if(commands[0].equals("close")) {
+            p.closeInventory();
+            return;
+        };
         if(commands[0].equals("next")){
             Inventory inv = m.nextPage();
             this.plugin.menuManager.menuClosed(p);
@@ -50,12 +53,12 @@ public class InventoryEvents implements Listener {
             this.plugin.menuManager.menuOpened(p, m);
         } else {
             for(String s: commands) {
-                if(s != null) {
-                    executePunishment(s);
-                }
+                if(s == null) continue;
+                executePunishment(s);
             }
             p.closeInventory();
         }
+
     }
 
     @EventHandler
