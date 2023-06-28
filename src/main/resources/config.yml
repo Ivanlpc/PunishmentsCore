@@ -5,16 +5,36 @@ Messages:
   reload: "&b&lHydra&3&lCraft &a¡Plugin recargado!"
   error: "&b&lHydra&3&lCraft &cError al obtener las sanciones del jugador"
   same_player: "&b&lHydra&3&lCraft &cError: No puedes sancionarte a ti mismo"
-
+  no_permission_staff: "&b&lHydra&3&lCraft &cError: Un staff superior deberá realizar esta acción"
+ConfirmGUI:
+  name: "¿Confirmas la sanción de %player%?"
+  accept: "&aSi"
+  accept_lore:
+    - "&6* Click para aceptar"
+  deny: "&cNo"
+  deny_lore:
+    - "&6* Click para rechazar"
 GUI:
   name: "Gestionando a %player%"
   size: 54
   pages: 2
+  previousPage:
+    item:
+      material: ARROW
+      quantity: 1
+      name: "&e&lPágina anterior"
+    slot: 53
+  nextPage:
+    item:
+      material: ARROW
+      quantity: 1
+      name: "&e&lSiguiente página"
+    slot: 45
   items:
     1:
       material: PISTON_STICKY_BASE
       displayName: "&bUso de hacks (Encontrados en SS)"
-      data: 0
+      confirm: true
       page: 1
       slot: 9
       reason: "Uso de hacks (Encontrados en SS)"
@@ -37,7 +57,7 @@ GUI:
     2:
       material: PISTON_BASE
       displayName: "&bUso de hacks (Admitidos)"
-      data: 0
+      confirm: true
       page: 1
       slot: 10
       reason: "Uso de hacks (Admitidos)"
@@ -59,7 +79,7 @@ GUI:
     3:
       material: TNT
       displayName: "&bUso de hacks (Notables)"
-      data: 0
+      confirm: true
       page: 1
       slot: 11
       reason: "Uso de hacks (Notables)"
@@ -81,7 +101,7 @@ GUI:
 
     4:
       material: LEVER
-      data: 0
+      confirm: true
       page: 1
       displayName: "&bHacks en Multicuentas"
 
@@ -106,7 +126,7 @@ GUI:
     5:
       material: PAPER
       displayName: "&bAutotext"
-      data: 0
+      confirm: true
       page: 1
       slot: 13
       reason: "Uso de AutoText"
@@ -153,12 +173,13 @@ GUI:
             - "&aBan 7d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     6:
       material: PUMPKIN
       displayName: "&bAlianza con hacker"
-      data: 0
+      confirm: true
       page: 1
       slot: 14
       reason: "Realizar alianza con un Hacker"
@@ -171,6 +192,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -181,6 +203,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -191,6 +214,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
@@ -201,12 +225,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     7:
       material: CHEST
       displayName: "&bEvadir SS"
-      data: 0
+      confirm: true
       page: 1
       slot: 15
       reason: "Evadir SS"
@@ -216,6 +241,7 @@ GUI:
             - "&aBan 20d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -223,13 +249,14 @@ GUI:
             - "&cBan 20d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
     8:
       material: MELON
       displayName: "&bSpam / Flood / Mayus / Comentario inapropiado"
-      data: 0
+      confirm: true
       page: 1
       slot: 16
       reason: "Spam / Flood / Mayus / Comentario inapropiado"
@@ -292,7 +319,7 @@ GUI:
     9:
       material: NOTE_BLOCK
       displayName: "&bSpam IP / URL por msg"
-      data: 0
+      confirm: true
       page: 1
       slot: 17
       reason: "Spam IP / URL por msg"
@@ -317,6 +344,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -328,6 +356,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
@@ -339,6 +368,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
@@ -350,12 +380,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     10:
       material: OBSIDIAN
       displayName: "&bSpam IP / URL por chat general"
-      data: 0
+      confirm: true
       page: 1
       slot: 18
       reason: "Spam IP / URL por chat general"
@@ -368,6 +399,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -378,6 +410,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -388,6 +421,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
@@ -398,12 +432,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     11:
       material: RAILS
       displayName: "&bAmenazas DDoS/Doxing"
-      data: 0
+      confirm: true
       page: 1
       slot: 19
       reason: "Amenazas DDoS/Doxing"
@@ -426,7 +461,7 @@ GUI:
     13:
       material: PUMPKIN_SEEDS
       displayName: "&bFaltar el Respeto al Staff / servidor"
-      data: 0
+      confirm: true
       page: 1
       slot: 20
       reason: "Faltar el Respeto al Staff / servidor"
@@ -474,7 +509,7 @@ GUI:
     14:
       material: STICK
       displayName: "&bSuplantación de identidad"
-      data: 0
+      confirm: true
       page: 1
       slot: 21
       reason: "Suplantación de identidad"
@@ -496,7 +531,7 @@ GUI:
     15:
       material: WEB
       displayName: "&bEstafas"
-      data: 0
+      confirm: true
       page: 1
       slot: 22
       reason: "Estafas"
@@ -506,6 +541,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -513,13 +549,14 @@ GUI:
             - "&cBan Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
     17:
       material: WORKBENCH
       displayName: "&bNombre Inadecuado / Skin"
-      data: 0
+      confirm: true
       page: 1
       slot: 23
       reason: "Nombre Inadecuado / Skin"
@@ -542,6 +579,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -552,6 +590,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
@@ -562,12 +601,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     18:
       material: POTATO_ITEM
       displayName: "&bMal uso de /report y /helpop"
-      data: 0
+      confirm: true
       page: 1
       slot: 24
       reason: "Mal uso de /report y /helpop"
@@ -590,6 +630,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -600,6 +641,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
@@ -610,12 +652,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     19:
       material: DIAMOND
       displayName: "&bPedir Giveos"
-      data: 0
+      confirm: true
       page: 1
       slot: 25
       reason: "Pedir Giveos"
@@ -638,6 +681,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -648,6 +692,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
@@ -658,12 +703,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     20:
       material: IRON_INGOT
       displayName: "&bAbusar de un Bug (Leve)"
-      data: 0
+      confirm: true
       page: 1
       slot: 26
       reason: "Abusar de un Bug (Leve)"
@@ -675,6 +721,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -684,6 +731,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -693,12 +741,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     21:
       material: GOLD_INGOT
       displayName: "&bAbusar de un Bug (Grave)"
-      data: 0
+      confirm: true
       page: 1
       slot: 27
       reason: "Abusar de un Bug (Grave)"
@@ -709,6 +758,7 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -722,7 +772,7 @@ GUI:
     22:
       material: FIREBALL
       displayName: "&bCompartir Cuenta"
-      data: 0
+      confirm: true
       page: 1
       slot: 28
       reason: "Compartir Cuenta"
@@ -734,6 +784,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -743,6 +794,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
@@ -752,12 +804,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     23:
       material: FEATHER
       displayName: "&bVender Cuenta"
-      data: 0
+      confirm: true
       page: 1
       slot: 29
       reason: "Vender Cuenta"
@@ -767,6 +820,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -774,12 +828,13 @@ GUI:
             - "&cBan Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     24:
       material: FISHING_ROD
       displayName: "&bVender objetos del servidor por dinero en la vida real"
-      data: 0
+      confirm: true
       page: 1
       slot: 30
       reason: "Vender objetos del servidor por dinero en la vida real"
@@ -801,7 +856,7 @@ GUI:
     25:
       material: FLINT
       displayName: "&bMute Evading"
-      data: 0
+      confirm: true
       page: 1
       slot: 31
       reason: "Mute Evading"
@@ -864,7 +919,7 @@ GUI:
     26:
       material: GHAST_TEAR
       displayName: "&bMulticuentas conectadas"
-      data: 0
+      confirm: true
       page: 1
       slot: 32
       reason: "Multicuentas conectadas"
@@ -912,7 +967,7 @@ GUI:
     27:
       material: NAME_TAG
       displayName: "&bItems Renombrados (malsonantes)"
-      data: 0
+      confirm: true
       page: 1
       slot: 33
       reason: "Items Renombrados (malsonantes)"
@@ -1000,7 +1055,7 @@ GUI:
     28:
       material: CAKE
       displayName: "&bJail Evading (multicuentas)"
-      data: 0
+      confirm: true
       page: 1
       slot: 34
       reason: "Jail Evading (multicuentas)"
@@ -1051,7 +1106,7 @@ GUI:
     29:
       material: STICK
       displayName: "&bStalking"
-      data: 0
+      confirm: true
       page: 2
       slot: 12
       reason: "Stalking"
@@ -1089,6 +1144,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1101,6 +1157,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
@@ -1112,12 +1169,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     30:
       material: CAKE
       displayName: "&bTPA KILL"
-      data: 0
+      confirm: true
       page: 2
       slot: 13
       reason: "TPA KILL"
@@ -1152,6 +1210,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1163,12 +1222,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     31:
       material: BLAZE_ROD
       displayName: "&bRealizar eventos"
-      data: 0
+      confirm: true
       page: 2
       slot: 14
       reason: "Realizar eventos"
@@ -1209,6 +1269,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1222,6 +1283,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
@@ -1234,6 +1296,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         5:
@@ -1246,12 +1309,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     32:
       material: BUCKET
       displayName: "&bGrifeo"
-      data: 0
+      confirm: true
       page: 2
       slot: 21
       reason: "Grifeo"
@@ -1265,6 +1329,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.mod"
           commands:
             - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -1275,6 +1340,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1286,6 +1352,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1297,12 +1364,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     33:
       material: REDSTONE
       displayName: "&bMáquina de lag"
-      data: 0
+      confirm: true
       page: 2
       slot: 22
       reason: "Máquina de lag"
@@ -1316,6 +1384,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -1326,6 +1395,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1337,6 +1407,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1348,12 +1419,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     34:
       material: SEEDS
       displayName: "&bMulticuentas para farmear"
-      data: 0
+      confirm: true
       page: 2
       slot: 23
       reason: "Multicuentas para farmear"
@@ -1367,6 +1439,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -1377,6 +1450,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1388,6 +1462,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1399,12 +1474,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     35:
       material: PISTON_BASE
       displayName: "&bMáquina AFK"
-      data: 0
+      confirm: true
       page: 2
       slot: 30
       reason: "Maquina AFK"
@@ -1418,6 +1494,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.mod"
           commands:
             - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -1428,6 +1505,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1439,6 +1517,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1450,12 +1529,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     36:
       material: GOLD_INGOT
       displayName: "&bRobar objetos a otro usuario"
-      data: 0
+      confirm: true
       page: 2
       slot: 31
       reason: "Robar objetos a otro usuario"
@@ -1469,6 +1549,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.mod"
           commands:
             - "tempban %player% 10h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -1479,6 +1560,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1490,6 +1572,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1501,12 +1584,13 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     37:
       material: DIAMOND_SWORD
       displayName: "&bExceder el máximo de team en PvP (6v1)"
-      data: 0
+      confirm: true
       page: 2
       slot: 32
       reason: "Exceder el máximo de team en PvP (6v1)"
@@ -1520,6 +1604,7 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.mod"
           commands:
             - "tempban %player% 10h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
@@ -1530,6 +1615,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1541,6 +1627,7 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "tempban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -1552,6 +1639,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.mod"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     "nextPage":
@@ -1562,7 +1650,6 @@ GUI:
         - ""
         - "&6* Click para ir a la siguiente página"
       nextPage: true
-      data: 0
       page: 1
       slot: 53
     "backPage":
@@ -1573,13 +1660,11 @@ GUI:
         - ""
         - "&6* Click para ir a la página anterior"
       backPage: true
-      data: 0
       page: 2
       slot: 45
     "alts":
       material: PAPER
       displayName: "&aVer alts del usuario"
-      data: 0
       page: 1
       slot: 47
       reason: "NO_REASON"
@@ -1593,7 +1678,6 @@ GUI:
     "logs":
       material: PAPER
       displayName: "&aVer logs del usuario"
-      data: 0
       page: 1
       slot: 48
       reason: "NO_REASON"
@@ -1607,7 +1691,6 @@ GUI:
     "lastmsg":
       material: PAPER
       displayName: "&aVer últimos mensajes del usuario"
-      data: 0
       page: 1
       slot: 51
       reason: "NO_REASON"
@@ -1621,7 +1704,6 @@ GUI:
     "history":
       material: PAPER
       displayName: "&aVer historial del usuario"
-      data: 0
       page: 1
       slot: 50
       reason: "NO_REASON"
@@ -1635,7 +1717,6 @@ GUI:
     "cerrar":
       material: BOOK
       displayName: "&aVer historial del usuario"
-      data: 0
       page: 1
       slot: 49
       reason: "NO_REASON"

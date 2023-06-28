@@ -9,19 +9,23 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MenuBuilder {
-    private FileConfiguration config;
-    private Map<String, Integer> punishmentList;
-    private Menu menu;
-    private int size;
-    private Player opener;
-    private String vitcim;
-    private Inventory[] inventories;
+    private final FileConfiguration config;
+    private final Map<String, Integer> punishmentList;
+    private final Menu menu;
+    private final int size;
+    private final Player opener;
+    private final String vitcim;
+    private final Inventory[] inventories;
+    private final PunishmentSlot[] commands;
+
     public MenuBuilder(Player opener,String victim, FileConfiguration config,  Map<String, Integer> punishmentList) {
         this.config = config;
         this.opener = opener;
@@ -32,40 +36,41 @@ public class MenuBuilder {
         this.inventories = new Inventory[totalPages];
         String invname = this.config.getString("GUI.name");
         invname = invname.replace("%player%", victim);
-        for(Integer i = 0; i < inventories.length; i++) {
-            inventories[i] = Bukkit.createInventory(opener, size, invname.replace("%page%", i.toString()));
+        for(int i = 0; i < inventories.length; i++) {
+            inventories[i] = Bukkit.createInventory(opener, size, invname.replace("%page%", Integer.toString(i)));
         }
-        this.menu = new Menu(inventories, totalPages, size);
+        this.commands = new PunishmentSlot[size * totalPages];
+        this.menu = new Menu(inventories, commands, size, this.vitcim);
     }
 
     public Menu build() {
         ConfigurationSection sec = this.config.getConfigurationSection("GUI.items");
         for(String key : sec.getKeys(false)) {
             List<String> lore;
-            String name = this.config.getString("GUI.items." + key + ".displayName");
-            int slot = this.config.getInt("GUI.items." + key + ".slot");
-            int page = this.config.getInt("GUI.items." + key + ".page") - 1;
-            boolean nextPage = this.config.getBoolean("GUI.items." + key + ".nextPage");
-            boolean prevPage = this.config.getBoolean("GUI.items." + key + ".backPage");
-
+            String name = sec.getString(key +".displayName");
+            int slot = sec.getInt(key +".slot");
+            int page = sec.getInt(key +".page", 1) - 1;
+            boolean nextPage = sec.getBoolean(key +".nextPage");
+            boolean prevPage = sec.getBoolean(key +".backPage");
+            boolean needsConfirmation = sec.getBoolean(key +".confirm");
             if(nextPage) {
-                lore = this.config.getStringList("GUI.items." + key + ".lore");
-                List<String> next = new ArrayList<>();
-                next.add("next");
-                this.menu.setCommands(page, slot, next);
-            }else if(prevPage) {
-                lore = this.config.getStringList("GUI.items." + key + ".lore");
-                List<String> back = new ArrayList<>();
-                back.add("back");
-                this.menu.setCommands(page, slot, back);
+                lore = sec.getStringList(key + ".lore");
+                this.commands[slot + (page * size)] = new PunishmentSlot(Collections.singletonList("next"), "", false);
+            } else if(prevPage) {
+                lore = sec.getStringList(key + ".lore");
+                this.commands[slot + (page * size)] = new PunishmentSlot(Collections.singletonList("back"), "", false);
+
             } else {
                 int command_id = getCommandId(key);
-                lore = this.config.getStringList("GUI.items." + key + ".levels." + command_id + ".lore");
+                String permission_required = sec.getString(key +".levels." + command_id + ".permission", "");
                 List<String> commands = formatCommandFromId(key, command_id);
-                this.menu.setCommands(page, slot, commands);
+                this.commands[slot + (page * size)] = new PunishmentSlot(commands, permission_required, needsConfirmation);
+                lore = sec.getStringList(key +".levels." + command_id + ".lore");
+
             }
             ItemStack is = getItem(key, name, lore);
             inventories[page].setItem(slot, is);
+
         }
         return this.menu;
     }
@@ -73,15 +78,12 @@ public class MenuBuilder {
 
     private ItemStack getItem(String material_path, String name, List<String> lore_data) {
         Material m = Material.matchMaterial(this.config.getString("GUI.items." + material_path + ".material"));
-        int durability = this.config.getInt("GUI.items." + material_path + ".data");
+        int durability = this.config.getInt("GUI.items." + material_path + ".data", 0);
         ItemStack item = new ItemStack(m, 1,(short) durability);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        List<String> lore = new ArrayList<>();
-
-        for(String s : lore_data) {
-            lore.add(ChatColor.translateAlternateColorCodes('&', s));
-        }
+        List<String> lore = new ArrayList<>(lore_data);
+        lore = lore.stream().map(string -> ChatColor.translateAlternateColorCodes('&', string)).collect(Collectors.toList());
         meta.setLore(lore);
         item.setItemMeta(meta);
         return item;
@@ -113,4 +115,5 @@ public class MenuBuilder {
 
         return commands;
     }
+
 }

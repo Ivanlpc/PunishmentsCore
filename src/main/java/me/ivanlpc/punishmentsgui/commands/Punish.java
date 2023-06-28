@@ -72,7 +72,12 @@ public class Punish implements CommandExecutor {
             }
             Menu menu = new MenuBuilder(player, userToPunish, plugin.getConfig(), punishmentsList).build();
             plugin.menuManager.menuOpened(player, menu);
-            player.openInventory(menu.getFirstInventory());
+
+            //Using the Bukkit API in the main thread
+            Bukkit.getScheduler().callSyncMethod(plugin, () -> {
+                player.openInventory(menu.getInventory());
+                return null;
+            });
         });
         return true;
     }

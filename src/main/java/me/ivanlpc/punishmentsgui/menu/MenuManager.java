@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class MenuManager {
-    Map<Player, Menu> openedMenus = new HashMap<>();
+    private Map<Player, PunishmentsMenu> openedMenus = new HashMap<>();
 
-    public void menuOpened(Player p, Menu i) {
+    public void menuOpened(Player p, PunishmentsMenu i) {
         openedMenus.put(p, i);
     }
 
@@ -21,7 +21,7 @@ public class MenuManager {
         return openedMenus.containsKey(p);
     }
 
-    public Menu getInventory(Player p) {
+    public PunishmentsMenu getInventory(Player p) {
         return openedMenus.get(p);
     }
 

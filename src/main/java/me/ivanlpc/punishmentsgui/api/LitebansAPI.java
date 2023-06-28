@@ -17,15 +17,15 @@ public class LitebansAPI {
         String query = "SELECT reason, COUNT(*) as count FROM( " +
                 "SELECT a.reason " +
                 "FROM {bans} a " +
-                "WHERE a.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (a.removed_by_name = '#expired' OR a.removed_by_name IS NULL or a.removed_by_uuid = 'CONSOLE')" +
+                "WHERE a.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (a.removed_by_reason IS NULL OR a.removed_by_reason != 'ELIMINADA')" +
                 "UNION ALL " +
                 "SELECT b.reason " +
                 "FROM {mutes} b " +
-                "WHERE b.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_name = '#expired' OR b.removed_by_name IS NULL or b.removed_by_uuid = 'CONSOLE')" +
+                "WHERE b.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_reason IS NULL OR b.removed_by_reason != 'ELIMINADA')" +
                 "UNION ALL " +
                 "SELECT c.reason " +
                 "FROM {warnings} c" +
-                " WHERE c.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (c.removed_by_name = '#expired' OR c.removed_by_name IS NULL or c.removed_by_uuid = 'CONSOLE')" +
+                " WHERE c.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (c.removed_by_reason IS NULL OR c.removed_by_reason != 'ELIMINADA')" +
                 "UNION ALL " +
                 "SELECT d.reason " +
                 "FROM {kicks} d " +

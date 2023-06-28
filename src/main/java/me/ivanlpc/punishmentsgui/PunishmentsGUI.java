@@ -12,13 +12,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class PunishmentsGUI extends JavaPlugin {
 
     private final PluginDescriptionFile pluginfile = getDescription();
-    public MenuManager menuManager;
+    public final MenuManager menuManager = new MenuManager();
 
     @Override
     public void onEnable() {
         long ms = System.currentTimeMillis();
         this.saveDefaultConfig();
-        this.menuManager = new MenuManager();
 
         if(Bukkit.getPluginManager().getPlugin("LiteBans") == null) {
             throw new RuntimeException("LiteBans is required to run this plugin!");
@@ -39,5 +38,4 @@ public final class PunishmentsGUI extends JavaPlugin {
         this.menuManager.closeAllMenus();
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED  + pluginfile.getName() + " has been disabled. Version: " + pluginfile.getVersion());
     }
-
 }
