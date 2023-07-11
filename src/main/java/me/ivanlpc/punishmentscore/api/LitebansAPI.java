@@ -1,4 +1,4 @@
-package me.ivanlpc.punishmentsgui.api;
+package me.ivanlpc.punishmentscore.api;
 
 import litebans.api.Database;
 import org.bukkit.Bukkit;
@@ -17,19 +17,19 @@ public class LitebansAPI {
         String query = "SELECT reason, COUNT(*) as count FROM( " +
                 "SELECT a.reason " +
                 "FROM {bans} a " +
-                "WHERE a.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (a.removed_by_reason IS NULL OR a.removed_by_reason != 'ELIMINADA')" +
+                "WHERE a.uuid IN (SELECT uuid FROM {history} WHERE name = ?) AND (a.removed_by_reason IS NULL OR a.removed_by_reason != 'ELIMINADA')" +
                 "UNION ALL " +
                 "SELECT b.reason " +
                 "FROM {mutes} b " +
-                "WHERE b.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_reason IS NULL OR b.removed_by_reason != 'ELIMINADA')" +
+                "WHERE b.uuid IN (SELECT uuid FROM {history} WHERE name = ?) AND (b.removed_by_reason IS NULL OR b.removed_by_reason != 'ELIMINADA')" +
                 "UNION ALL " +
                 "SELECT c.reason " +
                 "FROM {warnings} c" +
-                " WHERE c.uuid = (SELECT uuid FROM {history} WHERE name = ?) AND (c.removed_by_reason IS NULL OR c.removed_by_reason != 'ELIMINADA')" +
+                " WHERE c.uuid IN (SELECT uuid FROM {history} WHERE name = ?) AND (c.removed_by_reason IS NULL OR c.removed_by_reason != 'ELIMINADA')" +
                 "UNION ALL " +
                 "SELECT d.reason " +
                 "FROM {kicks} d " +
-                "WHERE d.uuid = (SELECT uuid FROM {history} WHERE name = ?)) as d " +
+                "WHERE d.uuid IN (SELECT uuid FROM {history} WHERE name = ?)) as d " +
                 "GROUP BY reason";
         try (PreparedStatement st = Database.get().prepareStatement(query)) {
             st.setString(1, name);

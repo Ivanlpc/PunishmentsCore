@@ -1,0 +1,120 @@
+package me.ivanlpc.punishmentscore.inventories.builders;
+
+import de.tr7zw.changeme.nbtapi.NBT;
+import de.tr7zw.changeme.nbtapi.NBTItem;
+import me.ivanlpc.punishmentscore.PunishmentsCore;
+import me.ivanlpc.punishmentscore.api.database.entities.Order;
+import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OrdersGUI extends PaginatedInventory implements PunishmentInventory {
+
+    private final PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
+    private final List<Order> ordersList;
+    public OrdersGUI(List<Order> ordersList) {
+        this.ordersList = ordersList;
+        int pages = (int) Math.ceil((double) ordersList.size() / 45);
+        inventories = new ItemStack[pages][54];
+        if(pages > 1) setPaginationItems("OrdersGUI");
+    }
+    @Override
+    public ItemStack[][] build() {
+        int slot = 0;
+        int page = 0;
+        for(Order o : ordersList) {
+            String materialName = this.plugin.getConfig().getString("OrdersGUI.item.material");
+            int durability = this.plugin.getConfig().getInt("OrdersGUI.item.damage");
+            int id = o.getId();
+            String name = this.plugin.getConfig().getString("OrdersGUI.item.displayName");
+            name = name.replaceAll("%id%", String.valueOf(id));
+            name = name.replaceAll("%player%", o.getUserPunished());
+            Material m = Material.matchMaterial(materialName);
+            ItemStack is = getItem(m, durability, name, parseLore(o));
+            if(slot == 45) {
+                page++;
+                slot = 0;
+            }
+            NBT.modify(is, nbti -> {
+                nbti.setInteger("id", id);
+            });
+            this.inventories[page][slot] = is;
+            slot++;
+        }
+        return this.inventories;
+    }
+    public List<String> parseLore(Order o) {
+        List<String> lore = new ArrayList<>();
+        List<String> format = this.plugin.getConfig().getStringList("OrdersGUI.item.lore");
+        for(String s: format) {
+            String line = s.replaceAll("%staff%", o.getUsername());
+            line = line.replaceAll("%punishment%", o.getPunishment());
+            line = line.replaceAll("%player%", o.getUserPunished());
+            line = line.replaceAll("%reason%", o.getReason());
+            line = line.replaceAll("%date%", o.getDate().toString());
+            lore.add(line);
+        }
+        return lore;
+    }
+
+
+    @Override
+    public void handleClick(InventoryClickEvent event) {
+        NBTItem nbti = new NBTItem(event.getCurrentItem());
+        Player p = (Player) event.getWhoClicked();
+        if(nbti.hasTag("key")){
+            String key = nbti.getString("key");
+            if(key.equals("backPage")) {
+                PunishmentGUI pg = (PunishmentGUI) this.plugin.getInventoryManager().getCurrentInventory(p);
+                ItemStack[] is = pg.getBackPage();
+                event.getClickedInventory().setContents(is);
+                p.updateInventory();
+            } else if(key.equals("nextPage")) {
+                PunishmentGUI pg = (PunishmentGUI) this.plugin.getInventoryManager().getCurrentInventory(p);
+                ItemStack[] is = pg.getNextPage();
+                event.getClickedInventory().setContents(is);
+                p.updateInventory();
+            }
+            return;
+        }
+        int id = nbti.getInteger("id");
+
+        if(event.getClick().isRightClick()) {
+            Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
+                this.plugin.getDbmanager().deleteOrder(id);
+                Bukkit.getScheduler().callSyncMethod(plugin, () -> {
+                    String msg = this.plugin.getMessages().getString("Messages.order_deleted");
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+                    p.closeInventory();
+                    return null;
+                });
+            });
+        } else if(event.getClick().isLeftClick()) {
+            Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
+                List<String> commands = this.plugin.getDbmanager().getCommandsFromOrder(id);
+                Bukkit.getScheduler().callSyncMethod(this.plugin, () -> {
+                    executeCommands(p, commands);
+                    return null;
+                });
+                this.plugin.getDbmanager().deleteOrder(id);
+                Bukkit.getScheduler().callSyncMethod(plugin, () -> {
+                    p.closeInventory();
+                    return null;
+                });
+            });
+        }
+
+    }
+
+    @Override
+    public String getPunishedPlayer() {
+        return "";
+    }
+}

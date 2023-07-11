@@ -1,35 +1,62 @@
-Messages:
-  no_permission: "&b&lHydra&3&lCraft &cComando desconocido o no tienes permiso para ejecutarlo"
-  no_punishments: "&b&lHydra&3&lCraft &aEste jugador no tiene sanciones"
-  usage: "&b&lHydra&3&lCraft &cUso: /punish <jugador>"
-  reload: "&b&lHydra&3&lCraft &a¡Plugin recargado!"
-  error: "&b&lHydra&3&lCraft &cError al obtener las sanciones del jugador"
-  same_player: "&b&lHydra&3&lCraft &cError: No puedes sancionarte a ti mismo"
-  no_permission_staff: "&b&lHydra&3&lCraft &cError: Un staff superior deberá realizar esta acción"
-ConfirmGUI:
-  name: "¿Confirmas la sanción de %player%?"
-  accept: "&aSi"
-  accept_lore:
-    - "&6* Click para aceptar"
-  deny: "&cNo"
-  deny_lore:
-    - "&6* Click para rechazar"
-GUI:
-  name: "Gestionando a %player%"
-  size: 54
-  pages: 2
-  previousPage:
+OrdersGUI:
+  name: "Sanciones pendientes"
+  item:
+    displayName: "&e%player% &7ID: %id%"
+    lore:
+      - "&fRazón: &b%reason%"
+      - "&fStaff: &3%staff%"
+      - "&fSanción: &c%punishment%"
+      - "&fFecha: &d%date%"
+      - ""
+      - "&6* Click derecho para aplicar sanción"
+      - "&c* Click izquierdo para rechazar sanción"
+    material: PAPER
+    damage: 0
+  backPage:
     item:
       material: ARROW
       quantity: 1
-      name: "&e&lPágina anterior"
-    slot: 53
+      displayName: "&e&lPágina anterior"
+      lore: "&6* Click para ir a la página anterior"
+    slot: 45
   nextPage:
     item:
       material: ARROW
       quantity: 1
-      name: "&e&lSiguiente página"
+      displayName: "&e&lSiguiente página"
+      lore:
+        - "&6* Click para ir a la siguiente página"
+    slot: 53
+ConfirmGUI:
+  accept:
+    slot: 12
+  deny:
+    slot: 14
+    item:
+      displayName: "&cNo"
+      material: WOOL
+      damage: 14
+      lore:
+        - "&6* Click para cancelar"
+GUI:
+  name: "Gestionando a %player%"
+  size: 54
+  pages: 2
+  backPage:
+    item:
+      material: ARROW
+      quantity: 1
+      displayName: "&e&lPágina anterior"
+      lore: "&6* Click para ir a la página anterior"
     slot: 45
+  nextPage:
+    item:
+      material: ARROW
+      quantity: 1
+      displayName: "&e&lSiguiente página"
+      lore:
+        - "&6* Click para ir a la siguiente página"
+    slot: 53
   items:
     1:
       material: PISTON_STICKY_BASE
@@ -40,18 +67,22 @@ GUI:
       reason: "Uso de hacks (Encontrados en SS)"
       levels:
         0:
+          name: "BanIP 20d"
           lore:
             - "&aBanIP 20d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permissionn: "group.moderador"
           commands:
             #Commands are executed from console. --sender and --sender-uuid overrides the staff that bans the user
             - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: "BanIP 20d"
           lore:
             - "&cBanIP 20d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     2:
@@ -63,19 +94,23 @@ GUI:
       reason: "Uso de hacks (Admitidos)"
       levels:
         0:
+          name: "BanIP 7d"
           lore:
-            - "&aBanIP 15d &d&l<"
+            - "&aBanIP 7d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
-            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: "BanIP 7d"
           lore:
-            - "&cBanIP 15d &d&l<"
+            - "&cBanIP 7d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
-            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     3:
       material: TNT
       displayName: "&bUso de hacks (Notables)"
@@ -85,19 +120,23 @@ GUI:
       reason: "Uso de hacks (Notables)"
       levels:
         0:
+          name: "BanIP 15d"
           lore:
-            - "&aBanIP 7d &d&l<"
+            - "&aBanIP 15d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
-            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: "BanIP 15d"
           lore:
-            - "&cBanIP 7d &d&l<"
+            - "&cBanIP 15d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
-            - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
     4:
       material: LEVER
@@ -109,17 +148,21 @@ GUI:
       reason: "Hacks en Multicuentas"
       levels:
         0:
+          name: "BanIP 25d"
           lore:
             - "&aBanIP 25d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: "BanIP 25d"
           lore:
             - "&cBanIP 25d &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -132,6 +175,7 @@ GUI:
       reason: "Uso de AutoText"
       levels:
         0:
+          name: "Jail 1d"
           lore:
             - "&eJail 1d &d&l<"
             - "&eJail 3d"
@@ -144,6 +188,7 @@ GUI:
             - "jail %player% 1 86400"
 
         1:
+          name: "Jail 3d"
           lore:
             - "&cJail 1d"
             - "&eJail 3d &d&l<"
@@ -155,6 +200,7 @@ GUI:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
             - "jail %player% 1 259200"
         2:
+          name: "Jail 5d"
           lore:
             - "&cJail 1d"
             - "&cJail 3d"
@@ -166,6 +212,7 @@ GUI:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
             - "jail %player% 1 432000"
         3:
+          name: "Jail 7d"
           lore:
             - "&cJail 1d"
             - "&cJail 3d"
@@ -173,7 +220,7 @@ GUI:
             - "&aBan 7d &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     6:
@@ -185,6 +232,7 @@ GUI:
       reason: "Realizar alianza con un Hacker"
       levels:
         0:
+          name: "Ban 3d"
           lore:
             - "&aBan 3d &d&l<"
             - "&aBan 5d"
@@ -192,10 +240,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: "Ban 5d"
           lore:
             - "&cBan 3d"
             - "&aBan 5d &d&l<"
@@ -203,10 +252,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: "Ban 7d"
           lore:
             - "&cBan 3d"
             - "&cBan 5d"
@@ -214,10 +264,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: "Ban Permanente"
           lore:
             - "&cBan 3d"
             - "&cBan 5d"
@@ -225,7 +276,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     7:
@@ -237,19 +288,21 @@ GUI:
       reason: "Evadir SS"
       levels:
         0:
+          name: Ban 20d
           lore:
             - "&aBan 20d &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 20d
           lore:
             - "&cBan 20d &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -262,6 +315,7 @@ GUI:
       reason: "Spam / Flood / Mayus / Comentario inapropiado"
       levels:
         0:
+          name: Mute 30 min
           lore:
             - "&bMute 30 min &d&l<"
             - "&bMute 2h"
@@ -273,6 +327,7 @@ GUI:
           commands:
             - "tempmute %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Mute 2h
           lore:
             - "&cMute 30 min"
             - "&bMute 2h &d&l<"
@@ -284,6 +339,7 @@ GUI:
           commands:
             - "tempmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Mute 5h
           lore:
             - "&cMute 30 min"
             - "&cMute 2h"
@@ -291,10 +347,10 @@ GUI:
             - "&bMute 24h"
             - "&bMute Permanente"
             - ""
-            - "&6* Click para sancionar"
           commands:
             - "tempmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Mute 24h
           lore:
             - "&cMute 30 min"
             - "&cMute 2h"
@@ -306,10 +362,11 @@ GUI:
           commands:
             - "tempmute %player% 24h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
+          name: Mute Permanente
           lore:
             - "&cMute 30 min"
             - "&cMute 2h"
-            - "&cute 5h"
+            - "&cMute 5h"
             - "&cMute 24h"
             - "&bMute Permanente &d&l<"
             - ""
@@ -325,6 +382,7 @@ GUI:
       reason: "Spam IP / URL por msg"
       levels:
         0:
+          name: "Kick"
           lore:
             - "&6Kick &d&l<"
             - "&aBan 1d"
@@ -336,6 +394,7 @@ GUI:
           commands:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1d
           lore:
             - "&cKick"
             - "&aBan 1d &d&l<"
@@ -344,10 +403,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban 3d
           lore:
             - "&cKick"
             - "&cBan 1d"
@@ -356,10 +416,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Ban 7d
           lore:
             - "&cKick"
             - "&cBan 1d"
@@ -368,10 +429,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
+          name: Ban Permanente
           lore:
             - "&cKick"
             - "&cBan 1d"
@@ -380,7 +442,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     10:
@@ -392,6 +454,7 @@ GUI:
       reason: "Spam IP / URL por chat general"
       levels:
         0:
+          name: Ban 3d
           lore:
             - "&aBan 3d &d&l<"
             - "&aBan 5d"
@@ -399,10 +462,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 5d
           lore:
             - "&cBan 3d"
             - "&aBan 5d &d&l<"
@@ -410,10 +474,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban 15d
           lore:
             - "&cBan 3d"
             - "&cBan 5d"
@@ -421,10 +486,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 3d"
             - "&cBan 5d"
@@ -432,7 +498,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     11:
@@ -444,17 +510,21 @@ GUI:
       reason: "Amenazas DDoS/Doxing"
       levels:
         0:
+          name: "BanIP Permanente"
           lore:
             - "&5BanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: "BanIP Permanente"
           lore:
             - "&cBanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -467,6 +537,7 @@ GUI:
       reason: "Faltar el Respeto al Staff / servidor"
       levels:
         0:
+          name: Mute 1h
           lore:
             - "&bMute 1h &d&l<"
             - "&bMute 2h"
@@ -477,6 +548,7 @@ GUI:
           commands:
             - "tempmute %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Mute 2h
           lore:
             - "&cMute 1h"
             - "&bMute 2h &d&l<"
@@ -487,6 +559,7 @@ GUI:
           commands:
             - "tempmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Mute 5h
           lore:
             - "&cMute 1h"
             - "&cMute 2h"
@@ -497,6 +570,7 @@ GUI:
           commands:
             - "tempmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Mute Permanente
           lore:
             - "&cMute 1h"
             - "&cMute 2h"
@@ -515,17 +589,21 @@ GUI:
       reason: "Suplantación de identidad"
       levels:
         0:
+          name: BanIP Permanente
           lore:
             - "&5BanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: BanIP Permanente
           lore:
             - "&cBanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     15:
@@ -537,19 +615,21 @@ GUI:
       reason: "Estafas"
       levels:
         0:
+          name: Ban Permanente
           lore:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban Permanente
           lore:
             - "&cBan Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
@@ -562,6 +642,7 @@ GUI:
       reason: "Nombre Inadecuado / Skin"
       levels:
         0:
+          name: Kick
           lore:
             - "&6Kick &d&l<"
             - "&aBan 3h"
@@ -572,6 +653,7 @@ GUI:
           commands:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 3h
           lore:
             - "&cKick"
             - "&aBan 3h &d&l<"
@@ -579,10 +661,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban 1d
           lore:
             - "&cKick"
             - "&cBan 3h"
@@ -590,10 +673,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Ban Permanente
           lore:
             - "&cKick"
             - "&cBan 3h"
@@ -601,7 +685,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     18:
@@ -613,6 +697,7 @@ GUI:
       reason: "Mal uso de /report y /helpop"
       levels:
         0:
+          name: Kick
           lore:
             - "&6Kick &d&l<"
             - "&aBan 1h"
@@ -623,6 +708,7 @@ GUI:
           commands:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1h
           lore:
             - "&cKick"
             - "&aBan 1h &d&l<"
@@ -630,10 +716,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban 1d
           lore:
             - "&cKick"
             - "&cBan 1h"
@@ -641,10 +728,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Ban Permanente
           lore:
             - "&cKick"
             - "&cBan 1h"
@@ -652,7 +740,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     19:
@@ -664,6 +752,7 @@ GUI:
       reason: "Pedir Giveos"
       levels:
         0:
+          name: Kick
           lore:
             - "&6Kick &d&l<"
             - "&aBan 3h"
@@ -674,6 +763,7 @@ GUI:
           commands:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 3h
           lore:
             - "&cKick"
             - "&aBan 3h &d&l<"
@@ -681,10 +771,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban 1d
           lore:
             - "&cKick"
             - "&cBan 3h"
@@ -692,10 +783,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: Ban Permanente
           lore:
             - "&cKick"
             - "&cBan 3h"
@@ -703,7 +795,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     20:
@@ -715,33 +807,36 @@ GUI:
       reason: "Abusar de un Bug (Leve)"
       levels:
         0:
+          name: Ban 5h
           lore:
             - "&aBan 5h &d&l<"
             - "&aBan 1d"
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1d
           lore:
             - "&cBan 5h"
             - "&aBan 1d &d&l<"
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban Permanente
           lore:
             - "&cBan 5h"
             - "&cBan 1d"
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     21:
@@ -753,20 +848,23 @@ GUI:
       reason: "Abusar de un Bug (Grave)"
       levels:
         0:
+          name: Ban Permanente
           lore:
             - "&5Ban Permanente &d&l<"
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: BanIP Permanente
           lore:
             - "&cBan Permanente"
             - "&5BanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     22:
@@ -778,33 +876,36 @@ GUI:
       reason: "Compartir Cuenta"
       levels:
         0:
+          name: Ban 5d
           lore:
             - "&aBan 5d &d&l<"
             - "&aBan 10d"
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 10d
           lore:
             - "&cBan 5d"
             - "&aBan 10d &d&l<"
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: Ban Permanente
           lore:
             - "&cBan 5d"
             - "&cBan 10d"
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     23:
@@ -816,19 +917,21 @@ GUI:
       reason: "Vender Cuenta"
       levels:
         0:
+          name: Ban Permanente
           lore:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban Permanente
           lore:
             - "&cBan Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     24:
@@ -840,17 +943,21 @@ GUI:
       reason: "Vender objetos del servidor por dinero en la vida real"
       levels:
         0:
+          name: BanIP Permanente
           lore:
             - "&5BanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: BanIP Permanente
           lore:
             - "&cBanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     25:
@@ -862,6 +969,7 @@ GUI:
       reason: "Mute Evading"
       levels:
         0:
+          name: BanIP 5d
           lore:
             - "&aBanIP 5d &d&l<"
             - "&aBanIP 10d"
@@ -870,9 +978,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: BanIP 10d
           lore:
             - "&cBanIP 5d"
             - "&aBanIP 10d &d&l<"
@@ -881,9 +991,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: BanIP 15d
           lore:
             - "&cBanIP 5d"
             - "&cBanIP 10d"
@@ -892,9 +1004,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: BanIP 20d
           lore:
             - "&cBanIP 5d"
             - "&cBanIP 10d"
@@ -903,9 +1017,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
+          name: BanIP
           lore:
             - "&cBanIP 5d"
             - "&cBanIP 10d"
@@ -914,6 +1030,7 @@ GUI:
             - "&aBanIP &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     26:
@@ -925,6 +1042,7 @@ GUI:
       reason: "Multicuentas conectadas"
       levels:
         0:
+          name: BanIP 1d
           lore:
             - "&aBanIP 1d &d&l<"
             - "&aBanIP 3d"
@@ -932,9 +1050,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: BanIP 3d
           lore:
             - "&cBanIP 1d"
             - "&aBanIP 3d &d&l<"
@@ -942,9 +1062,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         2:
+          name: BanIP 7d
           lore:
             - "&cBanIP 1d"
             - "&cBanIP 3d"
@@ -952,9 +1074,11 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         3:
+          name: BanIP Permanente
           lore:
             - "&cBanIP 1d"
             - "&cBanIP 3d"
@@ -962,6 +1086,7 @@ GUI:
             - "&5BanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     27:
@@ -973,6 +1098,7 @@ GUI:
       reason: "Items Renombrados (malsonantes)"
       levels:
         0:
+          name: Warn
           lore:
             - "&9Warn &d&l<"
             - "&eJail 1d"
@@ -986,6 +1112,7 @@ GUI:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
             - ""
         1:
+          name: Jail 1d
           lore:
             - "&cWarn"
             - "&eJail 1d &d&l<"
@@ -1000,6 +1127,7 @@ GUI:
             - "jail %player% 1 86400"
 
         2:
+          name: Jail 3d
           lore:
             - "&cWarn"
             - "&cJail 1d"
@@ -1014,6 +1142,7 @@ GUI:
             - "jail %player% 1 259200"
 
         3:
+          name: Jail 5d
           lore:
             - "&9Warn"
             - "&eJail 1d"
@@ -1027,6 +1156,7 @@ GUI:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
             - "jail %player% 1 432000"
         4:
+          name: Jail 7d
           lore:
             - "&cWarn"
             - "&cJail 1d"
@@ -1040,6 +1170,7 @@ GUI:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
             - "jail %player% 1 604800"
         5:
+          name: Jail Permanente
           lore:
             - "&cWarn"
             - "&cJail 1d"
@@ -1061,6 +1192,7 @@ GUI:
       reason: "Jail Evading (multicuentas)"
       levels:
         0:
+          name: BanIP 3d
           lore:
             - "&aBanIP 3d &d&l<"
             - "&aBanIP 7d"
@@ -1069,9 +1201,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: BanIP 7d
           lore:
             - "&cBanIP 3d"
             - "&aBanIP 7d &d&l<"
@@ -1079,10 +1213,12 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: BanIP 14d
           lore:
             - "&cBanIP 3d"
             - "&cBanIP 7d"
@@ -1090,10 +1226,12 @@ GUI:
             - "&5BanIP Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "tempipban %player% 14d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: BanIP Permanente
           lore:
             - "&cBanIP 3d"
             - "&cBanIP 7d"
@@ -1101,6 +1239,7 @@ GUI:
             - "&5BanIP Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     29:
@@ -1112,6 +1251,7 @@ GUI:
       reason: "Stalking"
       levels:
         0:
+          name: Warn
           lore:
             - "&9Warn &d&l<"
             - "&6Kick"
@@ -1124,6 +1264,7 @@ GUI:
           commands:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Kick
           lore:
             - "&cWarn"
             - "&6Kick &d&l<"
@@ -1136,6 +1277,7 @@ GUI:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 30min
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1144,11 +1286,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban 1h
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1157,10 +1300,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
+          name: Ban Permanente
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1169,7 +1313,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     30:
@@ -1181,6 +1325,7 @@ GUI:
       reason: "TPA KILL"
       levels:
         0:
+          name: Ban 1d
           lore:
             - "&aBan 1d &d&l<"
             - "&aBan 3d"
@@ -1189,9 +1334,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
+          permission: "group.moderador"
           commands:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 3d
           lore:
             - "&cBan 1d"
             - "&aBan 3d &d&l<"
@@ -1199,10 +1346,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
+          permission: "group.moderador"
           commands:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 5d
           lore:
             - "&cBan 1d"
             - "&cBan 3d"
@@ -1210,11 +1359,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 1d"
             - "&cBan 3d"
@@ -1222,7 +1372,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     31:
@@ -1234,6 +1384,7 @@ GUI:
       reason: "Realizar eventos"
       levels:
         0:
+          name: Warn
           lore:
             - "&9Warn &d&l<"
             - "&6Kick"
@@ -1247,6 +1398,7 @@ GUI:
           commands:
             - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Kick
           lore:
             - "&cWarn"
             - "&6Kick &d&l<"
@@ -1260,6 +1412,7 @@ GUI:
             - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 1d
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1269,11 +1422,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban 3d
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1283,10 +1437,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         4:
+          name: Ban 7d
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1296,10 +1451,11 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         5:
+          name: Ban Permanente
           lore:
             - "&cWarn"
             - "&cKick"
@@ -1309,7 +1465,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     32:
@@ -1321,6 +1477,7 @@ GUI:
       reason: "Grifeo"
       levels:
         0:
+          name: Ban 5h
           lore:
             - "&aBan 5h &d&l<"
             - "&aBan 1d"
@@ -1329,10 +1486,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1d
           lore:
             - "&cBan 5h"
             - "&aBan 1d &d&l<"
@@ -1340,11 +1498,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 3d
           lore:
             - "&cBan 5h"
             - "&cBan 1d"
@@ -1352,11 +1511,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 5h"
             - "&cBan 1d"
@@ -1364,7 +1524,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     33:
@@ -1376,6 +1536,7 @@ GUI:
       reason: "Máquina de lag"
       levels:
         0:
+          name: Ban 1d
           lore:
             - "&aBan 1d &d&l<"
             - "&aBan 3d"
@@ -1384,10 +1545,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 3d
           lore:
             - "&cBan 1d"
             - "&aBan 3d &d&l<"
@@ -1395,11 +1557,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 5d
           lore:
             - "&cBan 1d"
             - "&cBan 3d"
@@ -1407,11 +1570,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 1d"
             - "&cBan 3d"
@@ -1419,7 +1583,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     34:
@@ -1431,6 +1595,7 @@ GUI:
       reason: "Multicuentas para farmear"
       levels:
         0:
+          name: Ban 1d
           lore:
             - "&aBan 1d &d&l<"
             - "&aBan 3d"
@@ -1439,10 +1604,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 3d
           lore:
             - "&cBan 1d"
             - "&aBan 3d &d&l<"
@@ -1450,11 +1616,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 7d
           lore:
             - "&cBan 1d"
             - "&cBan 3d"
@@ -1462,11 +1629,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 1d"
             - "&cBan 3d"
@@ -1474,7 +1642,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     35:
@@ -1486,6 +1654,7 @@ GUI:
       reason: "Maquina AFK"
       levels:
         0:
+          name: Ban 5h
           lore:
             - "&aBan 5h &d&l<"
             - "&aBan 1d"
@@ -1494,10 +1663,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1d
           lore:
             - "&cBan 5h"
             - "&aBan 1d &d&l<"
@@ -1505,11 +1675,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 2d
           lore:
             - "&cBan 5h"
             - "&cBan 1d"
@@ -1517,11 +1688,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 5h"
             - "&cBan 1d"
@@ -1529,7 +1701,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     36:
@@ -1541,6 +1713,7 @@ GUI:
       reason: "Robar objetos a otro usuario"
       levels:
         0:
+          name: Ban 10h
           lore:
             - "&aBan 10h &d&l<"
             - "&aBan 1d"
@@ -1549,10 +1722,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 10h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1d
           lore:
             - "&cBan 10h"
             - "&aBan 1d &d&l<"
@@ -1560,11 +1734,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 3d
           lore:
             - "&cBan 10h"
             - "&cBan 1d"
@@ -1572,11 +1747,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 10h"
             - "&cBan 1d"
@@ -1584,7 +1760,7 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     37:
@@ -1596,6 +1772,7 @@ GUI:
       reason: "Exceder el máximo de team en PvP (6v1)"
       levels:
         0:
+          name: Ban 10h
           lore:
             - "&aBan 10h &d&l<"
             - "&aBan 1d"
@@ -1604,10 +1781,11 @@ GUI:
             - ""
             - "&6* Click para sancionar"
 
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 10h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
+          name: Ban 1d
           lore:
             - "&cBan 10h"
             - "&aBan 1d &d&l<"
@@ -1615,11 +1793,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
+          name: Ban 2d
           lore:
             - "&cBan 10h"
             - "&cBan 1d"
@@ -1627,11 +1806,12 @@ GUI:
             - "&5Ban Permanente"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "tempban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
+          name: Ban Permanente
           lore:
             - "&cBan 10h"
             - "&cBan 1d"
@@ -1639,29 +1819,9 @@ GUI:
             - "&5Ban Permanente &d&l<"
             - ""
             - "&6* Click para sancionar"
-          permission: "group.mod"
+          permission: "group.moderador"
           commands:
             - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-    "nextPage":
-      material: ARROW
-      displayName: "&bSiguiente página"
-      lore:
-        - "&a&lSanciones de SURVIVAL"
-        - ""
-        - "&6* Click para ir a la siguiente página"
-      nextPage: true
-      page: 1
-      slot: 53
-    "backPage":
-      material: ARROW
-      displayName: "&bPágina anterior"
-      lore:
-        - "&b&lSanciones GLOBALES"
-        - ""
-        - "&6* Click para ir a la página anterior"
-      backPage: true
-      page: 2
-      slot: 45
     "alts":
       material: PAPER
       displayName: "&aVer alts del usuario"
@@ -1674,7 +1834,7 @@ GUI:
             - "&6* Click para ver sus alts"
 
           commands:
-            - "sudo %sender% alts %player%"
+            - "[player] alts %player%"
     "logs":
       material: PAPER
       displayName: "&aVer logs del usuario"
@@ -1687,7 +1847,7 @@ GUI:
             - "&6* Click para ver sus logs"
 
           commands:
-            - "sudo %sender% logs %player%"
+            - "[player] logs %player%"
     "lastmsg":
       material: PAPER
       displayName: "&aVer últimos mensajes del usuario"
@@ -1700,7 +1860,7 @@ GUI:
             - "&6* Click para ver sus últimos mensajes"
 
           commands:
-            - "sudo %sender% co l a:chat %player%"
+            - "[player] co l a:chat %player%"
     "history":
       material: PAPER
       displayName: "&aVer historial del usuario"
@@ -1713,7 +1873,7 @@ GUI:
             - "&6* Click para ver su historial"
 
           commands:
-            - "sudo %sender% history %player%"
+            - "[player] history %player%"
     "cerrar":
       material: BOOK
       displayName: "&aVer historial del usuario"

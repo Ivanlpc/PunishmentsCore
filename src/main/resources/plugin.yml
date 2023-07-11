@@ -1,8 +1,11 @@
-name: PunishmentsGUI
+name: PunishmentsCore
 version: '${project.version}'
-main: me.ivanlpc.punishmentsgui.PunishmentsGUI
-softdepend: [LiteBans]
+main: me.ivanlpc.punishmentscore.PunishmentsCore
+depend: [LiteBans]
 commands:
   punish:
     description: Opens a GUI to punish the player
-    aliases: [gestionar, punishmentsgui]
+    aliases: [gestionar, pn]
+  orders:
+    description: Opens a GUI with pending punishments
+    aliases: [pedidos, pedi2, orders]
