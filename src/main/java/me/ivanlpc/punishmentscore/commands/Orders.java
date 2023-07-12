@@ -2,7 +2,7 @@ package me.ivanlpc.punishmentscore.commands;
 
 import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.api.database.entities.Order;
-import me.ivanlpc.punishmentscore.inventories.builders.OrdersGUI;
+import me.ivanlpc.punishmentscore.inventories.types.OrdersGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

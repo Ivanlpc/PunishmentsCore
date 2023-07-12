@@ -1,10 +1,11 @@
-package me.ivanlpc.punishmentscore.inventories.builders;
+package me.ivanlpc.punishmentscore.inventories.types;
 
 import de.tr7zw.changeme.nbtapi.NBT;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.api.database.entities.Order;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
+import me.ivanlpc.punishmentscore.inventories.builders.PaginatedInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -99,10 +100,12 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
         } else if(event.getClick().isLeftClick()) {
             Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
                 List<String> commands = this.plugin.getDbmanager().getCommandsFromOrder(id);
-                Bukkit.getScheduler().callSyncMethod(this.plugin, () -> {
-                    executeCommands(p, commands);
-                    return null;
-                });
+                if(commands.size() > 0) {
+                    Bukkit.getScheduler().callSyncMethod(this.plugin, () -> {
+                        executeCommands(p, commands);
+                        return null;
+                    });
+                }
                 this.plugin.getDbmanager().deleteOrder(id);
                 Bukkit.getScheduler().callSyncMethod(plugin, () -> {
                     p.closeInventory();

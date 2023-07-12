@@ -1,9 +1,10 @@
-package me.ivanlpc.punishmentscore.inventories.builders;
+package me.ivanlpc.punishmentscore.inventories.types;
 
 import de.tr7zw.changeme.nbtapi.NBT;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
+import me.ivanlpc.punishmentscore.inventories.builders.InventoryBuilder;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -68,8 +69,12 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
                 List<String> commands = this.plugin.getConfig().getStringList("GUI.items." + key + ".levels." + level + ".commands");
                 String reason = this.plugin.getConfig().getString("GUI.items." + key + ".reason");
                 List<String> parsedCommands = parseCommands(p, punishedPlayer, reason, commands);
-                this.plugin.getDbmanager().createOrder(p, this.punishedPlayer, name, punishment, parsedCommands );
-                msg = this.plugin.getMessages().getString("Messages.creating_order");
+                int order = this.plugin.getDbmanager().createOrder(p, this.punishedPlayer, name, punishment, parsedCommands );
+                if(order == 0) msg = this.plugin.getMessages().getString("Messages.order_error");
+                else {
+                    msg = this.plugin.getMessages().getString("Messages.creating_order");
+                    msg = msg.replaceAll("%order%", String.valueOf(order));
+                }
             }
             p.closeInventory();
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
