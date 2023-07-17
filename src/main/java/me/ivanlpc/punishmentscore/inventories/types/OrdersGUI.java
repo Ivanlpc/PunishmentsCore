@@ -89,7 +89,7 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
 
         if(event.getClick().isRightClick()) {
             Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
-                this.plugin.getDbmanager().deleteOrder(id);
+                this.plugin.getDbManager().deleteOrder(id);
                 Bukkit.getScheduler().callSyncMethod(plugin, () -> {
                     String msg = this.plugin.getMessages().getString("Messages.order_deleted");
                     p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
@@ -99,14 +99,14 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
             });
         } else if(event.getClick().isLeftClick()) {
             Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
-                List<String> commands = this.plugin.getDbmanager().getCommandsFromOrder(id);
+                List<String> commands = this.plugin.getDbManager().getCommandsFromOrder(id);
                 if(commands.size() > 0) {
                     Bukkit.getScheduler().callSyncMethod(this.plugin, () -> {
                         executeCommands(p, commands);
                         return null;
                     });
                 }
-                this.plugin.getDbmanager().deleteOrder(id);
+                this.plugin.getDbManager().deleteOrder(id);
                 Bukkit.getScheduler().callSyncMethod(plugin, () -> {
                     p.closeInventory();
                     return null;

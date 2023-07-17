@@ -24,24 +24,13 @@ public class Punish implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        if(!(sender instanceof Player)) {
-            sender.sendMessage("Only players can use this command");
-            return true;
-        }
-        if(!sender.hasPermission("punishmentscore.use")) {
-            String msg = this.plugin.getMessages().getString("Messages.no_permission");
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-            return true;
-        }
         if(args.length < 1){
             String msg = this.plugin.getMessages().getString("Messages.usage");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             return true;
         }
         if(args[0].equals("reload")) {
-
-            if(!sender.hasPermission("punishmentscore.reload")) {
+            if(!sender.hasPermission("punishmentscore.reload") && (sender instanceof Player)) {
                 String msg = this.plugin.getMessages().getString("Messages.no_permission");
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
                 return true;
@@ -52,6 +41,17 @@ public class Punish implements CommandExecutor {
             this.plugin.reloadFiles();
             return true;
         }
+        if(!(sender instanceof Player)) {
+            sender.sendMessage("Only players can use this command");
+            return true;
+        }
+        if(!sender.hasPermission("punishmentscore.use")) {
+            String msg = this.plugin.getMessages().getString("Messages.no_permission");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            return true;
+        }
+
+
 
         Player player = (Player) sender;
         String userToPunish = args[0];

@@ -23,7 +23,7 @@ public class Orders implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)) {
-            sender.sendMessage("Only players can execute this command");
+            sender.sendMessage("Only players can use this command");
             return true;
         }
         Player p = (Player) sender;
@@ -33,7 +33,7 @@ public class Orders implements CommandExecutor {
             return true;
         }
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
-            List<Order> orders = this.plugin.getDbmanager().getOrders();
+            List<Order> orders = this.plugin.getDbManager().getOrders();
             if(orders.size() == 0) {
                 String msg = this.plugin.getMessages().getString("Messages.no_orders");
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));

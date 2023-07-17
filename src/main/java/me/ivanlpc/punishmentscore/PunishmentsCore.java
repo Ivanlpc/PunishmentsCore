@@ -19,7 +19,7 @@ public final class PunishmentsCore extends JavaPlugin {
     private final PluginDescriptionFile pluginfile = getDescription();
     private final InventoryManager inventoryManager = new InventoryManager();
     private FileConfiguration messages, database;
-    private DatabaseManager dbmanager;
+    private DatabaseManager dbManager;
     @Override
     public void onEnable() {
         long ms = System.currentTimeMillis();
@@ -35,8 +35,9 @@ public final class PunishmentsCore extends JavaPlugin {
         //Registering commands
         this.getCommand("punish").setExecutor(new Punish(this));
         this.getCommand("orders").setExecutor(new Orders(this));
-
-        this.dbmanager = new DatabaseManager();
+        if(this.getDatabase().getBoolean("use")) {
+            this.dbManager = new DatabaseManager();
+        }
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN  + pluginfile.getName() + " has been enabled in " + (System.currentTimeMillis() - ms) + " ms. Version: " + pluginfile.getVersion());
     }
@@ -44,7 +45,7 @@ public final class PunishmentsCore extends JavaPlugin {
     @Override
     public void onDisable() {
         this.inventoryManager.closeAllInventories();
-        this.dbmanager.close();
+        this.dbManager.close();
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED  + pluginfile.getName() + " has been disabled. Version: " + pluginfile.getVersion());
     }
     public InventoryManager getInventoryManager() {
@@ -70,11 +71,13 @@ public final class PunishmentsCore extends JavaPlugin {
             e.printStackTrace();
         }
     }
+
     public void reloadFiles() {
         this.loadFiles();
         this.reloadConfig();
-        this.dbmanager.reloadConnection();
+        this.dbManager.reloadConnection();
     }
+
     public FileConfiguration getMessages() {
         return messages;
     }
@@ -82,8 +85,7 @@ public final class PunishmentsCore extends JavaPlugin {
     public FileConfiguration getDatabase() {
         return database;
     }
-    public DatabaseManager getDbmanager() {
-        return this.dbmanager;
+    public DatabaseManager getDbManager() {
+        return this.dbManager;
     }
-
 }

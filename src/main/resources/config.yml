@@ -1052,7 +1052,7 @@ GUI:
             - "&6* Click para sancionar"
           permission: "group.moderador"
           commands:
-            - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempipban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
           name: BanIP 3d
           lore:
@@ -1336,7 +1336,7 @@ GUI:
 
           permission: "group.moderador"
           commands:
-            - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
         1:
           name: Ban 3d
           lore:
@@ -1348,7 +1348,7 @@ GUI:
             - "&6* Click para sancionar"
           permission: "group.moderador"
           commands:
-            - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         2:
           name: Ban 5d
@@ -1361,7 +1361,7 @@ GUI:
             - "&6* Click para sancionar"
           permission: "group.moderador"
           commands:
-            - "tempban %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
         3:
           name: Ban Permanente
@@ -1374,7 +1374,7 @@ GUI:
             - "&6* Click para sancionar"
           permission: "group.moderador"
           commands:
-            - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+            - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
     31:
       material: BLAZE_ROD
       displayName: "&bRealizar eventos"
