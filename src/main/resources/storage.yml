@@ -6,3 +6,11 @@ Database:
   password: ""
   database: "punishmentscore"
   poolSize: 10
+
+  SELECT 'ban' as type, banned_by_name, until, active, reason FROM litebans_bans WHERE uuid = 'dbc160b0-49e2-42cf-8176-7fae58c9b6ee' AND time = (SELECT MAX(time) FROM litebans_bans WHERE uuid ='dbc160b0-49e2-42cf-8176-7fae58c9b6ee')
+  UNION ALL
+  SELECT 'mute' as type, banned_by_name, until, active,reason FROM litebans_mutes WHERE uuid = 'dbc160b0-49e2-42cf-8176-7fae58c9b6ee' AND time = (SELECT MAX(time) FROM litebans_mutes WHERE uuid ='dbc160b0-49e2-42cf-8176-7fae58c9b6ee')
+  UNION ALL
+  SELECT 'kick' as type, banned_by_name, until, active,reason FROM litebans_kicks WHERE uuid = 'dbc160b0-49e2-42cf-8176-7fae58c9b6ee' AND time = (SELECT MAX(time) FROM litebans_kicks WHERE uuid ='dbc160b0-49e2-42cf-8176-7fae58c9b6ee')
+  UNION ALL
+  SELECT 'warn' as type, banned_by_name, until, active,reason FROM litebans_warnings WHERE uuid = 'dbc160b0-49e2-42cf-8176-7fae58c9b6ee' AND time = (SELECT MAX(time) FROM litebans_warnings WHERE uuid ='dbc160b0-49e2-42cf-8176-7fae58c9b6ee');
