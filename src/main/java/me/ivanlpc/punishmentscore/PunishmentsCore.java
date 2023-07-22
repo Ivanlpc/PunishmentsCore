@@ -3,6 +3,7 @@ package me.ivanlpc.punishmentscore;
 import me.ivanlpc.punishmentscore.api.database.DatabaseManager;
 import me.ivanlpc.punishmentscore.commands.Orders;
 import me.ivanlpc.punishmentscore.commands.Punish;
+import me.ivanlpc.punishmentscore.commands.Sanctions;
 import me.ivanlpc.punishmentscore.listeners.InventoryEvents;
 import me.ivanlpc.punishmentscore.listeners.PlayerEvents;
 import me.ivanlpc.punishmentscore.inventories.InventoryManager;
@@ -35,6 +36,8 @@ public final class PunishmentsCore extends JavaPlugin {
         //Registering commands
         this.getCommand("punish").setExecutor(new Punish(this));
         this.getCommand("orders").setExecutor(new Orders(this));
+        this.getCommand("sanctions").setExecutor(new Sanctions(this));
+
         if(this.getDatabase().getBoolean("use")) {
             this.dbManager = new DatabaseManager();
         }

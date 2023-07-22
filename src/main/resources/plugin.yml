@@ -9,3 +9,6 @@ commands:
   orders:
     description: Opens a GUI with pending punishments
     aliases: [pedidos, pedi2, orders]
+  sanctions:
+    description: Opens a GUI with the last punish you received
+    aliases: [sanciones]

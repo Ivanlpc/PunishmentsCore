@@ -1,3 +1,50 @@
+SanctionsGUI:
+  name: "Lista de sanciones"
+  size: 54
+  items:
+    last-ban:
+      slot: 30
+      material: PAPER
+      displayName: "&c&lBAN ID: %id%"
+      lore:
+        - "&fRazón: &b%reason%"
+        - "&fStaff: &3%staff%"
+        - "&fFecha de inicio: %date%"
+        - "&fFecha de fin: &d%until%"
+      no-punishments-lore:
+        - "&6¡Genial, no has tenido ningún baneo!"
+    last-mute:
+      slot: 31
+      material: PAPER
+      displayName: "&c&lMUTE ID: %id%"
+      lore:
+        - "&fRazón: &b%reason%"
+        - "&fStaff: &3%staff%"
+        - "&fFecha de inicio: %date%"
+        - "&fFecha de fin: &d%until%"
+      no-punishments-lore:
+        - "&6¡Genial, no has tenido ningún muteo!"
+    last-kick:
+      slot: 32
+      material: PAPER
+      displayName: "&c&lKICK ID: %id%"
+      lore:
+        - "&fRazón: &b%reason%"
+        - "&fStaff: &3%staff%"
+        - "&fFecha: %date%"
+      no-punishments-lore:
+        - "&6¡Genial, no has tenido ninguna expulsión!"
+    last-warn:
+      slot: 33
+      material: PAPER
+      displayName: "&c&lWARN ID: %id%"
+      lore:
+        - "&fRazón: &b%reason%"
+        - "&fStaff: &3%staff%"
+        - "&fFecha de inicio: %date%"
+        - "&fFecha de fin: &d%until%"
+      no-punishments-lore:
+        - "&6¡Genial, no has tenido ningún aviso!"
 OrdersGUI:
   name: "Sanciones pendientes"
   item:
