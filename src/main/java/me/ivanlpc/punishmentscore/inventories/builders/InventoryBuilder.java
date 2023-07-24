@@ -16,15 +16,20 @@ import java.util.stream.Collectors;
 
 public abstract class InventoryBuilder {
 
+    protected final ItemStack[] inventories;
+    protected final YamlConfiguration inventoryConfiguration;
+    protected final int size;
+    protected String inventoryName;
+
     public abstract void build();
     public abstract Inventory getFirstInventory();
-    protected final YamlConfiguration inventoryConfiguration;
-    protected String inventoryName;
 
     public InventoryBuilder(String configuration) {
         PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
         inventoryConfiguration = plugin.getInventoryManager().getInventoryConfiguration(configuration);
-
+        this.size = inventoryConfiguration.getInt("size");
+        this.inventories = new ItemStack[size];
+        this.inventoryName = inventoryConfiguration.getString("name");
     }
 
     protected ItemStack getItem(Material m, int durability, String name, List<String> lore_data) {

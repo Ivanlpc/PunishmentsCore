@@ -24,12 +24,12 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
     public OrdersGUI(List<Order> ordersList) {
         super("orders.yml");
         this.ordersList = ordersList;
-        int size = inventoryConfiguration.getInt("size", 54);
+        this.pages = (int) Math.ceil((double) ordersList.size() / (size - 9));
         if(size == 9) throw new IllegalArgumentException("Orders.yml size must be greater than 9");
-        int pages = (int) Math.ceil((double) ordersList.size() / (size - 9));
         inventories = new ItemStack[pages][size];
         if(pages > 1) setPaginationItems();
     }
+
     @Override
     public void build() {
         int slot = 0;
@@ -54,6 +54,7 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
             slot++;
         }
     }
+
     public List<String> parseLore(Order o) {
         List<String> lore = new ArrayList<>();
         List<String> format = inventoryConfiguration.getStringList("item.lore");
@@ -67,7 +68,6 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
         }
         return lore;
     }
-
 
     @Override
     public void handleClick(InventoryClickEvent event) {
@@ -116,7 +116,6 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
                 });
             });
         }
-
     }
 
     @Override

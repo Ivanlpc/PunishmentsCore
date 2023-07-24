@@ -18,16 +18,13 @@ import java.util.Map;
 public class SanctionsGUI extends InventoryBuilder implements PunishmentInventory {
 
     private final Map<String, Sanction> sanction;
-    private final ItemStack[][] inventory;
     private final int size;
 
     public SanctionsGUI(Map<String, Sanction> sanction) {
         super("sanctions.yml");
         this.size = inventoryConfiguration.getInt("size");
         this.sanction = sanction;
-        this.inventory = new ItemStack[1][size];
         this.inventoryName = inventoryConfiguration.getString("name");
-
     }
 
     @Override
@@ -48,14 +45,14 @@ public class SanctionsGUI extends InventoryBuilder implements PunishmentInventor
                 lore = cs.getStringList("no-punishments-lore");
             }
             ItemStack item = getItem(Material.matchMaterial(materialName), 0, displayName, lore);
-            this.inventory[0][slot] = item;
+            this.inventories[slot] = item;
         }
     }
 
     @Override
     public Inventory getFirstInventory() {
         Inventory inv = Bukkit.createInventory(null, this.size, this.inventoryName);
-        inv.setContents(inventory[0]);
+        inv.setContents(inventories);
         return inv;
     }
 

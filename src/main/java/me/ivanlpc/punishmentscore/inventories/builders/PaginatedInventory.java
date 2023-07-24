@@ -14,13 +14,13 @@ public abstract class PaginatedInventory extends InventoryBuilder {
 
     private int currPage;
     protected ItemStack[][] inventories;
+    protected int pages;
 
     public PaginatedInventory(String configuration) {
         super(configuration);
-
         this.currPage = 0;
-        this.inventoryName = inventoryConfiguration.getString("name");
     }
+
     protected void setPaginationItems() {
         for(int i = 0; i < inventories.length; i++) {
             if(i == 0) {
