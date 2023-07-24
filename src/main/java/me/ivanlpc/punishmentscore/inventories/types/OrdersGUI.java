@@ -24,8 +24,10 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
     public OrdersGUI(List<Order> ordersList) {
         super("orders.yml");
         this.ordersList = ordersList;
-        int pages = (int) Math.ceil((double) ordersList.size() / 45);
-        inventories = new ItemStack[pages][54];
+        int size = inventoryConfiguration.getInt("size", 54);
+        if(size == 9) throw new IllegalArgumentException("Orders.yml size must be greater than 9");
+        int pages = (int) Math.ceil((double) ordersList.size() / (size - 9));
+        inventories = new ItemStack[pages][size];
         if(pages > 1) setPaginationItems();
     }
     @Override
