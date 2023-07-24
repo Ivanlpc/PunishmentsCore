@@ -10,8 +10,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 import java.util.Map;
 
 public class Sanctions implements CommandExecutor {
@@ -41,8 +39,6 @@ public class Sanctions implements CommandExecutor {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
                 return;
             }
-            int size = this.plugin.getConfig().getInt("SanctionsGUI.size", 54);
-            String name = this.plugin.getConfig().getString("SanctionsGUI.name", "Sanctions");
 
             SanctionsGUI sg = new SanctionsGUI(sanctions);
             sg.build();

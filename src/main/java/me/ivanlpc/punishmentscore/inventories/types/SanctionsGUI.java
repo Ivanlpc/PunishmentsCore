@@ -1,6 +1,5 @@
 package me.ivanlpc.punishmentscore.inventories.types;
 
-import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.api.database.entities.Sanction;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
 import me.ivanlpc.punishmentscore.inventories.builders.InventoryBuilder;
@@ -10,7 +9,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
