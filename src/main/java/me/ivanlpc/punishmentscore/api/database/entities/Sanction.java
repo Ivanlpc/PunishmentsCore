@@ -1,7 +1,5 @@
 package me.ivanlpc.punishmentscore.api.database.entities;
 
-import java.util.Date;
-
 public class Sanction {
     private final int id;
     private final String banned_by_name;
