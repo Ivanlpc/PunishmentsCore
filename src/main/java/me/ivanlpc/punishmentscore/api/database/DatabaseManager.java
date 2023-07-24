@@ -16,6 +16,7 @@ public class DatabaseManager {
         this.createTable();
     }
     public int createOrder(Player p, String userPunished, String punishment, String reason, List<String> command) {
+        int orderId = -1;
         try (Connection conn = this.hikari.getConnection()) {
             String query = "INSERT INTO orders (username, uuid, user_punished, punishment, reason) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -27,7 +28,7 @@ public class DatabaseManager {
                 stmt.executeUpdate();
                 ResultSet generatedKeys = stmt.getGeneratedKeys();
                 if (generatedKeys.next()) {
-                    int orderId = generatedKeys.getInt(1);
+                    int id = generatedKeys.getInt(1);
                     String insertQuery = "INSERT INTO commands (order_id, command) VALUES (?, ?)";
                     try (PreparedStatement cmdStmt = conn.prepareStatement(insertQuery)) {
                         for (String cmd : command) {
@@ -38,14 +39,14 @@ public class DatabaseManager {
                         cmdStmt.executeBatch();
                     }
                     Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "Created new order: " + orderId);
-                    return orderId;
+                    orderId = id;
                 } else {
                     throw new SQLException("Order ID not generated");
                 }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 0;
+        return orderId;
     }
     public void createTable() {
         try(Connection conn = this.hikari.getConnection()) {
