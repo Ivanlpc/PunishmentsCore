@@ -69,6 +69,8 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
         NBTItem nbti = new NBTItem(event.getCurrentItem());
         Player p = (Player) event.getWhoClicked();
         if(!nbti.hasTag("key")) {
+            this.plugin.getInventoryManager().openInventory(p, this.gui);
+            this.plugin.getInventoryManager().skipCloseAdd(p);
             p.openInventory(this.gui.getFirstInventory());
             return;
         }

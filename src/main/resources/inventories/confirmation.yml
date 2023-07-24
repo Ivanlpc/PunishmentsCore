@@ -1,4 +1,4 @@
-size: 27 #Must be the same as punish.yml
+size: 27
 name: "¿Confirmas la sanción de %player%?"
 accept:
   slot: 12

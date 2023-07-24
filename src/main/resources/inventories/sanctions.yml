@@ -1,54 +1,53 @@
+name: "Lista de sanciones"
+size: 54
+items:
+  ban:
+    slot: 19
+    material: PAPER
+    displayName: "&c&lBAN ID: %id%"
+    lore:
+      - "&fRazón: &b%reason%"
+      - "&fStaff: &3%staff%"
+      - "&fFecha de inicio: %date%"
+      - "&fFecha de fin: &d%until%"
+    no-punishments-name: "&c&lBAN"
 
-  name: "Lista de sanciones"
-  size: 54
-  items:
-    ban:
-      slot: 19
-      material: PAPER
-      displayName: "&c&lBAN ID: %id%"
-      lore:
-        - "&fRazón: &b%reason%"
-        - "&fStaff: &3%staff%"
-        - "&fFecha de inicio: %date%"
-        - "&fFecha de fin: &d%until%"
-      no-punishments-name: "&c&lBAN"
+    no-punishments-lore:
+      - "&6¡Genial, no has tenido ningún baneo!"
+  mute:
+    slot: 21
+    material: PAPER
+    displayName: "&c&lMUTE ID: %id%"
+    lore:
+      - "&fRazón: &b%reason%"
+      - "&fStaff: &3%staff%"
+      - "&fFecha de inicio: %date%"
+      - "&fFecha de fin: &d%until%"
+    no-punishments-name: "&c&lMUTE"
 
-      no-punishments-lore:
-        - "&6¡Genial, no has tenido ningún baneo!"
-    mute:
-      slot: 21
-      material: PAPER
-      displayName: "&c&lMUTE ID: %id%"
-      lore:
-        - "&fRazón: &b%reason%"
-        - "&fStaff: &3%staff%"
-        - "&fFecha de inicio: %date%"
-        - "&fFecha de fin: &d%until%"
-      no-punishments-name: "&c&lMUTE"
+    no-punishments-lore:
+      - "&6¡Genial, no has tenido ningún muteo!"
+  kick:
+    slot: 23
+    material: PAPER
+    displayName: "&c&lKICK ID: %id%"
+    lore:
+      - "&fRazón: &b%reason%"
+      - "&fStaff: &3%staff%"
+      - "&fFecha: %date%"
+    no-punishments-name: "&c&lKICK"
+    no-punishments-lore:
+      - "&6¡Genial, no has tenido ninguna expulsión!"
+  warn:
+    slot: 25
+    material: PAPER
+    displayName: "&c&lWARN ID: %id%"
+    lore:
+      - "&fRazón: &b%reason%"
+      - "&fStaff: &3%staff%"
+      - "&fFecha de inicio: %date%"
+      - "&fFecha de fin: &d%until%"
+    no-punishments-name: "&c&lWARN"
 
-      no-punishments-lore:
-        - "&6¡Genial, no has tenido ningún muteo!"
-    kick:
-      slot: 23
-      material: PAPER
-      displayName: "&c&lKICK ID: %id%"
-      lore:
-        - "&fRazón: &b%reason%"
-        - "&fStaff: &3%staff%"
-        - "&fFecha: %date%"
-      no-punishments-name: "&c&lKICK"
-      no-punishments-lore:
-        - "&6¡Genial, no has tenido ninguna expulsión!"
-    warn:
-      slot: 25
-      material: PAPER
-      displayName: "&c&lWARN ID: %id%"
-      lore:
-        - "&fRazón: &b%reason%"
-        - "&fStaff: &3%staff%"
-        - "&fFecha de inicio: %date%"
-        - "&fFecha de fin: &d%until%"
-      no-punishments-name: "&c&lWARN"
-
-      no-punishments-lore:
-        - "&6¡Genial, no has tenido ningún aviso!"
+    no-punishments-lore:
+      - "&6¡Genial, no has tenido ningún aviso!"
