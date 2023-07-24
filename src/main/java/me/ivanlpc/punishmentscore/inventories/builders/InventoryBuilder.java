@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 public abstract class InventoryBuilder {
 
-
     public abstract void build();
     public abstract Inventory getFirstInventory();
     protected final YamlConfiguration inventoryConfiguration;
