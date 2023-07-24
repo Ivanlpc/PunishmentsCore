@@ -1,5 +1,4 @@
 bungeecord: false
-confirmation: true
 
 Database:
   use: false
