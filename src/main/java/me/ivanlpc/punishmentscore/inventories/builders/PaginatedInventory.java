@@ -1,10 +1,8 @@
 package me.ivanlpc.punishmentscore.inventories.builders;
 
 import de.tr7zw.changeme.nbtapi.NBT;
-import me.ivanlpc.punishmentscore.PunishmentsCore;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -12,9 +10,9 @@ import java.util.List;
 
 public abstract class PaginatedInventory extends InventoryBuilder {
 
-    private int currPage;
     protected ItemStack[][] inventories;
     protected int pages;
+    private int currPage;
 
     public PaginatedInventory(String configuration) {
         super(configuration);
