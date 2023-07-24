@@ -8,3 +8,4 @@ Database:
   password: ""
   database: "punishmentscore"
   poolSize: 10
+  useSSL: false

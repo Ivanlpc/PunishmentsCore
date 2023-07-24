@@ -17,6 +17,7 @@ public class HikariConnection {
         String password = plugin.getConfig().getString("Database.password");
         String database = plugin.getConfig().getString("Database.database");
         int poolSize = plugin.getConfig().getInt("Database.poolSize", 10);
+        boolean useSSL = plugin.getConfig().getBoolean("Database.useSSL");
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl( "jdbc:mysql://" + ip + ":" + port + "/" + database);
         config.setUsername(user);
@@ -24,7 +25,7 @@ public class HikariConnection {
         config.addDataSourceProperty( "autoReconnect" , "true" );
         config.addDataSourceProperty( "verifyServerCertificate" , "false" );
         config.addDataSourceProperty( "leakDetectionThreshold" , "true" );
-        config.addDataSourceProperty( "useSSL" , "false" );
+        config.addDataSourceProperty( "useSSL" , useSSL );
         config.setMaximumPoolSize(poolSize);
         config.setConnectionTimeout(5000);
         ds = new HikariDataSource(config);
