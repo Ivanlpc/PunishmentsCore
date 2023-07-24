@@ -56,7 +56,7 @@ public final class PunishmentsCore extends JavaPlugin {
     @Override
     public void onDisable() {
         this.inventoryManager.closeAllInventories();
-        this.dbManager.close();
+        if(this.dbManager != null) this.dbManager.close();
         Bukkit.getConsoleSender().sendMessage(ChatColor.RED  + pluginfile.getName() + " has been disabled. Version: " + pluginfile.getVersion());
     }
     public InventoryManager getInventoryManager() {
