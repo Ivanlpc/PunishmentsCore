@@ -4,7 +4,9 @@ import me.ivanlpc.punishmentscore.PunishmentsCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
@@ -13,7 +15,18 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public abstract class InventoryBuilder {
-    public abstract ItemStack[][] build();
+
+
+    public abstract void build();
+    public abstract Inventory getFirstInventory();
+    protected final YamlConfiguration inventoryConfiguration;
+    protected String inventoryName;
+
+    public InventoryBuilder(String configuration) {
+        PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
+        inventoryConfiguration = plugin.getInventoryManager().getInventoryConfiguration(configuration);
+
+    }
 
     protected ItemStack getItem(Material m, int durability, String name, List<String> lore_data) {
         ItemStack item = new ItemStack(m, 1,(short) durability);

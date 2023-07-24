@@ -55,16 +55,16 @@ public class LitebansAPI {
         Map<String, Sanction> sanctions = new HashMap<>();
 
         String query = new StringBuilder()
-                .append("SELECT 'ban' as type, id, banned_by_name, until, date, reason FROM {bans} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {bans} WHERE uuid = ?)")
-                .append("UNION ALL")
-                .append("SELECT 'mute' as type, id, banned_by_name, until, date,reason FROM {mutes} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {mutes} WHERE uuid = ?)")
-                .append("UNION ALL")
-                .append("SELECT 'kick' as type, id, banned_by_name, until, date,reason FROM {kicks} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {kicks} WHERE uuid = ?)")
-                .append("UNION ALL")
-                .append("SELECT 'warn' as type, id, banned_by_name, until, date,reason FROM {warnings} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {warnings} WHERE uuid = ?)")
+                .append("SELECT 'ban' as type, id, banned_by_name, until, time, reason FROM {bans} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {bans} WHERE uuid = ?)")
+                .append(" UNION ALL")
+                .append(" SELECT 'mute' as type, id, banned_by_name, until, time, reason FROM {mutes} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {mutes} WHERE uuid = ?)")
+                .append(" UNION ALL")
+                .append(" SELECT 'kick' as type, id, banned_by_name, until, time, reason FROM {kicks} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {kicks} WHERE uuid = ?)")
+                .append(" UNION ALL")
+                .append(" SELECT 'warn' as type, id, banned_by_name, until, time, reason FROM {warnings} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {warnings} WHERE uuid = ?)")
                 .toString();
         try(PreparedStatement stm = Database.get().prepareStatement(query)) {
-            for(int i = 0; i < 8; i++) {
+            for(int i = 1; i <= 8; i++) {
                 stm.setString(i, uuid.toString());
             }
             ResultSet resultSet = stm.executeQuery();
@@ -72,14 +72,16 @@ public class LitebansAPI {
                 String type = resultSet.getString("type");
                 int id = resultSet.getInt("id");
                 String banned_by_name = resultSet.getString("banned_by_name");
-                Date until = resultSet.getDate("until");
-                Date time = resultSet.getDate("time");
+                Long until = resultSet.getLong("until");
+                Long time = resultSet.getLong("time");
                 String reason = resultSet.getString("reason");
                 Sanction sanction = new Sanction(id,banned_by_name, reason, time, until);
                 sanctions.put(type, sanction);
             }
             return sanctions;
         } catch (SQLException e) {
+            e.printStackTrace();
+            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + " Error fetching: " + uuid.toString() + " from LiteBans database");
             return null;
         }
     }

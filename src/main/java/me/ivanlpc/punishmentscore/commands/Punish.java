@@ -88,14 +88,12 @@ public class Punish implements CommandExecutor {
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
             PunishmentGUI pg = new PunishmentGUI(punishmentsList, userToPunish);
-            ItemStack[][] invs = pg.build();
+            pg.build();
             plugin.getInventoryManager().openInventory(player, pg);
 
             //Using the Bukkit API in the main thread
             Bukkit.getScheduler().callSyncMethod(plugin, () -> {
-                String invname = this.plugin.getConfig().getString("GUI.name").replace("%player%", userToPunish);
-                Inventory inv = Bukkit.createInventory(player, this.plugin.getConfig().getInt("GUI.size"), invname);
-                inv.setContents(invs[0]);
+                Inventory inv = pg.getFirstInventory();
                 player.openInventory(inv);
                 return null;
             });

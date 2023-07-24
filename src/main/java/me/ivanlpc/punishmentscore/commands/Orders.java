@@ -32,6 +32,11 @@ public class Orders implements CommandExecutor {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             return true;
         }
+        if(!this.plugin.getConfig().getBoolean("Database.use")) {
+            String msg = this.plugin.getMessages().getString("Messages.database_disabled");
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            return true;
+        }
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
             List<Order> orders = this.plugin.getDbManager().getOrders();
             if(orders.size() == 0) {
@@ -40,9 +45,8 @@ public class Orders implements CommandExecutor {
                 return;
             }
             OrdersGUI inventory = new OrdersGUI(orders);
-            ItemStack[][] items = inventory.build();
-            Inventory inv = Bukkit.createInventory(p, 54, this.plugin.getConfig().getString("OrdersGUI.name", "Orders"));
-            inv.setContents(items[0]);
+            inventory.build();
+            Inventory inv = inventory.getFirstInventory();
             this.plugin.getInventoryManager().openInventory(p, inventory);
             Bukkit.getScheduler().callSyncMethod(plugin, () -> {
                 p.openInventory(inv);

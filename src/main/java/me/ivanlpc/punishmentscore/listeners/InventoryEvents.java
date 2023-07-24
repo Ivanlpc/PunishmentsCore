@@ -46,7 +46,4 @@ public class InventoryEvents implements Listener {
         if(this.plugin.getInventoryManager().hasInventory(p)) return;
         this.plugin.getInventoryManager().closeInventory(p);
     }
-
-
-
 }

@@ -21,17 +21,18 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
     private final String punishedPlayer;
 
     public PunishmentGUI(Map<String, Integer> punishmentList, String punishedPlayer) {
-        super();
-        int pages = this.plugin.getConfig().getInt("GUI.pages");
-        int size = this.plugin.getConfig().getInt("GUI.size", 54);
+        super("punish.yml");
+        int pages = inventoryConfiguration.getInt("pages");
+        int size = inventoryConfiguration.getInt("size", 54);
         this.punishmentList = punishmentList;
         inventories = new ItemStack[pages][size];
         this.punishedPlayer = punishedPlayer;
+        inventoryName = inventoryName.replaceAll("%player%", punishedPlayer);
     }
     @Override
-    public ItemStack[][] build() {
-        if(this.inventories.length > 1) setPaginationItems("GUI");
-        ConfigurationSection sec = this.plugin.getConfig().getConfigurationSection("GUI.items");
+    public void build() {
+        if(inventories.length > 1) setPaginationItems();
+        ConfigurationSection sec = inventoryConfiguration.getConfigurationSection("items");
         for(String key : sec.getKeys(false)) {
             List<String> lore;
             String name = sec.getString(key +".displayName");
@@ -54,22 +55,6 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
             });
             inventories[page][slot] = is;
         }
-        return this.inventories;
-    }
-
-
-    private int getCommandId(String key) {
-        String reason = this.plugin.getConfig().getString("GUI.items." + key + ".reason");
-        ConfigurationSection cs = this.plugin.getConfig().getConfigurationSection("GUI.items." + key + ".levels");
-        int max = 0;
-        for(String s: cs.getKeys(false)) {
-            int num = Integer.parseInt(s);
-            if(num > max ){
-                max = num;
-            }
-        }
-        int punishmentCount = punishmentList.getOrDefault(reason, 0);
-        return Math.min(punishmentCount, max);
     }
 
     @Override
@@ -79,14 +64,13 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
         boolean confirmation = nbti.getBoolean("conf");
         String key = nbti.getString("key");
         String level = nbti.getString("level");
+        PunishmentGUI pg = (PunishmentGUI) this.plugin.getInventoryManager().getCurrentInventory(p);
         if(key.equals("backPage")) {
-            PunishmentGUI pg = (PunishmentGUI) this.plugin.getInventoryManager().getCurrentInventory(p);
             ItemStack[] is = pg.getBackPage();
             event.getClickedInventory().setContents(is);
             p.updateInventory();
             return;
         } else if(key.equals("nextPage")) {
-            PunishmentGUI pg = (PunishmentGUI) this.plugin.getInventoryManager().getCurrentInventory(p);
             ItemStack[] is = pg.getNextPage();
             event.getClickedInventory().setContents(is);
             p.updateInventory();
@@ -94,15 +78,16 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
         }
         if(confirmation) {
             nbti.setBoolean("isConfirmation", true);
-            ConfirmationGUI cg = new ConfirmationGUI(nbti.getItem(), punishedPlayer);
+            ConfirmationGUI cg = new ConfirmationGUI(nbti.getItem(), pg);
             this.plugin.getInventoryManager().openInventory(p, cg);
-            ItemStack[][] items = cg.build();
-            event.getClickedInventory().setContents(items[0]);
-            p.updateInventory();
+            cg.build();
+            this.plugin.getInventoryManager().skipCloseAdd(p);
+            p.openInventory(cg.getFirstInventory());
             return;
         }
-        List<String> commands = this.plugin.getConfig().getStringList("GUI.items." + key + ".levels." + level + ".commands");
-        String reason = this.plugin.getConfig().getString("GUI.items." + key + ".reason");
+
+        List<String> commands = inventoryConfiguration.getStringList("items." + key + ".levels." + level + ".commands");
+        String reason = inventoryConfiguration.getString("items." + key + ".reason");
         List<String> parsedCommands = parseCommands(p, punishedPlayer, reason, commands);
         executeCommands(p, parsedCommands);
     }
@@ -110,5 +95,32 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
     @Override
     public String getPunishedPlayer() {
         return this.punishedPlayer;
+    }
+
+    protected String getPunishment(String key) {
+        return inventoryConfiguration.getString("items." + key + ".reason");
+    }
+    protected String getName(String key, String level) {
+        return inventoryConfiguration.getString("items." + key + ".levels." + level + ".name");
+    }
+    protected List<String> getCommands(String key, String level) {
+        return inventoryConfiguration.getStringList("items." + key + ".levels." + level + ".commands");
+    }
+    protected String getReason(String key) {
+        return inventoryConfiguration.getString("items." + key + ".reason");
+    }
+
+    private int getCommandId(String key) {
+        String reason = inventoryConfiguration.getString("items." + key + ".reason");
+        ConfigurationSection cs = inventoryConfiguration.getConfigurationSection("items." + key + ".levels");
+        int max = 0;
+        for(String s: cs.getKeys(false)) {
+            int num = Integer.parseInt(s);
+            if(num > max ){
+                max = num;
+            }
+        }
+        int punishmentCount = punishmentList.getOrDefault(reason, 0);
+        return Math.min(punishmentCount, max);
     }
 }

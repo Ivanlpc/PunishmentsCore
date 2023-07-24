@@ -11,12 +11,12 @@ public class HikariConnection {
 
     public HikariConnection() {
         PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
-        String ip = plugin.getDatabase().getString("Database.ip");
-        String port = plugin.getDatabase().getString("Database.port");
-        String user = plugin.getDatabase().getString("Database.user");
-        String password = plugin.getDatabase().getString("Database.password");
-        String database = plugin.getDatabase().getString("Database.database");
-        int poolSize = plugin.getDatabase().getInt("Database.poolSize", 10);
+        String ip = plugin.getConfig().getString("Database.ip");
+        String port = plugin.getConfig().getString("Database.port");
+        String user = plugin.getConfig().getString("Database.user");
+        String password = plugin.getConfig().getString("Database.password");
+        String database = plugin.getConfig().getString("Database.database");
+        int poolSize = plugin.getConfig().getInt("Database.poolSize", 10);
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl( "jdbc:mysql://" + ip + ":" + port + "/" + database);
         config.setUsername(user);

@@ -1,5 +1,6 @@
 package me.ivanlpc.punishmentscore;
 
+import com.google.common.base.Preconditions;
 import me.ivanlpc.punishmentscore.api.database.DatabaseManager;
 import me.ivanlpc.punishmentscore.commands.Orders;
 import me.ivanlpc.punishmentscore.commands.Punish;
@@ -9,23 +10,30 @@ import me.ivanlpc.punishmentscore.listeners.PlayerEvents;
 import me.ivanlpc.punishmentscore.inventories.InventoryManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class PunishmentsCore extends JavaPlugin {
 
     private final PluginDescriptionFile pluginfile = getDescription();
-    private final InventoryManager inventoryManager = new InventoryManager();
-    private FileConfiguration messages, database;
+    private Path dataFolderPath;
+    private InventoryManager inventoryManager;
+    private YamlConfiguration messages;
     private DatabaseManager dbManager;
+
     @Override
     public void onEnable() {
         long ms = System.currentTimeMillis();
+        this.dataFolderPath = getDataFolder().toPath();
         this.saveDefaultConfig();
-        loadFiles();
+        loadInventories();
+        this.messages = loadFile("messages.yml");
         if(Bukkit.getPluginManager().getPlugin("LiteBans") == null) {
             throw new RuntimeException("LiteBans is required to run this plugin!");
         }
@@ -38,7 +46,7 @@ public final class PunishmentsCore extends JavaPlugin {
         this.getCommand("orders").setExecutor(new Orders(this));
         this.getCommand("sanctions").setExecutor(new Sanctions(this));
 
-        if(this.getDatabase().getBoolean("use")) {
+        if(this.getConfig().getBoolean("Database.use")) {
             this.dbManager = new DatabaseManager();
         }
 
@@ -54,41 +62,49 @@ public final class PunishmentsCore extends JavaPlugin {
     public InventoryManager getInventoryManager() {
         return this.inventoryManager;
     }
-    private void loadFiles() {
-        File messages = new File(getDataFolder(), "messages.yml");
-        if(!messages.exists()) {
-            messages.getParentFile().mkdirs();
-            saveResource("messages.yml", false);
-        }
-        File storage = new File(getDataFolder(), "storage.yml");
-        if(!storage.exists()) {
-            storage.getParentFile().mkdirs();
-            saveResource("storage.yml", false);
-        }
-        try {
-            this.messages = YamlConfiguration.loadConfiguration(messages);
-            this.database = YamlConfiguration.loadConfiguration(storage);
-        } catch (IllegalArgumentException e) {
-            this.messages = new YamlConfiguration();
-            this.database = new YamlConfiguration();
-            e.printStackTrace();
-        }
-    }
 
     public void reloadFiles() {
-        this.loadFiles();
+        this.messages = loadFile("messages.yml");
+
         this.reloadConfig();
-        this.dbManager.reloadConnection();
+        if(this.getConfig().getBoolean("Database.use")) {
+            if(this.dbManager == null) this.dbManager = new DatabaseManager();
+            else this.dbManager.reloadConnection();
+        }
     }
 
-    public FileConfiguration getMessages() {
+    public YamlConfiguration getMessages() {
         return messages;
     }
 
-    public FileConfiguration getDatabase() {
-        return database;
-    }
     public DatabaseManager getDbManager() {
         return this.dbManager;
+    }
+
+    private YamlConfiguration loadFile(String filePath) {
+        YamlConfiguration fileConfiguration;
+        File file = new File(getDataFolder(), filePath);
+        if(!file.exists()) {
+            file.getParentFile().mkdirs();
+            saveResource(filePath, false);
+        }
+        try {
+            fileConfiguration = YamlConfiguration.loadConfiguration(file);
+        } catch (IllegalArgumentException e) {
+            fileConfiguration = new YamlConfiguration();
+            e.printStackTrace();
+        }
+        return fileConfiguration;
+    }
+
+    private void loadInventories() {
+        Map<String, YamlConfiguration> inventoryConfiguration = new HashMap<>();
+        String[] inventories = new String[]{"confirmation.yml", "orders.yml", "punish.yml", "sanctions.yml"};
+        for(String inventory : inventories) {
+            inventoryConfiguration.put(inventory, loadFile("inventories/" + inventory));
+            Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + " Loaded " + inventory);
+        }
+        Preconditions.checkState(Files.isDirectory(dataFolderPath.resolve("inventories")), "inventories folder doesn't exist");
+        this.inventoryManager = new InventoryManager(inventoryConfiguration);
     }
 }

@@ -45,12 +45,10 @@ public class Sanctions implements CommandExecutor {
             String name = this.plugin.getConfig().getString("SanctionsGUI.name", "Sanctions");
 
             SanctionsGUI sg = new SanctionsGUI(sanctions, size);
-            ItemStack[][] items = sg.build();
-            Inventory inv = Bukkit.createInventory(p, size, name);
-            inv.setContents(items[0]);
+            sg.build();
             this.plugin.getInventoryManager().openInventory(p, sg);
             Bukkit.getScheduler().callSyncMethod(this.plugin, () -> {
-                p.openInventory(inv);
+                p.openInventory(sg.getFirstInventory());
                return null;
             });
         });

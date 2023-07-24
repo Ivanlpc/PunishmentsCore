@@ -1,0 +1,12 @@
+size: 27 #Must be the same as punish.yml
+name: "¿Confirmas la sanción de %player%?"
+accept:
+  slot: 12
+deny:
+  slot: 14
+  item:
+    displayName: "&cNo"
+    material: WOOL
+    damage: 14
+    lore:
+      - "&6* Click para cancelar"

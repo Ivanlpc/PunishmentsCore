@@ -1,0 +1,29 @@
+
+  name: "Sanciones pendientes"
+  item:
+    displayName: "&e%player% &7ID: %id%"
+    lore:
+      - "&fRazón: &b%reason%"
+      - "&fStaff: &3%staff%"
+      - "&fSanción: &c%punishment%"
+      - "&fFecha: &d%date%"
+      - ""
+      - "&6* Click izquierdo para aplicar sanción"
+      - "&c* Click derecho para rechazar sanción"
+    material: PAPER
+    damage: 0
+  backPage:
+    item:
+      material: ARROW
+      quantity: 1
+      displayName: "&e&lPágina anterior"
+      lore: "&6* Click para ir a la página anterior"
+    slot: 45
+  nextPage:
+    item:
+      material: ARROW
+      quantity: 1
+      displayName: "&e&lSiguiente página"
+      lore:
+        - "&6* Click para ir a la siguiente página"
+    slot: 53

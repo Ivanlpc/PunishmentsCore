@@ -2,46 +2,51 @@ package me.ivanlpc.punishmentscore.inventories.builders;
 
 import de.tr7zw.changeme.nbtapi.NBT;
 import me.ivanlpc.punishmentscore.PunishmentsCore;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
 public abstract class PaginatedInventory extends InventoryBuilder {
 
+    private int currPage;
     protected ItemStack[][] inventories;
-    int currPage;
 
-    public PaginatedInventory() {
+    public PaginatedInventory(String configuration) {
+        super(configuration);
+
         this.currPage = 0;
+        this.inventoryName = inventoryConfiguration.getString("name");
     }
-    protected void setPaginationItems(String gui) {
-        PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
+    protected void setPaginationItems() {
         for(int i = 0; i < inventories.length; i++) {
             if(i == 0) {
-                int slot = plugin.getConfig().getInt(gui +".nextPage.slot");
-                ItemStack nextPageItem = buildPaginationItem(plugin, gui,"nextPage");
+                int slot = inventoryConfiguration.getInt("nextPage.slot");
+                ItemStack nextPageItem = buildPaginationItem("nextPage");
                 inventories[i][slot] = nextPageItem;
             } else if (i == inventories.length - 1) {
-                int slot = plugin.getConfig().getInt(gui + ".backPage.slot");
-                ItemStack backPageItem = buildPaginationItem(plugin, gui,"backPage");
+                int slot = inventoryConfiguration.getInt("backPage.slot");
+                ItemStack backPageItem = buildPaginationItem("backPage");
                 inventories[i][slot] = backPageItem;
             } else {
-                int slot_next = plugin.getConfig().getInt(gui + ".nextPage.slot");
-                ItemStack nextPageItem = buildPaginationItem(plugin, gui,"nextPage");
+                int slot_next = inventoryConfiguration.getInt("nextPage.slot");
+                ItemStack nextPageItem = buildPaginationItem("nextPage");
                 inventories[i][slot_next] = nextPageItem;
-                int slot_back = plugin.getConfig().getInt(gui + ".backPage.slot");
-                ItemStack backPageItem = buildPaginationItem(plugin, gui, "backPage");
+                int slot_back = inventoryConfiguration.getInt("backPage.slot");
+                ItemStack backPageItem = buildPaginationItem("backPage");
                 inventories[i][slot_back] = backPageItem;
             }
         }
     }
-    private ItemStack buildPaginationItem (PunishmentsCore plugin, String gui, String action) {
-        String displayName = plugin.getConfig().getString(gui + "." + action + ".item.displayName");
-        String itemName = plugin.getConfig().getString(gui + "." + action + ".item.material");
+    private ItemStack buildPaginationItem (String action) {
+        String displayName = inventoryConfiguration.getString( action + ".item.displayName");
+        String itemName = inventoryConfiguration.getString(action + ".item.material");
         Material m = Material.matchMaterial(itemName);
-        int durability = plugin.getConfig().getInt(gui + "." + action + ".item.damage", 0);
-        List<String> lore = plugin.getConfig().getStringList(gui + "." + action + ".item.lore");
+        int durability = inventoryConfiguration.getInt(action + ".item.damage", 0);
+        List<String> lore = inventoryConfiguration.getStringList(action + ".item.lore");
         ItemStack is = getItem(m, durability, displayName, lore);
         NBT.modify(is, nbti -> {
             nbti.setString("key", action);
@@ -64,5 +69,13 @@ public abstract class PaginatedInventory extends InventoryBuilder {
         }
         page = currPage;
         return inventories[page];
+    }
+    @Override
+    public Inventory getFirstInventory() {
+        assert inventories != null;
+        assert inventoryName != null;
+        Inventory inv = Bukkit.createInventory(null, inventories[0].length, inventoryName);
+        inv.setContents(inventories[0]);
+        return inv;
     }
 }

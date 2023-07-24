@@ -20,21 +20,23 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
 
     private final PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
     private final List<Order> ordersList;
+
     public OrdersGUI(List<Order> ordersList) {
+        super("orders.yml");
         this.ordersList = ordersList;
         int pages = (int) Math.ceil((double) ordersList.size() / 45);
         inventories = new ItemStack[pages][54];
-        if(pages > 1) setPaginationItems("OrdersGUI");
+        if(pages > 1) setPaginationItems();
     }
     @Override
-    public ItemStack[][] build() {
+    public void build() {
         int slot = 0;
         int page = 0;
         for(Order o : ordersList) {
-            String materialName = this.plugin.getConfig().getString("OrdersGUI.item.material");
-            int durability = this.plugin.getConfig().getInt("OrdersGUI.item.damage");
+            String materialName = inventoryConfiguration.getString("item.material");
+            int durability = inventoryConfiguration.getInt("item.damage");
             int id = o.getId();
-            String name = this.plugin.getConfig().getString("OrdersGUI.item.displayName");
+            String name = inventoryConfiguration.getString("item.displayName");
             name = name.replaceAll("%id%", String.valueOf(id));
             name = name.replaceAll("%player%", o.getUserPunished());
             Material m = Material.matchMaterial(materialName);
@@ -49,11 +51,10 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
             this.inventories[page][slot] = is;
             slot++;
         }
-        return this.inventories;
     }
     public List<String> parseLore(Order o) {
         List<String> lore = new ArrayList<>();
-        List<String> format = this.plugin.getConfig().getStringList("OrdersGUI.item.lore");
+        List<String> format = inventoryConfiguration.getStringList("item.lore");
         for(String s: format) {
             String line = s.replaceAll("%staff%", o.getUsername());
             line = line.replaceAll("%punishment%", o.getPunishment());
