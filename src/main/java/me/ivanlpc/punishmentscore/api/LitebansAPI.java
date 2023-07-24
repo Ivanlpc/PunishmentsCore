@@ -54,15 +54,13 @@ public class LitebansAPI {
     public static Map<String, Sanction> getLastPunishment(UUID uuid) {
         Map<String, Sanction> sanctions = new HashMap<>();
 
-        String query = new StringBuilder()
-                .append("SELECT 'ban' as type, id, banned_by_name, until, time, reason FROM {bans} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {bans} WHERE uuid = ?)")
-                .append(" UNION ALL")
-                .append(" SELECT 'mute' as type, id, banned_by_name, until, time, reason FROM {mutes} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {mutes} WHERE uuid = ?)")
-                .append(" UNION ALL")
-                .append(" SELECT 'kick' as type, id, banned_by_name, until, time, reason FROM {kicks} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {kicks} WHERE uuid = ?)")
-                .append(" UNION ALL")
-                .append(" SELECT 'warn' as type, id, banned_by_name, until, time, reason FROM {warnings} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {warnings} WHERE uuid = ?)")
-                .toString();
+        String query = "SELECT 'ban' as type, id, banned_by_name, until, time, reason FROM {bans} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {bans} WHERE uuid = ?)" +
+                " UNION ALL" +
+                " SELECT 'mute' as type, id, banned_by_name, until, time, reason FROM {mutes} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {mutes} WHERE uuid = ?)" +
+                " UNION ALL" +
+                " SELECT 'kick' as type, id, banned_by_name, until, time, reason FROM {kicks} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {kicks} WHERE uuid = ?)" +
+                " UNION ALL" +
+                " SELECT 'warn' as type, id, banned_by_name, until, time, reason FROM {warnings} WHERE uuid = ? AND time = (SELECT MAX(time) FROM {warnings} WHERE uuid = ?)";
         try(PreparedStatement stm = Database.get().prepareStatement(query)) {
             for(int i = 1; i <= 8; i++) {
                 stm.setString(i, uuid.toString());
