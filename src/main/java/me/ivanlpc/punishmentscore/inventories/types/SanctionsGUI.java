@@ -4,6 +4,7 @@ import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.api.database.entities.Sanction;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
 import me.ivanlpc.punishmentscore.inventories.builders.InventoryBuilder;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -20,11 +21,15 @@ public class SanctionsGUI extends InventoryBuilder implements PunishmentInventor
 
     private final Map<String, Sanction> sanction;
     private final ItemStack[][] inventory;
+    private final int size;
 
-    public SanctionsGUI(Map<String, Sanction> sanction, int size) {
+    public SanctionsGUI(Map<String, Sanction> sanction) {
         super("sanctions.yml");
+        this.size = inventoryConfiguration.getInt("size");
         this.sanction = sanction;
         this.inventory = new ItemStack[1][size];
+        this.inventoryName = inventoryConfiguration.getString("name");
+
     }
 
     @Override
@@ -51,7 +56,9 @@ public class SanctionsGUI extends InventoryBuilder implements PunishmentInventor
 
     @Override
     public Inventory getFirstInventory() {
-        return null;
+        Inventory inv = Bukkit.createInventory(null, this.size, this.inventoryName);
+        inv.setContents(inventory[0]);
+        return inv;
     }
 
     @Override
