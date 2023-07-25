@@ -50,7 +50,7 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
             NBT.modify(is, nbti -> {
                 nbti.setInteger("id", id);
             });
-            this.inventories[page][slot] = is;
+            inventories[page][slot] = is;
             slot++;
         }
     }
