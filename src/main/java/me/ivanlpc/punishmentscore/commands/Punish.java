@@ -37,6 +37,7 @@ public class Punish implements CommandExecutor {
 
             String msg = this.plugin.getMessages().getString("Messages.reload");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+            this.plugin.getInventoryManager().closeAllInventories();
             this.plugin.reloadFiles();
             return true;
         }
