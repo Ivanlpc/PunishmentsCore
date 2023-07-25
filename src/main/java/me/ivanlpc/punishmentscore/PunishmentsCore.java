@@ -65,7 +65,7 @@ public final class PunishmentsCore extends JavaPlugin {
 
     public void reloadFiles() {
         this.messages = loadFile("messages.yml");
-
+        this.loadInventories();
         this.reloadConfig();
         if(this.getConfig().getBoolean("Database.use")) {
             if(this.dbManager == null) this.dbManager = new DatabaseManager();
