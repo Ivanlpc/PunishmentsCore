@@ -1,4 +1,5 @@
 name: "Sanciones pendientes"
+size: 54
 item:
   displayName: "&e%player% &7ID: %id%"
   lore:

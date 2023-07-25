@@ -22,7 +22,7 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
 
     public PunishmentGUI(Map<String, Integer> punishmentList, String punishedPlayer) {
         super("punish.yml");
-        int pages = inventoryConfiguration.getInt("pages");
+        pages = inventoryConfiguration.getInt("pages");
         int size = inventoryConfiguration.getInt("size", 54);
         this.punishmentList = punishmentList;
         inventories = new ItemStack[pages][size];

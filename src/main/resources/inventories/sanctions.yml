@@ -11,43 +11,49 @@ items:
       - "&fFecha de inicio: %date%"
       - "&fFecha de fin: &d%until%"
     no-punishments-name: "&c&lBAN"
-
+    appeal-lore:
+      - "&a✔ Puedes apelar esta sanción ✔"
+      - "&b&nhttp://discord.hydracraft.es"
     no-punishments-lore:
       - "&6¡Genial, no has tenido ningún baneo!"
   mute:
     slot: 21
     material: PAPER
-    displayName: "&c&lMUTE ID: %id%"
+    displayName: "&b&lMUTE ID: %id%"
     lore:
       - "&fRazón: &b%reason%"
       - "&fStaff: &3%staff%"
       - "&fFecha de inicio: %date%"
       - "&fFecha de fin: &d%until%"
     no-punishments-name: "&c&lMUTE"
-
+    appeal-lore:
+      - "&a✔ Puedes apelar esta sanción ✔"
+      - "&b&nhttp://discord.hydracraft.es"
     no-punishments-lore:
       - "&6¡Genial, no has tenido ningún muteo!"
   kick:
     slot: 23
     material: PAPER
-    displayName: "&c&lKICK ID: %id%"
+    displayName: "&6&lKICK ID: %id%"
     lore:
       - "&fRazón: &b%reason%"
       - "&fStaff: &3%staff%"
-      - "&fFecha: %date%"
+      - "&fFecha: &e%date%"
     no-punishments-name: "&c&lKICK"
     no-punishments-lore:
       - "&6¡Genial, no has tenido ninguna expulsión!"
   warn:
     slot: 25
     material: PAPER
-    displayName: "&c&lWARN ID: %id%"
+    displayName: "&d&lWARN ID: %id%"
     lore:
       - "&fRazón: &b%reason%"
       - "&fStaff: &3%staff%"
       - "&fFecha de inicio: %date%"
       - "&fFecha de fin: &d%until%"
     no-punishments-name: "&c&lWARN"
-
+    appeal-lore:
+      - "&a✔ Puedes apelar esta sanción ✔"
+      - "&b&nhttp://discord.hydracraft.es"
     no-punishments-lore:
       - "&6¡Genial, no has tenido ningún aviso!"

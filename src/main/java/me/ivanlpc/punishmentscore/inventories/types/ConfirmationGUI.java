@@ -8,7 +8,6 @@ import me.ivanlpc.punishmentscore.inventories.builders.InventoryBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -17,8 +16,6 @@ import java.util.List;
 
 public class ConfirmationGUI extends InventoryBuilder implements PunishmentInventory {
     private final PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
-    private final YamlConfiguration inventoryConfiguration;
-    private final ItemStack[][] inventories;
     private final int confirmation_slot;
     private final int deny_slot;
     private final ItemStack confirmationItem;
@@ -28,12 +25,10 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
 
     public ConfirmationGUI(ItemStack confirmationItem, PunishmentGUI gui) {
         super("confirmation.yml");
-        this.inventoryConfiguration = plugin.getInventoryManager().getInventoryConfiguration("confirmation.yml");
         this.size = inventoryConfiguration.getInt("size", 54);
         this.confirmation_slot = inventoryConfiguration.getInt("accept.slot", 12);
         this.deny_slot = inventoryConfiguration.getInt("deny.slot", 14);
         this.confirmationItem = confirmationItem;
-        this.inventories =  new ItemStack[1][size];
         this.gui = gui;
         this.inventoryName = inventoryConfiguration.getString("name").replaceAll("%player%", gui.getPunishedPlayer());
     }
@@ -48,14 +43,14 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
         NBT.modify(denyItem, nbt -> {
             nbt.setBoolean("isConfirmation", true);
         });
-        inventories[0][deny_slot] = denyItem;
-        inventories[0][confirmation_slot] = this.confirmationItem;
+        inventories[deny_slot] = denyItem;
+        inventories[confirmation_slot] = this.confirmationItem;
     }
 
     @Override
     public Inventory getFirstInventory() {
         Inventory inv = Bukkit.createInventory(null, this.size, this.inventoryName);
-        inv.setContents(inventories[0]);
+        inv.setContents(inventories);
         return inv;
     }
 

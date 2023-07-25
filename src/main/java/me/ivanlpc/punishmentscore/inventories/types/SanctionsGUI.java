@@ -1,6 +1,5 @@
 package me.ivanlpc.punishmentscore.inventories.types;
 
-import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.api.database.entities.Sanction;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
 import me.ivanlpc.punishmentscore.inventories.builders.InventoryBuilder;
@@ -11,25 +10,25 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class SanctionsGUI extends InventoryBuilder implements PunishmentInventory {
 
     private final Map<String, Sanction> sanction;
-    private final ItemStack[][] inventory;
     private final int size;
 
     public SanctionsGUI(Map<String, Sanction> sanction) {
         super("sanctions.yml");
         this.size = inventoryConfiguration.getInt("size");
         this.sanction = sanction;
-        this.inventory = new ItemStack[1][size];
         this.inventoryName = inventoryConfiguration.getString("name");
-
     }
 
     @Override
@@ -50,14 +49,14 @@ public class SanctionsGUI extends InventoryBuilder implements PunishmentInventor
                 lore = cs.getStringList("no-punishments-lore");
             }
             ItemStack item = getItem(Material.matchMaterial(materialName), 0, displayName, lore);
-            this.inventory[0][slot] = item;
+            this.inventories[slot] = item;
         }
     }
 
     @Override
     public Inventory getFirstInventory() {
         Inventory inv = Bukkit.createInventory(null, this.size, this.inventoryName);
-        inv.setContents(inventory[0]);
+        inv.setContents(inventories);
         return inv;
     }
 
@@ -85,7 +84,17 @@ public class SanctionsGUI extends InventoryBuilder implements PunishmentInventor
             formated = formated.replaceAll("%until%", until);
             lore.add(formated);
         }
+        if(canAppeal(sanction.getDate())) {
+            lore.addAll(this.inventoryConfiguration.getStringList("items." + key + ".appeal-lore"));
+        }
+
         return lore;
+    }
+
+    private boolean canAppeal(Long time) {
+        long difference = Math.abs(Timestamp.from(Instant.now()).getTime() - time);
+        long days = TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS);
+        return days < 1;
     }
 
     private String formatTimestamp(Long timestamp) {

@@ -1,5 +1,4 @@
 bungeecord: false
-confirmation: true
 
 Database:
   use: false
@@ -9,3 +8,4 @@ Database:
   password: ""
   database: "punishmentscore"
   poolSize: 10
+  useSSL: false
