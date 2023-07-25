@@ -10,7 +10,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +47,6 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
             ItemStack is = getItem(m, durability, name, lore);
             NBT.modify(is, nbti -> {
                 nbti.setBoolean("conf", needsConfirmation);
-                nbti.setBoolean("isConfirmation", false);
                 nbti.setString("perm", permission_required);
                 nbti.setString("key", key);
                 nbti.setString("level", Integer.toString(command_id));
@@ -77,7 +75,6 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
             return;
         }
         if(confirmation) {
-            nbti.setBoolean("isConfirmation", true);
             ConfirmationGUI cg = new ConfirmationGUI(nbti.getItem(), pg);
             this.plugin.getInventoryManager().openInventory(p, cg);
             cg.build();

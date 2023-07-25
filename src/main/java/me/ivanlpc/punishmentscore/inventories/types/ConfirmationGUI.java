@@ -1,6 +1,5 @@
 package me.ivanlpc.punishmentscore.inventories.types;
 
-import de.tr7zw.changeme.nbtapi.NBT;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
@@ -21,7 +20,6 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
     private final ItemStack confirmationItem;
     private final PunishmentGUI gui;
     private final int size;
-    private final String inventoryName;
 
     public ConfirmationGUI(ItemStack confirmationItem, PunishmentGUI gui) {
         super("confirmation.yml");
@@ -30,7 +28,7 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
         this.deny_slot = inventoryConfiguration.getInt("deny.slot", 14);
         this.confirmationItem = confirmationItem;
         this.gui = gui;
-        this.inventoryName = inventoryConfiguration.getString("name").replaceAll("%player%", gui.getPunishedPlayer());
+        this.inventoryName = this.inventoryName.replaceAll("%player%", this.gui.getPunishedPlayer());
     }
     @Override
     public void build() {
@@ -40,9 +38,6 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
         String displayName = inventoryConfiguration.getString("deny.item.displayName", "Cancel");
         List<String> lore = inventoryConfiguration.getStringList("deny.item.lore");
         ItemStack denyItem = getItem(m, durability, displayName, lore);
-        NBT.modify(denyItem, nbt -> {
-            nbt.setBoolean("isConfirmation", true);
-        });
         inventories[deny_slot] = denyItem;
         inventories[confirmation_slot] = this.confirmationItem;
     }
@@ -63,7 +58,7 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
     public void handleClick(InventoryClickEvent event) {
         NBTItem nbti = new NBTItem(event.getCurrentItem());
         Player p = (Player) event.getWhoClicked();
-        if(!nbti.hasTag("key")) {
+        if(event.getSlot() == this.deny_slot) {
             this.plugin.getInventoryManager().openInventory(p, this.gui);
             this.plugin.getInventoryManager().skipCloseAdd(p);
             p.openInventory(this.gui.getFirstInventory());
