@@ -29,7 +29,7 @@ public class InventoryManager {
     }
 
     public boolean hasInventory(Player p) {
-        return !openedMenus.containsKey(p);
+        return openedMenus.containsKey(p);
     }
 
     public PunishmentInventory getCurrentInventory(Player p) {

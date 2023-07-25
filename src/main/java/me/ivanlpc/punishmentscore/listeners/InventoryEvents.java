@@ -43,7 +43,7 @@ public class InventoryEvents implements Listener {
     public void onInventoryClose(InventoryCloseEvent event) {
         Player p = (Player) event.getPlayer();
         if(p == null) return;
-        if(this.plugin.getInventoryManager().hasInventory(p)) return;
+        if(!this.plugin.getInventoryManager().hasInventory(p)) return;
         this.plugin.getInventoryManager().closeInventory(p);
     }
 }
