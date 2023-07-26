@@ -20,7 +20,7 @@ public class InventoryEvents implements Listener {
     public void onMenuClick(InventoryClickEvent event) {
         if(event.isCancelled()) return;
         Player p = (Player) event.getWhoClicked();
-        if(this.plugin.getInventoryManager().hasInventory(p)) return;
+        if(!this.plugin.getInventoryManager().hasInventory(p)) return;
         event.setCancelled(true);
 
         if(event.getCurrentItem() == null || event.getCurrentItem().getType().name().contains("AIR")){
