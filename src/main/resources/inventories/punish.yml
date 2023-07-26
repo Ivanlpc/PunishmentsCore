@@ -1781,6 +1781,53 @@ items:
         permission: "group.moderador"
         commands:
           - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  "unwarn":
+    material: BOOK
+    displayName: "&aEliminar último &eWarn"
+    page: 1
+    slot: 2
+    confirm: true
+
+    reason: "NO_REASON"
+    levels:
+      0:
+        lore:
+          - "&6* Click para eliminar último warn"
+
+        commands:
+          - "[player] unwarn -s %player% ELIMINADA"
+  "unmute":
+    material: BOOK
+    displayName: "&aEliminar actual &bMute"
+    page: 1
+    slot: 4
+    confirm: true
+
+    reason: "NO_REASON"
+    levels:
+      0:
+        lore:
+          - "&6* Click para eliminar último mute"
+
+        commands:
+          - "[player] unmute -s %player% ELIMINADA"
+  "unban":
+    material: BOOK
+    displayName: "&aEliminar actual &4Ban/BanIP"
+    page: 1
+    slot: 6
+    reason: "NO_REASON"
+    confirm: true
+    levels:
+      0:
+        lore:
+          - "&9Requiere &2&lMOD &9o superior"
+          - ""
+          - "&6* Click para eliminar último warn"
+        permission: "group.moderador"
+        name: "Unban"
+        commands:
+          - "unban -s %player% --sender=%sender% --sender-uuid=%uuid% ELIMINADA"
   "alts":
     material: PAPER
     displayName: "&aVer alts del usuario"
