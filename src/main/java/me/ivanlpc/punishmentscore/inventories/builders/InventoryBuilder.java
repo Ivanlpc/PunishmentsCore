@@ -27,7 +27,7 @@ public abstract class InventoryBuilder {
     public InventoryBuilder(String configuration) {
         PunishmentsCore plugin = PunishmentsCore.getPlugin(PunishmentsCore.class);
         inventoryConfiguration = plugin.getInventoryManager().getInventoryConfiguration(configuration);
-        this.size = inventoryConfiguration.getInt("size");
+        this.size = inventoryConfiguration.getInt("size", 54);
         this.inventories = new ItemStack[size];
         this.inventoryName = inventoryConfiguration.getString("name");
     }
