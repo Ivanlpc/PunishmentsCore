@@ -30,7 +30,7 @@ public class DatabaseManager {
 
                 try(ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
-                        int id = generatedKeys.getInt(1);
+                        orderId = generatedKeys.getInt(1);
                         String insertQuery = "INSERT INTO commands (order_id, command) VALUES (?, ?)";
                         try (PreparedStatement cmdStmt = conn.prepareStatement(insertQuery)) {
                             for (String cmd : command) {
@@ -41,7 +41,6 @@ public class DatabaseManager {
                             cmdStmt.executeBatch();
                         }
                         Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "Created new order: " + orderId);
-                        orderId = id;
                     } else {
                         throw new SQLException("Order ID not generated");
                     }

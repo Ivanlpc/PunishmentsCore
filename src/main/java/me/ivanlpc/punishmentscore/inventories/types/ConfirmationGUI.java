@@ -77,7 +77,7 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
                 String reason = this.gui.getReason(key);
                 List<String> parsedCommands = parseCommands(p, this.gui.getPunishedPlayer(), reason, commands);
                 int order = this.plugin.getDbManager().createOrder(p, this.gui.getPunishedPlayer(), name, punishment, parsedCommands );
-                if(order == 0) msg = this.plugin.getMessages().getString("Messages.order_error");
+                if(order == -1) msg = this.plugin.getMessages().getString("Messages.order_error");
                 else {
                     msg = this.plugin.getMessages().getString("Messages.creating_order");
                     msg = msg.replaceAll("%order%", String.valueOf(order));
