@@ -3,7 +3,7 @@ package me.ivanlpc.punishmentscore.inventories.types;
 import de.tr7zw.changeme.nbtapi.NBT;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.ivanlpc.punishmentscore.PunishmentsCore;
-import me.ivanlpc.punishmentscore.api.database.entities.Order;
+import me.ivanlpc.punishmentscore.api.database.models.Order;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
 import me.ivanlpc.punishmentscore.inventories.builders.PaginatedInventory;
 import org.bukkit.Bukkit;

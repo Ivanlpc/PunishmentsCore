@@ -1,4 +1,4 @@
-package me.ivanlpc.punishmentscore.api.database.entities;
+package me.ivanlpc.punishmentscore.api.database.models;
 
 import java.sql.Date;
 

@@ -1,6 +1,6 @@
 package me.ivanlpc.punishmentscore.inventories.types;
 
-import me.ivanlpc.punishmentscore.api.database.entities.Sanction;
+import me.ivanlpc.punishmentscore.api.database.models.Sanction;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
 import me.ivanlpc.punishmentscore.inventories.builders.InventoryBuilder;
 import org.bukkit.Bukkit;

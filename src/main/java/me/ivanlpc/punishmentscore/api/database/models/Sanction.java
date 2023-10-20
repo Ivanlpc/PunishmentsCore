@@ -1,4 +1,4 @@
-package me.ivanlpc.punishmentscore.api.database.entities;
+package me.ivanlpc.punishmentscore.api.database.models;
 
 public class Sanction {
     private final int id;

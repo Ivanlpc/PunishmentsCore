@@ -2,7 +2,7 @@ package me.ivanlpc.punishmentscore.commands;
 
 import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.api.LitebansAPI;
-import me.ivanlpc.punishmentscore.api.database.entities.Sanction;
+import me.ivanlpc.punishmentscore.api.database.models.Sanction;
 import me.ivanlpc.punishmentscore.inventories.types.SanctionsGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

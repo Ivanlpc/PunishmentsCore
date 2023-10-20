@@ -1,7 +1,7 @@
 package me.ivanlpc.punishmentscore.api;
 
 import litebans.api.Database;
-import me.ivanlpc.punishmentscore.api.database.entities.Sanction;
+import me.ivanlpc.punishmentscore.api.database.models.Sanction;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import java.sql.PreparedStatement;
