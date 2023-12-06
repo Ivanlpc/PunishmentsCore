@@ -54,6 +54,8 @@ public class Punish implements CommandExecutor {
 
 
         Player player = (Player) sender;
+
+
         String userToPunish = args[0];
         if(player.getPlayerListName().equals(userToPunish)) {
             String msg = this.plugin.getMessages().getString("Messages.same_player");
@@ -82,6 +84,11 @@ public class Punish implements CommandExecutor {
                 String msg = this.plugin.getMessages().getString("Messages.error");
                 sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
                 return;
+            }
+            Player punished = Bukkit.getServer().getPlayer(args[0]);
+            if(punished == null) {
+                String msg = this.plugin.getMessages().getString("Messages.offline_player");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
             }
             if(punishmentsList.size() == 0){
                 String msg = this.plugin.getMessages().getString("Messages.no_punishments");

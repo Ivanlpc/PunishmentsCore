@@ -16,6 +16,7 @@ nextPage:
     lore:
       - "&6* Click para ir a la siguiente página"
   slot: 53
+
 items:
   1:
     material: PISTON_STICKY_BASE

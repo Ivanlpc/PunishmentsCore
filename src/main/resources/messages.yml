@@ -11,3 +11,4 @@ Messages:
   no_orders: "&b&lHydra&3&lCraft &aNo hay ninguna sanción pendiente"
   order_deleted: "&b&lHydra&3&lCraft &a¡Orden borrada!"
   database_disabled: "&cDatabase is disabled!"
+  offline_player: "&b&lHydra&3&lCraft &cEl jugador al que intentas sancionar está offline"
