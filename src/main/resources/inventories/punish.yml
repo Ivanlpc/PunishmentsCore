@@ -16,7 +16,6 @@ nextPage:
     lore:
       - "&6* Click para ir a la siguiente página"
   slot: 53
-
 items:
   1:
     material: PISTON_STICKY_BASE
@@ -27,24 +26,75 @@ items:
     reason: "Uso de hacks (Encontrados en SS)"
     levels:
       0:
-        name: "BanIP 20d"
+        name: "BanIP 25d"
         lore:
-          - "&aBanIP 20d &d&l<"
-          - ""
+          - "&aBanIP 25d &d&l<"
+          - "&aBanIP 50d"
+          - "&aBanIP 75d"
+          - "&5BanIP Permanente"
           - "&6* Click para sancionar"
         permissionn: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           #Commands are executed from console. --sender and --sender-uuid overrides the staff that bans the user
-          - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "dc untag %player%"
+          - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: "BanIP 20d"
+        name: "BanIP 50d"
         lore:
-          - "&cBanIP 20d &d&l<"
+          - "&cBanIP 25d"
+          - "&aBanIP 50d &d&l<"
+          - "&aBanIP 75d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 50d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: "BanIP 75d"
+        lore:
+          - "&cBanIP 25d"
+          - "&cBanIP 50d"
+          - "&aBanIP 75d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 75d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
+        name: "BanIP Permanente"
+        lore:
+          - "&cBanIP 25d"
+          - "&cBanIP 50d"
+          - "&cBanIP 75d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: "BanIP Permanente"
+        lore:
+          - "&cBanIP 25d"
+          - "&cBanIP 50d"
+          - "&cBanIP 75d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   2:
     material: PISTON_BASE
     displayName: "&bUso de hacks (Admitidos)"
@@ -57,20 +107,92 @@ items:
         name: "BanIP 7d"
         lore:
           - "&aBanIP 7d &d&l<"
+          - "&aBanIP 15d"
+          - "&aBanIP 30d"
+          - "&aBanIP 50d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: "BanIP 7d"
+        name: "BanIP 15d"
         lore:
-          - "&cBanIP 7d &d&l<"
+          - "&cBanIP 7d"
+          - "&aBanIP 15d &d&l<"
+          - "&aBanIP 30d"
+          - "&aBanIP 50d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: "BanIP 30d"
+        lore:
+          - "&cBanIP 7d"
+          - "&cBanIP 15d"
+          - "&aBanIP 30d &d&l<"
+          - "&aBanIP 50d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 30d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
+        name: "BanIP 50d"
+        lore:
+          - "&cBanIP 7d"
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&aBanIP 50d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 50d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: "BanIP Permanente"
+        lore:
+          - "&cBanIP 7d"
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&cBanIP 50d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      5:
+        name: "BanIP Permanente"
+        lore:
+          - "&cBanIP 7d"
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&cBanIP 50d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   3:
     material: TNT
     displayName: "&bUso de hacks (Notables)"
@@ -83,48 +205,154 @@ items:
         name: "BanIP 15d"
         lore:
           - "&aBanIP 15d &d&l<"
+          - "&aBanIP 30d"
+          - "&aBanIP 45d"
+          - "&aBanIP 60d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: "BanIP 15d"
+        name: "BanIP 30d"
         lore:
-          - "&cBanIP 15d &d&l<"
+          - "&cBanIP 15d"
+          - "&aBanIP 30d &d&l<"
+          - "&aBanIP 45d"
+          - "&aBanIP 60d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 30d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: "BanIP 45d"
+        lore:
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&aBanIP 45d &d&l<"
+          - "&aBanIP 60d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 45d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
+        name: "BanIP 60d"
+        lore:
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&cBanIP 45d"
+          - "&aBanIP 60d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 60d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: "BanIP Permanente"
+        lore:
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&cBanIP 45d"
+          - "&cBanIP 60d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      5:
+        name: "BanIP Permanente"
+        lore:
+          - "&cBanIP 15d"
+          - "&cBanIP 30d"
+          - "&cBanIP 45d"
+          - "&cBanIP 60d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
   4:
     material: LEVER
     confirm: true
     page: 1
-    displayName: "&bHacks en Multicuentas"
+    displayName: "&bUso de VPN"
 
     slot: 12
-    reason: "Hacks en Multicuentas"
+    reason: "Uso de VPN"
     levels:
       0:
-        name: "BanIP 25d"
+        name: "BanIP 40d"
         lore:
-          - "&aBanIP 25d &d&l<"
+          - "&aBanIP 40d &d&l<"
+          - "&aBanIP 90d"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
-        permission: "group.moderador"
+        permission: "group.srmod"
         commands:
-          - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 40d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: "BanIP 25d"
+        name: "BanIP 90d"
         lore:
-          - "&cBanIP 25d &d&l<"
+          - "&cBanIP 40d"
+          - "&aBanIP 90d &d&l<"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
-        permission: "group.moderador"
+        permission: "group.srmod"
         commands:
-          - "tempipban %player% 25d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 90d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: "BanIP Permanente [BLACKLIST]"
+        lore:
+          - "&cBanIP 40d"
+          - "&cBanIP 90d"
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.srmod"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason% [BLACKLIST]"
+      3:
+        name: "BanIP Permanente [BLACKLIST]"
+        lore:
+          - "&cBanIP 40d"
+          - "&cBanIP 90d"
+          - "&cBanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.srmod"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason% [BLACKLIST]"
 
   5:
     material: PAPER
@@ -140,10 +368,12 @@ items:
           - "&eJail 1d &d&l<"
           - "&eJail 3d"
           - "&eJail 5d"
-          - "&aBan 7d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
           - "jail %player% 1 86400"
 
@@ -153,10 +383,12 @@ items:
           - "&cJail 1d"
           - "&eJail 3d &d&l<"
           - "&eJail 5d"
-          - "&aBan 7d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
           - "jail %player% 1 259200"
       2:
@@ -165,24 +397,59 @@ items:
           - "&cJail 1d"
           - "&cJail 3d"
           - "&eJail 5d &d&l<"
-          - "&aBan 7d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
           - "jail %player% 1 432000"
       3:
-        name: "Jail 7d"
+        name: "BanIP 7d"
         lore:
           - "&cJail 1d"
           - "&cJail 3d"
           - "&cJail 5d"
-          - "&aBan 7d &d&l<"
+          - "&aBanIP 7d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: "BanIP Permanente"
+        lore:
+          - "&cJail 1d"
+          - "&cJail 3d"
+          - "&cJail 5d"
+          - "&cBanIP 7d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      5:
+        name: "BanIP Permanente"
+        lore:
+          - "&cJail 1d"
+          - "&cJail 3d"
+          - "&cJail 5d"
+          - "&cBanIP 7d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   6:
     material: PUMPKIN
     displayName: "&bAlianza con hacker"
@@ -192,79 +459,153 @@ items:
     reason: "Realizar alianza con un Hacker"
     levels:
       0:
-        name: "Ban 3d"
+        name: "Ban 4d"
         lore:
-          - "&aBan 3d &d&l<"
-          - "&aBan 5d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 7d"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: "Ban 5d"
-        lore:
-          - "&cBan 3d"
-          - "&aBan 5d &d&l<"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      2:
         name: "Ban 7d"
         lore:
-          - "&cBan 3d"
-          - "&cBan 5d"
-          - "&aBan 7d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 4d"
+          - "&aBanIP 7d &d&l<"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: "Ban 10d"
+        lore:
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&aBanIP 10d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
         name: "Ban Permanente"
         lore:
-          - "&cBan 3d"
-          - "&cBan 5d"
-          - "&cBan 7d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&cBanIP 10d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: "Ban Permanente"
+        lore:
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&cBanIP 10d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   7:
     material: CHEST
-    displayName: "&bEvadir SS"
+    displayName: "&bEvadir / Negarse a SS"
     confirm: true
     page: 1
     slot: 15
-    reason: "Evadir SS"
+    reason: "Evadir / Negarse a SS"
     levels:
       0:
-        name: Ban 20d
+        name: "Ban 30d"
         lore:
-          - "&aBan 20d &d&l<"
+          - "&aBanIP 30d &d&l<"
+          - "&aBanIP 60d"
+          - "&aBanIP 90d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 30d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 20d
+        name: "Ban 60d"
         lore:
-          - "&cBan 20d &d&l<"
+          - "&cBanIP 30d"
+          - "&aBanIP 60d &d&l<"
+          - "&aBanIP 90d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 60d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: "Ban 90d"
+        lore:
+          - "&cBanIP 30d"
+          - "&cBanIP 60d"
+          - "&aBanIP 90d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 90d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
+        name: "Ban Permanente"
+        lore:
+          - "&cBanIP 30d"
+          - "&cBanIP 60d"
+          - "&cBanIP 90d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: "Ban Permanente"
+        lore:
+          - "&cBanIP 30d"
+          - "&cBanIP 60d"
+          - "&cBanIP 90d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
   8:
     material: MELON
@@ -275,64 +616,102 @@ items:
     reason: "Spam / Flood / Mayus / Comentario inapropiado"
     levels:
       0:
-        name: Mute 30 min
+        name: Mute 1h
         lore:
-          - "&bMute 30 min &d&l<"
-          - "&bMute 2h"
-          - "&bMute 5h"
-          - "&bMute 24h"
-          - "&bMute Permanente"
+          - "&bMuteIP 1h &d&l<"
+          - "&bMuteIP 2h"
+          - "&bMuteIP 5h"
+          - "&bMuteIP 24h"
+          - "&bMuteIP 48h"
+          - "&bMuteIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "tempmute %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
         name: Mute 2h
         lore:
-          - "&cMute 30 min"
-          - "&bMute 2h &d&l<"
-          - "&bMute 5h"
-          - "&bMute 24h"
-          - "&bMute Permanente"
+          - "&cMuteIP 1h"
+          - "&bMuteIP 2h &d&l<"
+          - "&bMuteIP 5h"
+          - "&bMuteIP 24h"
+          - "&bMuteIP 48h"
+          - "&bMuteIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "tempmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
         name: Mute 5h
         lore:
-          - "&cMute 30 min"
-          - "&cMute 2h"
-          - "&bMute 5h &d&l<"
-          - "&bMute 24h"
-          - "&bMute Permanente"
+          - "&cMuteIP 1h"
+          - "&cMuteIP 2h"
+          - "&bMuteIP 5h &d&l<"
+          - "&bMuteIP 24h"
+          - "&bMuteIP 48h"
+          - "&bMuteIP Permanente"
           - ""
         commands:
-          - "tempmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
         name: Mute 24h
         lore:
-          - "&cMute 30 min"
-          - "&cMute 2h"
-          - "&cMute 5h"
-          - "&bMute 24h &d&l<"
-          - "&bMute Permanente"
+          - "&cMuteIP 1h"
+          - "&cMuteIP 2h"
+          - "&cMuteIP 5h"
+          - "&bMuteIP 24h &d&l<"
+          - "&bMuteIP 48h"
+          - "&bMuteIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "tempmute %player% 24h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 24h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       4:
+        name: Mute 48h
+        lore:
+          - "&cMuteIP 1h"
+          - "&cMuteIP 2h"
+          - "&cMuteIP 5h"
+          - "&cMuteIP 24h"
+          - "&bMuteIP 48h &d&l<"
+          - "&bMuteIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% 48h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      5:
         name: Mute Permanente
         lore:
-          - "&cMute 30 min"
-          - "&cMute 2h"
-          - "&cMute 5h"
-          - "&cMute 24h"
-          - "&bMute Permanente &d&l<"
+          - "&cMuteIP 1h"
+          - "&cMuteIP 2h"
+          - "&cMuteIP 5h"
+          - "&cMuteIP 24h"
+          - "&cMuteIP 48h"
+          - "&bMuteIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "mute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      6:
+        name: Mute Permanente
+        lore:
+          - "&cMuteIP 1h"
+          - "&cMuteIP 2h"
+          - "&cMuteIP 5h"
+          - "&cMuteIP 24h"
+          - "&cMuteIP 48h"
+          - "&cMuteIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   9:
     material: NOTE_BLOCK
     displayName: "&bSpam IP / URL por msg"
@@ -345,66 +724,90 @@ items:
         name: "Kick"
         lore:
           - "&6Kick &d&l<"
-          - "&aBan 1d"
-          - "&aBan 3d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d"
+          - "&aBanIP 5d"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 1d
+        name: Ban 2d
         lore:
           - "&cKick"
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 5d"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
-        name: Ban 3d
+        name: Ban 5d
         lore:
           - "&cKick"
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&aBanIP 5d &d&l<"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
-        name: Ban 7d
+        name: Ban 10d
         lore:
           - "&cKick"
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&Ban 7d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&aBanIP 10d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       4:
         name: Ban Permanente
         lore:
           - "&cKick"
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&cBan 7d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&cBanIP 10d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      5:
+        name: Ban Permanente
+        lore:
+          - "&cKick"
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&cBanIP 10d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   10:
     material: OBSIDIAN
     displayName: "&bSpam IP / URL por chat general"
@@ -414,53 +817,75 @@ items:
     reason: "Spam IP / URL por chat general"
     levels:
       0:
-        name: Ban 3d
+        name: Ban 4d
         lore:
-          - "&aBan 3d &d&l<"
-          - "&aBan 5d"
-          - "&aBan 15d"
-          - "&5Ban Permanente"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 7d"
+          - "&aBanIP 12d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 5d
+        name: Ban 7d
         lore:
-          - "&cBan 3d"
-          - "&aBan 5d &d&l<"
-          - "&aBan 15d"
-          - "&5Ban Permanente"
+          - "&cBanIP 4d"
+          - "&aBanIP 7d &d&l<"
+          - "&aBanIP 12d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
-        name: Ban 15d
+        name: Ban 12d
         lore:
-          - "&cBan 3d"
-          - "&cBan 5d"
-          - "&aBan 15d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 4d"
+          - "&cBanIP 5d"
+          - "&aBanIP 12d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 12d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 3d"
-          - "&cBan 5d"
-          - "&cBan 15d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 4d"
+          - "&cBanIP 5d"
+          - "&cBanIP 15d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 4d"
+          - "&cBanIP 5d"
+          - "&cBanIP 15d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   11:
     material: RAILS
     displayName: "&bAmenazas DDoS/Doxing"
@@ -473,20 +898,26 @@ items:
         name: "BanIP Permanente"
         lore:
           - "&5BanIP Permanente &d&l<"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
         name: "BanIP Permanente"
         lore:
-          - "&cBanIP Permanente &d&l<"
+          - "&cBanIP Permanente"
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
           - ""
           - "&6* Click para sancionar"
-        permission: "group.moderador"
+        permission: "group.srmod"
         commands:
-          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason% [BLACKLIST]"
 
   13:
     material: PUMPKIN_SEEDS
@@ -497,56 +928,72 @@ items:
     reason: "Faltar el Respeto al Staff / servidor"
     levels:
       0:
-        name: Mute 1h
+        name: Mute 4h
         lore:
-          - "&bMute 1h &d&l<"
-          - "&bMute 2h"
-          - "&bMute 5h"
-          - "&bMute Permanente"
+          - "&bMuteIP 4h &d&l<"
+          - "&bMuteIP 12h"
+          - "&bMuteIP 3d"
+          - "&bMuteIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "tempmute %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 4h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Mute 2h
+        name: Mute 12h
         lore:
-          - "&cMute 1h"
-          - "&bMute 2h &d&l<"
-          - "&bMute 5h"
-          - "&bMute Permanente"
+          - "&cMuteIP 4h"
+          - "&bMuteIP 12h &d&l<"
+          - "&bMuteIP 3d"
+          - "&bMuteIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "tempmute %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 12h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
         name: Mute 5h
         lore:
-          - "&cMute 1h"
-          - "&cMute 2h"
-          - "&bMute 5h &d&l<"
-          - "&bMute Permanente"
+          - "&cMuteIP 4h"
+          - "&cMuteIP 12h"
+          - "&bMuteIP 3d &d&l<"
+          - "&bMuteIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "tempmute %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
         name: Mute Permanente
         lore:
-          - "&cMute 1h"
-          - "&cMute 2h"
-          - "&cMute 5h"
-          - "&bMute Permanente &d&l<"
+          - "&cMuteIP 4h"
+          - "&cMuteIP 12h"
+          - "&cMuteIP 3d"
+          - "&bMuteIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "mute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: Mute Permanente
+        lore:
+          - "&cMuteIP 4h"
+          - "&cMuteIP 12h"
+          - "&cMuteIP 3d"
+          - "&cMuteIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   14:
     material: STICK
-    displayName: "&bSuplantación de identidad"
+    displayName: "&bSuplantación de identidad (suplantar otro usuario)"
     confirm: true
     page: 1
     slot: 21
-    reason: "Suplantación de identidad"
+    reason: "Suplantación de identidad (suplantar otro usuario)"
     levels:
       0:
         name: BanIP Permanente
@@ -556,6 +1003,8 @@ items:
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
         name: BanIP Permanente
@@ -565,434 +1014,636 @@ items:
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   15:
+    material: BLAZE_ROD
+    displayName: "&bSuplantación de identidad (suplantar un staff)"
+    confirm: true
+    page: 1
+    slot: 22
+    reason: "Suplantación de identidad (suplantar un staff) [BLACKLIST]"
+    levels:
+      0:
+        name: BanIP Permanente
+        lore:
+          - "&5BanIP Permanente &d&l<"
+          - "&5BanIP Permanente [BLACKLIST]"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: BanIP Permanente
+        lore:
+          - "&cBanIP Permanente"
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.srmod"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  16:
     material: WEB
     displayName: "&bEstafas"
     confirm: true
     page: 1
-    slot: 22
+    slot: 23
     reason: "Estafas"
     levels:
       0:
         name: Ban Permanente
         lore:
-          - "&5Ban Permanente &d&l<"
+          - "&5BanIP Permanente &d&l<"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
         name: Ban Permanente
         lore:
-          - "&cBan Permanente &d&l<"
+          - "&cBanIP Permanente"
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
           - ""
           - "&6* Click para sancionar"
-        permission: "group.moderador"
+        permission: "group.srmod"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason% [BLACKLIST]"
 
   17:
     material: WORKBENCH
     displayName: "&bNombre Inadecuado / Skin"
     confirm: true
     page: 1
-    slot: 23
+    slot: 24
     reason: "Nombre Inadecuado / Skin"
     levels:
       0:
         name: Kick
         lore:
           - "&6Kick &d&l<"
-          - "&aBan 3h"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
+          - "&aBanIP 12h"
+          - "&aBanIP 2d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 3h
+        name: Ban 12h
         lore:
           - "&cKick"
-          - "&aBan 3h &d&l<"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
+          - "&aBanIP 12h &d&l<"
+          - "&aBanIP 2d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 12h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
-        name: Ban 1d
+        name: Ban 2d
         lore:
           - "&cKick"
-          - "&cBan 3h"
-          - "&aBan 1d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 12h"
+          - "&aBanIP 2d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
         name: Ban Permanente
         lore:
           - "&cKick"
-          - "&cBan 3h"
-          - "&cBan 1d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 12h"
+          - "&cBanIP 2d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cKick"
+          - "&cBanIP 12h"
+          - "&cBanIP 2d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   18:
     material: POTATO_ITEM
     displayName: "&bMal uso de /report y /helpop"
     confirm: true
     page: 1
-    slot: 24
+    slot: 25
     reason: "Mal uso de /report y /helpop"
     levels:
       0:
         name: Kick
         lore:
           - "&6Kick &d&l<"
-          - "&aBan 1h"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
+          - "&aBanIP 6h"
+          - "&aBanIP 1d"
+          - "&aBanIP 4d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 1h
+        name: Ban 6h
         lore:
           - "&cKick"
-          - "&aBan 1h &d&l<"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
+          - "&aBanIP 6h &d&l<"
+          - "&aBanIP 1d"
+          - "&aBanIP 4d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 6h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
         name: Ban 1d
         lore:
           - "&cKick"
-          - "&cBan 1h"
-          - "&aBan 1d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 6h"
+          - "&aBanIP 1d &d&l<"
+          - "&aBanIP 4d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
+        name: Ban 4d
+        lore:
+          - "&cKick"
+          - "&cBanIP 6h"
+          - "&cBanIP 1d"
+          - "&aBanIP 4d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
         name: Ban Permanente
         lore:
           - "&cKick"
-          - "&cBan 1h"
-          - "&cBan 1d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 6h"
+          - "&cBanIP 1d"
+          - "&cBanIP 4d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      5:
+        name: Ban Permanente
+        lore:
+          - "&cKick"
+          - "&cBanIP 6h"
+          - "&cBanIP 1d"
+          - "&cBanIP 4d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   19:
     material: DIAMOND
     displayName: "&bPedir Giveos"
     confirm: true
     page: 1
-    slot: 25
+    slot: 26
     reason: "Pedir Giveos"
     levels:
       0:
         name: Kick
         lore:
           - "&6Kick &d&l<"
-          - "&aBan 3h"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
+          - "&aBanIP 3h"
+          - "&aBanIP 2d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
         name: Ban 3h
         lore:
           - "&cKick"
-          - "&aBan 3h &d&l<"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      2:
-        name: Ban 1d
-        lore:
-          - "&cKick"
-          - "&cBan 3h"
-          - "&aBan 1d &d&l<"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      3:
-        name: Ban Permanente
-        lore:
-          - "&cKick"
-          - "&cBan 3h"
-          - "&cBan 1d"
-          - "&5Ban Permanente &d&l<"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  20:
-    material: IRON_INGOT
-    displayName: "&bAbusar de un Bug (Leve)"
-    confirm: true
-    page: 1
-    slot: 26
-    reason: "Abusar de un Bug (Leve)"
-    levels:
-      0:
-        name: Ban 5h
-        lore:
-          - "&aBan 5h &d&l<"
-          - "&aBan 1d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
-        name: Ban 1d
-        lore:
-          - "&cBan 5h"
-          - "&aBan 1d &d&l<"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      2:
-        name: Ban Permanente
-        lore:
-          - "&cBan 5h"
-          - "&cBan 1d"
-          - "&5Ban Permanente &d&l<"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  21:
-    material: GOLD_INGOT
-    displayName: "&bAbusar de un Bug (Grave)"
-    confirm: true
-    page: 1
-    slot: 27
-    reason: "Abusar de un Bug (Grave)"
-    levels:
-      0:
-        name: Ban Permanente
-        lore:
-          - "&5Ban Permanente &d&l<"
+          - "&aBanIP 3h &d&l<"
+          - "&aBanIP 2d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
-        name: BanIP Permanente
-        lore:
-          - "&cBan Permanente"
-          - "&5BanIP Permanente &d&l<"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  22:
-    material: FIREBALL
-    displayName: "&bCompartir Cuenta"
-    confirm: true
-    page: 1
-    slot: 28
-    reason: "Compartir Cuenta"
-    levels:
-      0:
-        name: Ban 5d
-        lore:
-          - "&aBan 5d &d&l<"
-          - "&aBan 10d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
-        name: Ban 10d
-        lore:
-          - "&cBan 5d"
-          - "&aBan 10d &d&l<"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 3h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
-        name: Ban Permanente
+        name: Ban 2d
         lore:
-          - "&cBan 5d"
-          - "&cBan 10d"
-          - "&5Ban Permanente &d&l<"
+          - "&cKick"
+          - "&cBanIP 3h"
+          - "&aBanIP 2d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  23:
-    material: FEATHER
-    displayName: "&bVender Cuenta"
-    confirm: true
-    page: 1
-    slot: 29
-    reason: "Vender Cuenta"
-    levels:
-      0:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
         name: Ban Permanente
         lore:
-          - "&5Ban Permanente &d&l<"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
-        name: Ban Permanente
-        lore:
-          - "&cBan Permanente &d&l<"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  24:
-    material: FISHING_ROD
-    displayName: "&bVender objetos del servidor por dinero en la vida real"
-    confirm: true
-    page: 1
-    slot: 30
-    reason: "Vender objetos del servidor por dinero en la vida real"
-    levels:
-      0:
-        name: BanIP Permanente
-        lore:
+          - "&cKick"
+          - "&cBanIP 3h"
+          - "&cBanIP 2d"
           - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
-        name: BanIP Permanente
+      4:
+        name: Ban Permanente
         lore:
+          - "&cKick"
+          - "&cBanIP 3h"
+          - "&cBanIP 2d"
           - "&cBanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  25:
-    material: FLINT
-    displayName: "&bMute Evading"
+  20:
+    material: IRON_INGOT
+    displayName: "&bAbusar de un Bug (Leve)"
     confirm: true
     page: 1
-    slot: 31
-    reason: "Mute Evading"
+    slot: 27
+    reason: "Abusar de un Bug (Leve)"
     levels:
       0:
-        name: BanIP 5d
+        name: Ban 2d
         lore:
-          - "&aBanIP 5d &d&l<"
-          - "&aBanIP 10d"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 8d"
           - "&aBanIP 15d"
-          - "&aBanIP 20d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: BanIP 10d
+        name: Ban 8d
         lore:
-          - "&cBanIP 5d"
-          - "&aBanIP 10d &d&l<"
+          - "&cBanIP 2d"
+          - "&aBanIP 8d &d&l<"
           - "&aBanIP 15d"
-          - "&aBanIP 20d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 8d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
-        name: BanIP 15d
+        name: Ban 15d
         lore:
-          - "&cBanIP 5d"
-          - "&cBanIP 10d"
+          - "&cBanIP 2d"
+          - "&cBanIP 8d"
           - "&aBanIP 15d &d&l<"
-          - "&aBanIP 20d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
-        name: BanIP 20d
+        name: Ban Permanente
         lore:
-          - "&cBanIP 5d"
-          - "&cBanIP 10d"
+          - "&cBanIP 2d"
+          - "&cBanIP 8d"
           - "&cBanIP 15d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 8d"
+          - "&cBanIP 15d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  21:
+    material: GOLD_INGOT
+    displayName: "&bAbusar de un Bug (Grave)"
+    confirm: true
+    page: 1
+    slot: 28
+    reason: "Abusar de un Bug (Grave)"
+    levels:
+      0:
+        name: Ban Permanente
+        lore:
+          - "&5BanIP Permanente &d&l<"
+          - "&5BanIP Permanente [BLACKLIST]"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: BanIP Permanente
+        lore:
+          - "&cBanIP Permanente"
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason% [BLACKLIST]"
+  22:
+    material: FIREBALL
+    displayName: "&bCompartir Cuenta"
+    confirm: true
+    page: 1
+    slot: 29
+    reason: "Compartir Cuenta"
+    levels:
+      0:
+        name: Ban 10d
+        lore:
+          - "&aBanIP 10d &d&l<"
+          - "&aBanIP 20d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 20d
+        lore:
+          - "&cBanIP 10d"
           - "&aBanIP 20d &d&l<"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      4:
-        name: BanIP
+      2:
+        name: Ban Permanente
         lore:
-          - "&cBanIP 5d"
           - "&cBanIP 10d"
-          - "&cBanIP 15d"
           - "&cBanIP 20d"
-          - "&aBanIP &d&l<"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 10d"
+          - "&cBanIP 20d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  23:
+    material: FEATHER
+    displayName: "&bVender / Regalar cuenta"
+    confirm: true
+    page: 1
+    slot: 30
+    reason: "Vender / Regalar cuenta [BLACKLIST]"
+    levels:
+      0:
+        name: Ban Permanente
+        lore:
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.srmod"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  24:
+    material: FISHING_ROD
+    displayName: "&bCambiar bienes del servidor por beneficio ajeno"
+    confirm: true
+    page: 1
+    slot: 31
+    reason: "Cambiar bienes del servidor por beneficio ajeno [BLACKLIST]"
+    levels:
+      0:
+        name: BanIP Permanente
+        lore:
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: BanIP Permanente
+        lore:
+          - "&cBanIP Permanente [BLACKLIST] &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  # 25:
+  #   material: FLINT
+  #   displayName: "&bMuteIP Evading"
+  #   confirm: true
+  #   page: 1
+  #   slot: 31
+  #   reason: "ipmute Evading"
+  #   levels:
+  #     0:
+  #       name: BanIP 5d
+  #       lore:
+  #         - "&aBanIP 5d &d&l<"
+  #         - "&aBanIP 10d"
+  #         - "&aBanIP 15d"
+  #         - "&aBanIP 20d"
+  #         - "&5BanIP Permanente"
+  #         - ""
+  #         - "&6* Click para sancionar"
+  #       permission: "group.moderador"
+  #       commands:
+  #         - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+  #         - "dc untag %player%"
+  #         - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  #     1:
+  #       name: BanIP 10d
+  #       lore:
+  #         - "&cBanIP 5d"
+  #         - "&aBanIP 10d &d&l<"
+  #         - "&aBanIP 15d"
+  #         - "&aBanIP 20d"
+  #         - "&5BanIP Permanente"
+  #         - ""
+  #         - "&6* Click para sancionar"
+  #       permission: "group.moderador"
+  #       commands:
+  #         - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+  #         - "dc untag %player%"
+  #         - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  #     2:
+  #       name: BanIP 15d
+  #       lore:
+  #         - "&cBanIP 5d"
+  #         - "&cBanIP 10d"
+  #         - "&aBanIP 15d &d&l<"
+  #         - "&aBanIP 20d"
+  #         - "&5BanIP Permanente"
+  #         - ""
+  #         - "&6* Click para sancionar"
+  #       permission: "group.moderador"
+  #       commands:
+  #         - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+  #         - "dc untag %player%"
+  #         - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  #     3:
+  #       name: BanIP 20d
+  #       lore:
+  #         - "&cBanIP 5d"
+  #         - "&cBanIP 10d"
+  #         - "&cBanIP 15d"
+  #         - "&aBanIP 20d &d&l<"
+  #         - "&5BanIP Permanente"
+  #         - ""
+  #         - "&6* Click para sancionar"
+  #       permission: "group.moderador"
+  #       commands:
+  #         - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+  #         - "dc untag %player%"
+  #         - "tempipban %player% 20d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+  #     4:
+  #       name: BanIP
+  #       lore:
+  #         - "&cBanIP 5d"
+  #         - "&cBanIP 10d"
+  #         - "&cBanIP 15d"
+  #         - "&cBanIP 20d"
+  #         - "&aBanIP &d&l<"
+  #         - ""
+  #         - "&6* Click para sancionar"
+  #       permission: "group.moderador"
+  #       commands:
+  #         - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+  #         - "dc untag %player%"
+  #         - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   26:
     material: GHAST_TEAR
     displayName: "&bMulticuentas conectadas"
@@ -1002,52 +1653,74 @@ items:
     reason: "Multicuentas conectadas"
     levels:
       0:
-        name: BanIP 1d
+        name: BanIP 2d
         lore:
-          - "&aBanIP 1d &d&l<"
-          - "&aBanIP 3d"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 5d"
           - "&aBanIP 7d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: BanIP 3d
+        name: BanIP 5d
         lore:
-          - "&cBanIP 1d"
-          - "&aBanIP 3d &d&l<"
+          - "&cBanIP 2d"
+          - "&aBanIP 5d &d&l<"
           - "&aBanIP 7d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       2:
         name: BanIP 7d
         lore:
-          - "&cBanIP 1d"
-          - "&cBanIP 3d"
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
           - "&aBanIP 7d &d&l<"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       3:
         name: BanIP Permanente
         lore:
-          - "&cBanIP 1d"
-          - "&cBanIP 3d"
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
           - "&cBanIP 7d"
           - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: BanIP Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&cBanIP 7d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   27:
     material: NAME_TAG
@@ -1063,12 +1736,13 @@ items:
           - "&9Warn &d&l<"
           - "&eJail 1d"
           - "&eJail 3d"
-          - "&eJail 5d"
-          - "&eJail 7d"
-          - "&eJail Permanente"
+          - "&aBanIP 5d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
           - ""
       1:
@@ -1077,12 +1751,13 @@ items:
           - "&cWarn"
           - "&eJail 1d &d&l<"
           - "&eJail 3d"
-          - "&eJail 5d"
-          - "&eJail 7d"
-          - "&eJail Permanente"
+          - "&aBanIP 5d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
           - "jail %player% 1 86400"
 
@@ -1092,57 +1767,76 @@ items:
           - "&cWarn"
           - "&cJail 1d"
           - "&eJail 3d &d&l<"
-          - "&eJail 5d"
-          - "&eJail 7d"
-          - "&eJail Permanente"
+          - "&aBanIP 5d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
           - "jail %player% 1 259200"
 
       3:
-        name: Jail 5d
+        name: BanIP 5d
         lore:
-          - "&9Warn"
-          - "&eJail 1d"
-          - "&eJail 3d"
-          - "&eJail 5d &d&l<"
-          - "&eJail 7d"
-          - "&eJail Permanente"
+          - "&cWarn"
+          - "&cJail 1d"
+          - "&cJail 3d"
+          - "&aBanIP 5d &d&l<"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-          - "jail %player% 1 432000"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       4:
-        name: Jail 7d
+        name: BanIP 7d
         lore:
           - "&cWarn"
           - "&cJail 1d"
           - "&cJail 3d"
-          - "&cJail 5d"
-          - "&eJail 7d &d&l<"
-          - "&eJail Permanente"
+          - "&cBanIP 5d"
+          - "&aBanIP 7d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-          - "jail %player% 1 604800"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       5:
-        name: Jail Permanente
+        name: BanIP Permanente
         lore:
           - "&cWarn"
           - "&cJail 1d"
           - "&cJail 3d"
-          - "&cJail 5d"
-          - "&cJail 7d"
-          - "&eJail Permanente &d&l<"
+          - "&cBanIP 5d"
+          - "&cBanIP 7d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         commands:
-          - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-          - "jail %player% 1"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      6:
+        name: BanIP Permanente
+        lore:
+          - "&cWarn"
+          - "&cJail 1d"
+          - "&cJail 3d"
+          - "&cBanIP 5d"
+          - "&cBanIP 7d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   28:
     material: CAKE
     displayName: "&bJail Evading (multicuentas)"
@@ -1152,55 +1846,78 @@ items:
     reason: "Jail Evading (multicuentas)"
     levels:
       0:
-        name: BanIP 3d
+        name: BanIP 5d
         lore:
-          - "&aBanIP 3d &d&l<"
-          - "&aBanIP 7d"
-          - "&aBanIP 14d"
+          - "&aBanIP 5d &d&l<"
+          - "&aBanIP 8d"
+          - "&aBanIP 15d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
 
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: BanIP 7d
+        name: BanIP 8d
         lore:
-          - "&cBanIP 3d"
-          - "&aBanIP 7d &d&l<"
-          - "&aBanIP 14d"
+          - "&cBanIP 5d"
+          - "&aBanIP 8d &d&l<"
+          - "&aBanIP 15d"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 8d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: BanIP 14d
+        name: BanIP 15d
         lore:
-          - "&cBanIP 3d"
-          - "&cBanIP 7d"
-          - "&aBanIP 14d &d&l<"
+          - "&cBanIP 5d"
+          - "&cBanIP 8d"
+          - "&aBanIP 15d &d&l<"
           - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempipban %player% 14d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 15d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: BanIP Permanente
         lore:
-          - "&cBanIP 3d"
-          - "&cBanIP 7d"
-          - "&cBanIP 14d"
+          - "&cBanIP 5d"
+          - "&cBanIP 8d"
+          - "&cBanIP 15d"
           - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: BanIP Permanente
+        lore:
+          - "&cBanIP 5d"
+          - "&cBanIP 8d"
+          - "&cBanIP 15d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
           - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   29:
     material: STICK
@@ -1211,71 +1928,96 @@ items:
     reason: "Stalking"
     levels:
       0:
-        name: Warn
-        lore:
-          - "&9Warn &d&l<"
-          - "&6Kick"
-          - "&aBan 30m"
-          - "&aBan 1h"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-
-        commands:
-          - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
         name: Kick
         lore:
-          - "&cWarn"
           - "&6Kick &d&l<"
-          - "&aBan 30m"
-          - "&aBan 1h"
-          - "&5Ban Permanente"
+          - "&aBanIP 2h"
+          - "&aBanIP 5h"
+          - "&aBanIP 12h"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
+
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 2h
+        lore:
+          - "&cKick"
+          - "&aBanIP 2h &d&l<"
+          - "&aBanIP 5h"
+          - "&aBanIP 12h"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: Ban 30min
+        name: Ban 5h
         lore:
-          - "&cWarn"
           - "&cKick"
-          - "&aBan 30m &d&l<"
-          - "&aBan 1h"
-          - "&5Ban Permanente"
+          - "&cBanIP 2h"
+          - "&aBanIP 5h &d&l<"
+          - "&aBanIP 12h"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 30min -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
-        name: Ban 1h
+        name: Ban 12h
         lore:
-          - "&cWarn"
           - "&cKick"
-          - "&cBan 30m"
-          - "&aBan 1h &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 2h"
+          - "&cBanIP 5h"
+          - "&aBanIP 12h &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 12h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       4:
         name: Ban Permanente
         lore:
-          - "&cWarn"
           - "&cKick"
-          - "&cBan 30m"
-          - "&cBan 1h"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 2h"
+          - "&cBanIP 5h"
+          - "&cBanIP 12h"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cKick"
+          - "&cBanIP 2h"
+          - "&cBanIP 5h"
+          - "&cBanIP 12h"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   30:
     material: CAKE
     displayName: "&bTPA KILL"
@@ -1285,56 +2027,79 @@ items:
     reason: "TPA KILL"
     levels:
       0:
-        name: Ban 1d
+        name: Ban 2d
         lore:
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&aBan 5d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 5d"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
 
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 3d
-        lore:
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&aBan 5d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-
-      2:
         name: Ban 5d
         lore:
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&aBan 5d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&aBanIP 5d &d&l<"
+          - "&aBanIP 10d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      2:
+        name: Ban 10d
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&aBanIP 10d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 10d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&cBan 5d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&cBanIP 10d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 5d"
+          - "&cBanIP 10d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   31:
     material: BLAZE_ROD
     displayName: "&bRealizar eventos"
@@ -1348,86 +2113,112 @@ items:
         lore:
           - "&9Warn &d&l<"
           - "&6Kick"
-          - "&aBan 1d"
-          - "&aBan 3d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d"
+          - "&aBanIP 4d"
+          - "&aBanIP 6d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
 
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "warn %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
         name: Kick
         lore:
           - "&cWarn"
           - "&6Kick &d&l<"
-          - "&aBan 1d"
-          - "&aBan 3d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d"
+          - "&aBanIP 4d"
+          - "&aBanIP 6d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
           - "kick %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: Ban 1d
+        name: Ban 2d
         lore:
           - "&cWarn"
           - "&cKick"
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 4d"
+          - "&aBanIP 6d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
-        name: Ban 3d
+        name: Ban 4d
         lore:
           - "&cWarn"
           - "&cKick"
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 6d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       4:
-        name: Ban 7d
+        name: Ban 6d
         lore:
           - "&cWarn"
           - "&cKick"
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&aBan 7d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&aBanIP 6d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 6d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       5:
         name: Ban Permanente
         lore:
           - "&cWarn"
           - "&cKick"
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&cBan 7d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&cBanIP 7d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      6:
+        name: Ban Permanente
+        lore:
+          - "&cWarn"
+          - "&cKick"
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&cBanIP 7d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   32:
     material: BUCKET
     displayName: "&bGrifeo"
@@ -1437,56 +2228,79 @@ items:
     reason: "Grifeo"
     levels:
       0:
-        name: Ban 5h
+        name: Ban 2d
         lore:
-          - "&aBan 5h &d&l<"
-          - "&aBan 1d"
-          - "&aBan 3d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 4d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
 
         permission: "group.moderador"
         commands:
-          - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 1d
+        name: Ban 4d
         lore:
-          - "&cBan 5h"
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: Ban 3d
+        name: Ban 7d
         lore:
-          - "&cBan 5h"
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&aBanIP 7d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 5h"
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   33:
     material: REDSTONE
     displayName: "&bMáquina de lag"
@@ -1496,115 +2310,146 @@ items:
     reason: "Máquina de lag"
     levels:
       0:
-        name: Ban 1d
-        lore:
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&aBan 5d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
         name: Ban 3d
         lore:
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&aBan 5d"
-          - "&5Ban Permanente"
+          - "&aBanIP 3d &d&l<"
+          - "&aBanIP 5d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
+
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-
-      2:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
         name: Ban 5d
         lore:
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&aBan 5d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 3d"
+          - "&aBanIP 5d &d&l<"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-
-      3:
-        name: Ban Permanente
-        lore:
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&cBan 5d"
-          - "&5Ban Permanente &d&l<"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-  34:
-    material: SEEDS
-    displayName: "&bMulticuentas para farmear"
-    confirm: true
-    page: 2
-    slot: 23
-    reason: "Multicuentas para farmear"
-    levels:
-      0:
-        name: Ban 1d
-        lore:
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
-        name: Ban 3d
-        lore:
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&aBan 7d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
         name: Ban 7d
         lore:
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&aBan 7d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&aBanIP 7d &d&l<"
+          - "&5BanIP Permanente [BLACKLIST]"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&cBan 7d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&5BanIP Permanente [BLACKLIST] &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason% [BLACKLIST]"
+  34:
+    material: SEEDS
+    displayName: "&bKill farming"
+    confirm: true
+    page: 2
+    slot: 23
+    reason: "Kill farming"
+    levels:
+      0:
+        name: Ban 3d
+        lore:
+          - "&aBanIP 3d &d&l<"
+          - "&aBanIP 5d"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 5d
+        lore:
+          - "&cBanIP 3d"
+          - "&aBanIP 5d &d&l<"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      2:
+        name: Ban 8d
+        lore:
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&aBanIP 8d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 8d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      3:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&cBanIP 8d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&cBanIP 8d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   35:
     material: PISTON_BASE
     displayName: "&bMáquina AFK"
@@ -1614,56 +2459,79 @@ items:
     reason: "Maquina AFK"
     levels:
       0:
-        name: Ban 5h
-        lore:
-          - "&aBan 5h &d&l<"
-          - "&aBan 1d"
-          - "&aBan 2d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 5h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
         name: Ban 1d
         lore:
-          - "&cBan 5h"
-          - "&aBan 1d &d&l<"
-          - "&aBan 2d"
-          - "&5Ban Permanente"
+          - "&aBanIP 1d &d&l<"
+          - "&aBanIP 4d"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 4d
+        lore:
+          - "&cBanIP 1d"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 7d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: Ban 2d
+        name: Ban 7d
         lore:
-          - "&cBan 5h"
-          - "&cBan 1d"
-          - "&aBan 2d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 1d"
+          - "&cBanIP 4d"
+          - "&aBanIP 7d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 7d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 5h"
-          - "&cBan 1d"
-          - "&cBan 2d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 1d"
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 1d"
+          - "&cBanIP 4d"
+          - "&cBanIP 7d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   36:
     material: GOLD_INGOT
     displayName: "&bRobar objetos a otro usuario"
@@ -1673,56 +2541,79 @@ items:
     reason: "Robar objetos a otro usuario"
     levels:
       0:
-        name: Ban 10h
+        name: Ban 2d
         lore:
-          - "&aBan 10h &d&l<"
-          - "&aBan 1d"
-          - "&aBan 3d"
-          - "&5Ban Permanente"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 4d"
+          - "&aBanIP 9d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
 
         permission: "group.moderador"
         commands:
-          - "tempban %player% 10h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
       1:
-        name: Ban 1d
+        name: Ban 4d
         lore:
-          - "&cBan 10h"
-          - "&aBan 1d &d&l<"
-          - "&aBan 3d"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 9d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: Ban 3d
+        name: Ban 9d
         lore:
-          - "&cBan 10h"
-          - "&cBan 1d"
-          - "&aBan 3d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&aBanIP 9d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 9d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 10h"
-          - "&cBan 1d"
-          - "&cBan 3d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 9d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 9d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
   37:
     material: DIAMOND_SWORD
     displayName: "&bExceder el máximo de team en PvP (6v1)"
@@ -1732,56 +2623,335 @@ items:
     reason: "Exceder el máximo de team en PvP (6v1)"
     levels:
       0:
-        name: Ban 10h
-        lore:
-          - "&aBan 10h &d&l<"
-          - "&aBan 1d"
-          - "&aBan 2d"
-          - "&5Ban Permanente"
-          - ""
-          - "&6* Click para sancionar"
-
-        permission: "group.moderador"
-        commands:
-          - "tempban %player% 10h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
-      1:
         name: Ban 1d
         lore:
-          - "&cBan 10h"
-          - "&aBan 1d &d&l<"
-          - "&aBan 2d"
-          - "&5Ban Permanente"
+          - "&aBanIP 1d &d&l<"
+          - "&aBanIP 3d"
+          - "&aBanIP 5d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 3d
+        lore:
+          - "&cBanIP 1d"
+          - "&aBanIP 3d &d&l<"
+          - "&aBanIP 5d"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 3d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       2:
-        name: Ban 2d
+        name: Ban 5d
         lore:
-          - "&cBan 10h"
-          - "&cBan 1d"
-          - "&aBan 2d &d&l<"
-          - "&5Ban Permanente"
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&aBanIP 5d &d&l<"
+          - "&5BanIP Permanente"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "tempban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 5d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
 
       3:
         name: Ban Permanente
         lore:
-          - "&cBan 10h"
-          - "&cBan 1d"
-          - "&cBan 2d"
-          - "&5Ban Permanente &d&l<"
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&5BanIP Permanente &d&l<"
           - ""
           - "&6* Click para sancionar"
         permission: "group.moderador"
         commands:
-          - "ban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 1d"
+          - "&cBanIP 3d"
+          - "&cBanIP 5d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+  38:
+    material: PUMPKIN_PIE
+    displayName: "&bIntento de TPA KILL"
+    confirm: true
+    page: 2
+    slot: 39
+    reason: "Intento de TPA KILL"
+    levels:
+      0:
+        name: Ban 1d
+        lore:
+          - "&aBanIP 1d &d&l<"
+          - "&aBanIP 2d"
+          - "&aBanIP 4d"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 1d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 2d
+        lore:
+          - "&cBanIP 1d"
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 4d"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      2:
+        name: Ban 4d
+        lore:
+          - "&cBanIP 1d"
+          - "&cBanIP 2d"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      3:
+        name: Ban 8d
+        lore:
+          - "&cBanIP 1d"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&aBanIP 8d &d&l<"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 8d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 1d"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 8d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      5:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 1d"
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 8d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+  39:
+    material: clay_ball
+    displayName: "&bUso inadecuado de los clanes"
+    confirm: true
+    page: 2
+    slot: 40
+    reason: "Uso inadecuado de los clanes"
+    levels:
+      0:
+        name: Ban 2d
+        lore:
+          - "&aBanIP 2d &d&l<"
+          - "&aBanIP 4d"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 2d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Ban 4d
+        lore:
+          - "&cBanIP 2d"
+          - "&aBanIP 4d &d&l<"
+          - "&aBanIP 8d"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 4d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      2:
+        name: Ban 8d
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&aBanIP 8d &d&l<"
+          - "&5BanIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "tempipban %player% 8d -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      3:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 8d"
+          - "&5BanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+      4:
+        name: Ban Permanente
+        lore:
+          - "&cBanIP 2d"
+          - "&cBanIP 4d"
+          - "&cBanIP 8d"
+          - "&cBanIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        permission: "group.moderador"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "dc untag %player%"
+          - "ipban %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
+  40:
+    material: BREAD
+    displayName: "&bToxicidad extrema al MSG o carteles"
+    confirm: true
+    page: 2
+    slot: 41
+    reason: "Toxicidad extrema al MSG o carteles"
+    levels:
+      0:
+        name: Mute 6h
+        lore:
+          - "&bMuteIP 6h &d&l<"
+          - "&bMuteIP 12h"
+          - "&bMuteIP 24h"
+          - "&bMuteIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 6h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      1:
+        name: Mute 12h
+        lore:
+          - "&cMuteIP 6h"
+          - "&bMuteIP 12h &d&l<"
+          - "&bMuteIP 24h"
+          - "&bMuteIP Permanente"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 12h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      2:
+        name: Mute 24h
+        lore:
+          - "&cMuteIP 6h"
+          - "&cMuteIP 12h"
+          - "&bMuteIP 24h &d&l<"
+          - "&bMuteIP Permanente"
+          - ""
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "tempipmute %player% 24h -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      3:
+        name: Mute Permanente
+        lore:
+          - "&cMuteIP 6h"
+          - "&cMuteIP 12h"
+          - "&cMuteIP 24h"
+          - "&bMuteIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+      4:
+        name: Mute Permanente
+        lore:
+          - "&cMuteIP 6h"
+          - "&cMuteIP 12h"
+          - "&cMuteIP 24h"
+          - "&cMuteIP Permanente &d&l<"
+          - ""
+          - "&6* Click para sancionar"
+        commands:
+          - "mail send %player% &cHas sido sancionado con motivo de &b%reason% &cpor &a%sender%&c. Recuerda que puedes ver más detalles de tus sanciones usando &6/sanciones"
+          - "ipmute %player% -s --sender=%sender% --sender-uuid=%uuid% %reason%"
+
   "unwarn":
     material: BOOK
     displayName: "&aEliminar último &eWarn"
@@ -1799,7 +2969,7 @@ items:
           - "[player] unwarn -s %player% ELIMINADA"
   "unmute":
     material: BOOK
-    displayName: "&aEliminar actual &bMute"
+    displayName: "&aEliminar actual &bMuteIP"
     page: 1
     slot: 4
     confirm: true
