@@ -63,7 +63,7 @@ public abstract class InventoryBuilder {
         for(String s : cmd ){
             String finalCommand = s.replaceAll("%player%", punishedUser);
             finalCommand = finalCommand.trim();
-            finalCommand = finalCommand.replaceAll("%sender%", p.getPlayerListName());
+            finalCommand = finalCommand.replaceAll("%sender%", p.getName());
             finalCommand = finalCommand.replaceAll("%uuid%", p.getUniqueId().toString());
             finalCommand = finalCommand.replaceAll("%reason%", reason);
             finalCommand = finalCommand.trim();
