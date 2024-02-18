@@ -26,9 +26,12 @@ public final class PunishmentsCore extends JavaPlugin {
     private InventoryManager inventoryManager;
     private YamlConfiguration messages;
     private DatabaseManager dbManager;
+    private String version;
 
     @Override
     public void onEnable() {
+        String packageName = getServer().getClass().getPackage().getName();
+        version = packageName.substring(packageName.lastIndexOf('.') + 1);
         long ms = System.currentTimeMillis();
         this.dataFolderPath = getDataFolder().toPath();
         this.saveDefaultConfig();
@@ -79,6 +82,10 @@ public final class PunishmentsCore extends JavaPlugin {
 
     public DatabaseManager getDbManager() {
         return this.dbManager;
+    }
+
+    public boolean isNew() {
+        return Integer.valueOf(version.split("_")[1]) > 16;
     }
 
     private YamlConfiguration loadFile(String filePath) {

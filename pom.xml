@@ -6,7 +6,7 @@
 
     <groupId>me.ivanlpc</groupId>
     <artifactId>PunishmentsCore</artifactId>
-    <version>2.3.4</version>
+    <version>2.3.5</version>
     <packaging>jar</packaging>
 
     <name>PunishmentsCore</name>
@@ -75,8 +75,8 @@
 
     <repositories>
         <repository>
-            <id>papermc-repo</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <repository>
             <id>sonatype</id>
@@ -101,9 +101,9 @@
             <version>4.0.3</version>
         </dependency>
         <dependency>
-            <groupId>com.destroystokyo.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.12-R0.1-SNAPSHOT</version>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.20.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

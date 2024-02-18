@@ -5,6 +5,7 @@ import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.ivanlpc.punishmentscore.PunishmentsCore;
 import me.ivanlpc.punishmentscore.inventories.PunishmentInventory;
 import me.ivanlpc.punishmentscore.inventories.builders.PaginatedInventory;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -86,7 +87,15 @@ public class PunishmentGUI extends PaginatedInventory implements PunishmentInven
         List<String> commands = inventoryConfiguration.getStringList("items." + key + ".levels." + level + ".commands");
         String reason = inventoryConfiguration.getString("items." + key + ".reason");
         List<String> parsedCommands = parseCommands(p, punishedPlayer, reason, commands);
+
         executeCommands(p, parsedCommands);
+        Player punished = Bukkit.getServer().getPlayer(punishedPlayer);
+        if(this.plugin.getConfig().getBoolean("notifications") && punished == null) {
+            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                plugin.getDbManager().createNotification(punishedPlayer);
+            });
+        }
+
     }
 
     @Override

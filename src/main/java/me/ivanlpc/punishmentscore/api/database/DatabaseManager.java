@@ -66,11 +66,17 @@ public class DatabaseManager {
                 "PRIMARY KEY(id)," +
                 "CONSTRAINT FK_orderId FOREIGN KEY (order_id)" +
                 "REFERENCES orders(id) ON DELETE CASCADE)";
+        String createNotificationsQuery = "CREATE TABLE IF NOT EXISTS notifications (" +
+                "`id` int(11) NOT NULL AUTO_INCREMENT," +
+                "`name` varchar(40) NOT NULL," +
+                "PRIMARY KEY (id))";
         try(Connection conn = this.hikari.getConnection();
             PreparedStatement createOrders = conn.prepareStatement(createOrdersQuery);
+            PreparedStatement createNotifications = conn.prepareStatement(createNotificationsQuery);
             PreparedStatement createCommands = conn.prepareStatement(createCommandsQuery)) {
 
             createOrders.executeUpdate();
+            createNotifications.executeUpdate();
             createCommands.executeUpdate();
             Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "MySQL connection established!");
         } catch (SQLException e) {
@@ -129,6 +135,42 @@ public class DatabaseManager {
             e.printStackTrace();
         }
     }
+    public boolean hasNotifications(String name) {
+        String query = "SELECT * FROM notifications WHERE name = ?";
+        try(Connection conn = this.hikari.getConnection();
+            PreparedStatement st = conn.prepareStatement(query)) {
+            st.setString(1, name);
+            try (ResultSet rs = st.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+    }
+        return false;
+    }
+    public void createNotification(String name) {
+        String query = "INSERT INTO notifications (name) VALUES (?)";
+        try(Connection conn = this.hikari.getConnection();
+            PreparedStatement st = conn.prepareStatement(query)) {
+            st.setString(1, name);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteNotifications(String name) {
+        String query = "DELETE FROM notifications WHERE name = ?";
+
+        try(Connection conn = this.hikari.getConnection();
+            PreparedStatement st = conn.prepareStatement(query)) {
+            st.setString(1, name);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void reloadConnection() {
         this.hikari.close();
         this.hikari = new HikariConnection();

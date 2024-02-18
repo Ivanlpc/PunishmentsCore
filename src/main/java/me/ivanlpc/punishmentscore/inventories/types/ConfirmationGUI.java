@@ -92,5 +92,11 @@ public class ConfirmationGUI extends InventoryBuilder implements PunishmentInven
         List<String> parsedCommands = parseCommands(p, this.gui.getPunishedPlayer(), reason, commands);
         executeCommands(p, parsedCommands);
         p.closeInventory();
+        Player punished = Bukkit.getServer().getPlayer(this.gui.getPunishedPlayer());
+        if(this.plugin.getConfig().getBoolean("notifications") && punished == null) {
+            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                plugin.getDbManager().createNotification(this.gui.getPunishedPlayer());
+            });
+        }
     }
 }

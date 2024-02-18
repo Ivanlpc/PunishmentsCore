@@ -1,5 +1,5 @@
 bungeecord: false
-
+notifications: true
 Database:
   use: false
   ip: "127.0.0.1"
