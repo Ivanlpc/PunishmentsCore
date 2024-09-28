@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
@@ -88,8 +89,8 @@ public class OrdersGUI extends PaginatedInventory implements PunishmentInventory
             return;
         }
         int id = nbti.getInteger("id");
-
-        if(event.getClick().isRightClick()) {
+        boolean bedrock = this.plugin.getConfig().getBoolean("bedrock");
+        if(event.getClick() == ClickType.DROP && bedrock || event.getClick().isRightClick()) {
             Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
                 this.plugin.getDbManager().deleteOrder(id);
                 Bukkit.getScheduler().callSyncMethod(plugin, () -> {
